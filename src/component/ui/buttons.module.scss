@@ -1,0 +1,15 @@
+@import "./../../scss/color.scss";
+@import "./../../scss/animation.scss";
+.buttons{
+    width: 175px;
+    height: 60px;
+    animation: border__from 0.8s forwards;
+    border: none;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+    font-size: 28px;
+    font-weight: 400;
+}
+.buttons:hover{
+    animation: border__to 0.8s forwards;
+}

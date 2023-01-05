@@ -1,0 +1,27 @@
+@import "./color.scss";
+
+
+
+@keyframes border__from{
+    from{
+       border-radius: 15px 0px 15px 0px;
+       box-shadow: $shadow__top;
+    }
+
+    to{
+        border-radius: 0px 15px 0px 15px;
+        box-shadow: $shadow__bot;
+    }
+}
+
+@keyframes border__to{
+    from{
+       border-radius: 0px 15px 0px 15px;
+       box-shadow: $shadow__bot;
+    }
+
+    to{
+        border-radius: 15px 0px 15px 0px;
+        box-shadow: $shadow__top;
+    }
+}
