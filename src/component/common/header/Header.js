@@ -14,7 +14,7 @@ const Header = () => {
 
     return(
 
-      <div className={styles.nav__inner}>
+      <div className={styles.nav__inner} style={show ? {height: '185px'} :  {height: '85px'}}>
 
         <div className={styles.logo}></div>
 
@@ -26,7 +26,7 @@ const Header = () => {
                 <img src={show ? '' : people}></img>
               </div>
 
-              <button className={styles.button} type='button' onClick={() => setShow(!show)}>
+              <button className={styles.button1} type='button' onClick={() => setShow(!show)}>
                     <img src={show ? IconClose : IconOpen} alt='Auth'></img>
               </button>
             </div>

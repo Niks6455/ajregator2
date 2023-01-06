@@ -3,5 +3,62 @@
 .main__page{
     height: 100vh;
     width: 100%;
-    background-color: $blue;
+    background-image: url(./../../images/Main/Background/car2.svg);
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;    
+    position: relative;
+    .main__first{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+    .main__title{
+        position: relative;
+        top: 35%;
+        color: #ffffff;
+        font-weight: 800;
+        text-transform: uppercase;
+
+    }
+    .main__info{
+        display: flex;
+        width: 100%;
+        .main__subinfo{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .main__infoIcons{
+                img{
+                    width: 22px;
+                    height: 22px;
+                }
+                margin-right: 5px;
+            }
+            .main__infoText{
+                font-size: 8px;
+                color: #ffffff;
+                font-weight: 500;
+                text-align: left;
+                margin-right: 15px;
+            }
+        }
+        position: absolute;
+        bottom: 5px;
+        
+    }
+    .main__button{ 
+        position: absolute;
+        bottom: 150px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        button{
+        border-radius: 10px;
+        animation: none;
+        
+        
+        }
+    }
+   
 }

@@ -8,7 +8,7 @@ export default function Home() {
     return(
        <div className={styles.homepage}>
             <Layout> 
-                    <div className={styles.images }> </div>
+                <div className={styles.images }> </div>
                 
                 <Link to='/main'>
                     <Button text={"Начать"} bg_color={'white'} text_color={'#4E78E2'} />
