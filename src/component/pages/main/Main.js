@@ -5,9 +5,9 @@ import Layout from "../../common/Layout";
 
 export const Main = () => (
       <div className={styles.main__page}>
-      <Layout>
-            <Header/>
-      </Layout>
+            <Layout>
+                  <Header/>
+            </Layout>
          
       </div>
 )
