@@ -11,10 +11,10 @@ nav{
     justify-content: space-between;
     background-color: $blue;
     height: 100px;
-    position: absolute;
+    position: fixed;
     left: 0;top: 0;
     padding: 20px;
-    z-index: 2;
+    z-index: 10;
     .logo{
         background: url("./../../images/logo.svg") center no-repeat;
         -webkit-background-size: cover;
