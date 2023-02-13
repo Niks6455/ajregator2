@@ -1,0 +1,59 @@
+.About__inner{
+    margin-top: 120px;
+    position: relative;
+    height: 100vh;
+}
+.About__title__inner{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 35px;
+}
+.About__title{
+    background: url(./../../images/About/title__img.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 110px;
+    margin-bottom: 20px;
+}
+.About__title__text{
+     margin-bottom: 25px;
+     padding-top: 25px;
+     color: #ffffff;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+}
+.About__img{
+   width: 50%;
+}
+.About__img__inner{
+    width: 175px;
+    height: 250px;
+     background: url(./../../images/About/Car.png) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.About__text{
+font-size: 14px;
+  padding-left: 10px;
+  display: block;
+  margin-bottom: 20px;
+  
+}
+.About__button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.About__card{
+   display: flex;
+   justify-content: space-between;
+}
+.About_lastText{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 50px 0;
+}

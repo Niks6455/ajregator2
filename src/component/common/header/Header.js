@@ -3,7 +3,7 @@ import styles from './Header_Hamburger.module.scss';
 import people from './../../images/people.svg';
 import IconClose from './../../images/hamburger-close.svg';
 import IconOpen from './../../images/hamburger.svg';
-
+import { Link } from "react-router-dom";
 const Header = () => {
 
   
@@ -35,7 +35,7 @@ const Header = () => {
               <nav className= {styles.menu  + (show ? 'show' : '')}>
                 <ul>
                   <li>Личный кабинет</li>
-                  <li>О нас</li>
+                  <Link to='/about'><li>О нас</li></Link>
                   <li>Контакты</li>
                 </ul>
               </nav>  
