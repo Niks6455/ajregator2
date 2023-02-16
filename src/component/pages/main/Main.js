@@ -102,7 +102,7 @@ export default function Main() {
                                     <Layout>
                                           <div className={styles.main__threeInner}> 
                                           <h1 className={styles.main__textTitle}>Мойте свой автомобиль вместе с нами!</h1>
-                                          <Link to='/register'>
+                                          <Link to='/egister'>
                                                 <Button text={"Зарегестрироваться"} bg_color={'#4E78E2'} text_color={'#ffffff'} /> 
                                           </Link>  
                                           </div>        
