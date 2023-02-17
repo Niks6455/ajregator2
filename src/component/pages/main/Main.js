@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './Main.module.scss';
 import Header from './../../common/header/Header';
 import Layout from "../../common/Layout";
@@ -10,6 +9,8 @@ import Icon4 from './../../images/Main/Icons/Group 47.png';
 import card from './../../images/Main/elem/card.png';
 import Footer from './../../common/footer/Footer.js';
 import { Link } from "react-router-dom";
+import React from 'react';
+
 
 var scrollHeight = Math.max(
       document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -20,8 +21,9 @@ var scrollHeight = Math.max(
 var HeightY = document.documentElement.clientHeight ;//просто высота экрана
 console.log(scrollHeight, HeightY);
 
-export default function Main() {
-      return(
+export default function Main(){
+    
+          return(
             <div className={styles.main__page}> 
                   <Header/>
                         <div className={styles.main__inner}>
@@ -32,13 +34,13 @@ export default function Main() {
                                           </div>
 
                                           <div className={styles.main__button}>
-                                                <Button text={"Далее"} bg_color={'white'} text_color={'#4E78E2'}/>
+                                          <a href='#section1'>   <Button text={"Далее"} bg_color={'white'} text_color={'#4E78E2'}/></a>
                                           </div>
                                     
                                           <div className={styles.main__info}>
                                                 <div className={styles.main__subinfo}>
                                                       <div className={styles.main__infoIcons}>
-                                                            <img src={Icon1}></img>
+                                                            <img src={Icon1} alt="img"></img>
                                                       </div>
                                                 
                                                       <div className={styles.main__infoText}>
@@ -47,7 +49,7 @@ export default function Main() {
                                           </div>
                                           <div className={styles.main__subinfo}>
                                                       <div className={styles.main__infoIcons}>
-                                                            <img src={Icon2}></img>
+                                                            <img src={Icon2} alt="img"></img>
                                                       </div>
                                                 
                                                       <div className={styles.main__infoText}>
@@ -56,7 +58,7 @@ export default function Main() {
                                           </div>
                                           <div className={styles.main__subinfo}>
                                                       <div className={styles.main__infoIcons}>
-                                                            <img src={Icon3}></img>
+                                                            <img src={Icon3} alt="img"></img>
                                                       </div>
                                                 
                                                       <div className={styles.main__infoText}>
@@ -65,7 +67,7 @@ export default function Main() {
                                           </div>
                                           <div className={styles.main__subinfo}>
                                                       <div className={styles.main__infoIcons}>
-                                                            <img src={Icon4}></img>
+                                                            <img src={Icon4} alt="img"></img>
                                                       </div>
                                                 
                                                       <div className={styles.main__infoText}>
@@ -77,32 +79,35 @@ export default function Main() {
                               </div>
                               
 
-                              <div className={styles.main__two}>
+                            
+                              <div className={styles.main__two} id="section1">
+
+                          
                                     <Layout>
                                           <div className={styles.main__twoInner}> 
                                           <h1 className={styles.main__textZagl}>УДОБНО ДЛЯ ВОДИТЕЛЯ</h1>
                                                 <div className={styles.card}>
                                           
-                                                      <img src={card}></img>
+                                                      <img src={card} alt="img"></img>
                                                 </div>
                                                 <div className={styles.card__text}>
                                                 
                                                       <p>Навигатор построит маршрут до ближайшей автомойки</p>
-                                                      <Button text={"Далее"} bg_color={'white'} text_color={'#4E78E2'}  /> 
+                                                      <a href='#section2'>  <Button text={"Далее"} bg_color={'white'} text_color={'#4E78E2'}  /> </a>
                                                 </div>
                                           
                                           </div>        
                                     </Layout>  
                               
                               </div>
-
+                             
 
                               
-                              <div className={styles.main__three}>
+                              <div className={styles.main__three} >
                                     <Layout>
                                           <div className={styles.main__threeInner}> 
                                           <h1 className={styles.main__textTitle}>Мойте свой автомобиль вместе с нами!</h1>
-                                          <Link to='/egister'>
+                                          <Link to='/Register' id="section2">
                                                 <Button text={"Зарегестрироваться"} bg_color={'#4E78E2'} text_color={'#ffffff'} /> 
                                           </Link>  
                                           </div>        
@@ -110,7 +115,8 @@ export default function Main() {
                               
                               </div>
                         </div>
-                  <Footer/>
+                  <Footer />
             </div>
-      )
+      )   
+  
 }

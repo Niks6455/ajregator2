@@ -34,22 +34,14 @@ const Header = () => {
           
               <nav className= {styles.menu  + (show ? 'show' : '')}>
                 <ul>
-                  <li>Личный кабинет</li>
+                  <Link to='/about'><li>Личный кабинет</li></Link>
                   <Link to='/about'><li>О нас</li></Link>
-                  <li>Контакты</li>
+                  <Link to='/about'><li>Контакты</li></Link>
                 </ul>
               </nav>  
-           
-            
+              
           </div>
-     
-
-
       </div>
-      
-        
-
-    
     )
   } 
 
