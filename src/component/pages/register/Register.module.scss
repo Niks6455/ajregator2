@@ -1,7 +1,60 @@
-
 .form{
-    background-color: rgb(211, 140, 47);
-    height: 100vh;
-    height: 100%;
-    color: lightgray;
+    display: flex;
+    padding-top: 100px;
+    width: 100%;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+   
+    position: relative;
+    form{
+        margin: 0 40px;
+    }
+    Footer{
+        position: absolute;
+        bottom: 0;
+
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .title__inner{
+          background: url(./../../images/About/title__img.png);
+        -webkit-background-size: cover;
+        background-size: cover;
+        margin-bottom: 25px;
+        display: flex;
+        width: 283px;
+        height: 90px;
+        justify-content: center;
+    }
+    }
+   .flex{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+   }
+}
+.button__div{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 225px;
+}
+
+.check__st{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .check__inner{
+        display: flex;
+        label{
+            position: relative;
+            right:-35px;
+            
+        }
+        .check{
+            margin-right: 35px;
+        }
+    }
 }
