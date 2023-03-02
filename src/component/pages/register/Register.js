@@ -18,6 +18,7 @@ const {
 
  const onSubmit = (data) =>{
     alert(JSON.stringify(data));
+    console.log(JSON.stringify(data));
     reset();
  }//data- хранит всю заполненную информацию о форме
 
