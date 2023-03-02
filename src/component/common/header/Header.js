@@ -3,7 +3,7 @@ import styles from './Header_Hamburger.module.scss';
 import people from './../../images/people.svg';
 import IconClose from './../../images/hamburger-close.svg';
 import IconOpen from './../../images/hamburger.svg';
-
+import { Link } from "react-router-dom";
 const Header = () => {
 
   
@@ -14,7 +14,7 @@ const Header = () => {
 
     return(
 
-      <div className={styles.nav__inner}>
+      <div className={styles.nav__inner} style={show ? {height: '185px'} :  {height: '85px'}}>
 
         <div className={styles.logo}></div>
 
@@ -26,7 +26,7 @@ const Header = () => {
                 <img src={show ? '' : people}></img>
               </div>
 
-              <button className={styles.button} type='button' onClick={() => setShow(!show)}>
+              <button className={styles.button1} type='button' onClick={() => setShow(!show)}>
                     <img src={show ? IconClose : IconOpen} alt='Auth'></img>
               </button>
             </div>
@@ -34,22 +34,14 @@ const Header = () => {
           
               <nav className= {styles.menu  + (show ? 'show' : '')}>
                 <ul>
-                  <li>Личный кабинет</li>
-                  <li>О нас</li>
-                  <li>Контакты</li>
+                  <Link to='/about'><li>Личный кабинет</li></Link>
+                  <Link to='/about'><li>О нас</li></Link>
+                  <Link to='/about'><li>Контакты</li></Link>
                 </ul>
               </nav>  
-           
-            
+              
           </div>
-     
-
-
       </div>
-      
-        
-
-    
     )
   } 
 

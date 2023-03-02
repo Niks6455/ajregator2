@@ -1,0 +1,72 @@
+@import './../../../scss/color.scss';
+
+.footer__inner{
+    display: flex;
+    justify-content: space-between;
+    background: $blue;
+    height: 150px;
+    width: 100%;
+    color: #ffffff;
+  
+    padding: 30px 10px;
+    .footer__logo{
+        text-align: left;
+        margin-right: 15px;
+        h1{
+            font-size: 12px;
+
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+    
+
+    .footer__address{
+        text-align: left;
+        margin-right: 15px;
+        
+      a{
+        p{
+            font-size: 12px;
+            line-height: 1.4;
+        }
+      }
+        p{
+            font-size: 12px;
+            line-height: 1.4;  
+        }
+    }
+
+    .footer__number{
+        text-align: left;
+      
+        h3{
+            font-size: 14px;
+            stroke: 2;
+        }
+        p{
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        a{
+          position: relative;
+          top: -10px;
+        }
+    }
+    .footer__email{
+        position: relative;
+        bottom: 5px;
+    }
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 10px;
+    transition: color .2s linear;
+}
+a:hover{
+    cursor: pointer;
+    color: rgb(102, 17, 212);
+}
