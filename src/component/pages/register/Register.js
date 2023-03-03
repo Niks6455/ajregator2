@@ -6,6 +6,7 @@ import Header from "../../common/header/Header";
 import Footer from './../../common/footer/Footer'
 import img1 from "./../../images/register/Caterpillar.png"
 import img2 from "./../../images/register/Vector.png"
+import { Link } from "react-router-dom";
 
 export default function Register() {
 const {
@@ -177,25 +178,35 @@ return (
                 {/*----------------------------------------------------------------------------- //Confirmation */}
 
 
-              
 
                 <div className={styles.button__div}>
                     <button className={styles.button}>
-                        <input style={!isValid ? {color:"#b1acac"} : {color:"white"} } type="submit" disabled={!isValid}/>
+                      <input value="Зарегистрироваться" style={!isValid ? {color:"#b1acac"} : {color:"white"} } type="submit" disabled={!isValid}/>
                     </button>
                 </div>
-            
+
+                    {/* временная кнопока перехода на Аторизацию */}
+                <div className={styles.time__butt}>
+                    <button className={styles.time__butt__text}>
+                        <Link to="/authorization">Авторизация</Link>
+                    </button>
+                    <button className={styles.time__butt__text}>
+                        <Link to="/Homepage">Homepage</Link>
+                    </button>
+                </div>
+              
             </form>
             </Layout>
+                {/* img1 */}
             <div className={styles.images1}>
                 <img src={img1}></img>
             </div>
+                 {/* img2 */}
             <div className={styles.images2}>
                 <img src={img2}></img>
             </div>
+
             </div>
-            
-            
         <Footer/>
     </div> 
   );

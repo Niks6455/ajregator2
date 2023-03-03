@@ -47,16 +47,14 @@
     justify-content: center;
     padding-bottom: 225px;
     .button{
-        margin: 0;
-        padding: 0;
         border: none;
-        
         input{
             border: none;
             background-color: $blue;
             width: 150px;
             height: 40px;
             border-radius: 5px;
+            padding: 5px;
         }
     }
 }
@@ -107,4 +105,16 @@
     right: 20px;
     top: 350px;
     z-index: -1;
+}
+.time__butt{
+    position: absolute;
+    bottom: 125px;
+    right: -50px;
+    .time__butt__text{
+        a{
+            font-size: 14px;
+     color: #000000;
+        }
+   
+    }
 }
