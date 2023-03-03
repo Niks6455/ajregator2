@@ -1,3 +1,4 @@
+@import "./../../../scss/color.scss";
 .form{
     display: flex;
     padding-top: 100px;
@@ -8,6 +9,9 @@
     position: relative;
     form{
         margin: 0 40px;
+        position: relative;
+       top: -35px;
+        text-align: center;
     }
     Footer{
         position: absolute;
@@ -15,19 +19,21 @@
 
     }
     .title{
+        background: url(./../../images/register//Rectangle.png);
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;  
+          
         display: flex;
         justify-content: center;
         width: 100%;
-        .title__inner{
-          background: url(./../../images/About/title__img.png);
-        -webkit-background-size: cover;
-        background-size: cover;
         margin-bottom: 25px;
-        display: flex;
-        width: 283px;
-        height: 90px;
-        justify-content: center;
-    }
+        padding-top: 100px;
+        .title__inner{
+            position: relative;
+            top: -60px;
+            color: #ffffff;
+        }
     }
    .flex{
     display: flex;
@@ -36,10 +42,23 @@
    }
 }
 .button__div{
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     padding-bottom: 225px;
+    .button{
+        margin: 0;
+        padding: 0;
+        border: none;
+        
+        input{
+            border: none;
+            background-color: $blue;
+            width: 150px;
+            height: 40px;
+            border-radius: 5px;
+        }
+    }
 }
 
 .check__st{
@@ -57,4 +76,35 @@
             margin-right: 35px;
         }
     }
+}
+.field{
+    border: 2px #6363F5 solid;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: none;
+}
+.marg{
+    margin-bottom: 10px;
+}
+.potw{
+    display: flex;
+    padding-top: 20px;
+    font-size: 14px;
+   text-align: left;
+   position: relative;
+   right: -30px;
+    .check__but{
+        margin-right: 10px;
+    }
+}
+.images1{
+    position: absolute;
+    left: 0;
+    top: 220px;
+    z-index: -1;
+}
+.images2{
+    position: absolute;
+    right: 20px;
+    top: 350px;
+    z-index: -1;
 }
