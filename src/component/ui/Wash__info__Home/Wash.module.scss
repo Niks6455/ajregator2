@@ -1,0 +1,18 @@
+.Wash__info{
+    width: 100%;
+    height: 200px;
+        background-color: bisque;
+        padding: 20px;  
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+.name, .time{
+    font-size: 14px;
+    color: #000000;
+    line-height: .2;
+
+}
