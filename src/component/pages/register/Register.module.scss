@@ -18,23 +18,6 @@
         bottom: 0;
 
     }
-    .title{
-        background: url(./../../images/register//Rectangle.png);
-        text-align: center;
-        background-repeat: no-repeat;
-        background-position: center;  
-          
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 25px;
-        padding-top: 100px;
-        .title__inner{
-            position: relative;
-            top: -60px;
-            color: #ffffff;
-        }
-    }
    .flex{
     display: flex;
     width: 100%;

@@ -59,13 +59,13 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        button{
+        .button__inner{
             margin-right: 10px;
-            border-radius: 25px;
+            :last-child{
+                margin-right: 0;
+            }
         }
-        :last-child{
-            margin-right: 0;
-        }
+       
     }
 }
 

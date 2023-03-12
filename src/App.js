@@ -6,6 +6,7 @@ import Register from './component/pages/register/Register';
 import About from "./component/pages/about/About";
 import Authorization from "./component/pages/authorization/authorization";
 import HomePage from "./component/pages/HomePage/HomePage";
+import WashPage from "./component/pages/washPage/WashPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path='/Authorization' element={<Authorization />}/>
               <Route path='/About' element={<About />}/>
               <Route path='/HomePage' element={<HomePage />}/>
+              <Route path='/WashPage' element={<WashPage/>}/>
             </Routes> 
          
         </div>

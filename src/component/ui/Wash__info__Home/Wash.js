@@ -10,6 +10,7 @@ import left from "./../../images/slider/left.png"
 import bott from "./../../images/Home/arrow.png"
 import top from "./../../images/Home/arrow2.png"
 import Button from "./../Button";
+import { Link } from "react-router-dom";
 const Wash = ({address, time, name}) => {
 
     const slides = [
@@ -67,9 +68,17 @@ const Wash = ({address, time, name}) => {
                     </div>   
                 </div>
                 <div className={styles.button}>
-                    <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/>
-                    <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/>
+                    <div className={styles.button__inner}>
+                        <Link to="/WashPage"> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/></Link>
+                    </div>
+
+                    <div className={styles.button__inner}>
+                        <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/>
+                    </div>
+
+                    <div className={styles.button__inner}>
                     <Button text={"Маршрут"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/>
+                    </div>
                 </div>
             </div>
         </div>

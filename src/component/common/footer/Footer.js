@@ -19,7 +19,7 @@ const Footer = () =>{
                     <h3><strong>Телефон поддержки:</strong></h3>
                     <p>8 906 630 41 56 </p>
                     <h3 className={styles.footer__email} ><strong>Почта:</strong></h3>
-                    <a href="#">Cleancar@gmail.com</a>
+                    <a href="/">Cleancar@gmail.com</a>
                 </div>
 
             </div>

@@ -7,6 +7,7 @@ import Footer from './../../common/footer/Footer'
 import img1 from "./../../images/register/Caterpillar.png"
 import img2 from "./../../images/register/Vector.png"
 import { Link } from "react-router-dom";
+import Title from "./../../ui/title/Title";
 
 export default function Register() {
 const {
@@ -46,11 +47,7 @@ return (
         
         <div className={styles.form__inner}>
         <Layout>
-                <div className={styles.title}>
-                    <div className={styles.title__inner}>
-                        <h2> Регистрация </h2>
-                    </div>
-                </div>
+            <Title text="Регистрация"/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/*----------------------------------------------------------------------------- ИМЯ ФАМИЛИЯ */}
                 <label>
@@ -199,11 +196,11 @@ return (
             </Layout>
                 {/* img1 */}
             <div className={styles.images1}>
-                <img src={img1}></img>
+                <img src={img1} alt="bg1"></img>
             </div>
                  {/* img2 */}
             <div className={styles.images2}>
-                <img src={img2}></img>
+                <img src={img2} alt="bg2"></img>
             </div>
 
             </div>
