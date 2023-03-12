@@ -1,14 +1,13 @@
-import React from "react"
-import slide1 from "./../../images/Wash/MoiCum/1.svg"
-import slide2 from "./../../images/Wash/MoiCum/2.svg"
-import slide3 from "./../../images/Wash/MoiCum/3.svg"
-import slide4 from "./../../images/Wash/MoiCum/4.svg"
-import  styles from "./Slider.module.scss";
+import React from 'react';
+import styles from "./Slider.module.scss"
+const Slider = ({ slides }) => {
+  return (
+    <div className={styles.slider}>
+      {slides.map((slide, index) => (
+        <img key={index} src={slide} alt={`Slide ${index + 1}`} />
+      ))}
+    </div>
+  );
+};
 
-
-export default function Slider() {
-
-    return(
-        <div></div>
-    )
-}
+export default Slider;
