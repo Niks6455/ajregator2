@@ -1,0 +1,42 @@
+@import "./../../../scss/color.scss";
+
+.stocks{
+  width: 100%;
+  height: 300px;
+ 
+  .stock__inner{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+    .stock__text__all{
+        position: relative;
+        width: 110px;
+        height: 160px;
+        background-color: $blue;
+        margin: 15px 5px;
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .stock__id{
+        border: 1px #ffffff solid;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        padding: 8px 0px 0px 15px;
+        position: relative;
+        left: -10px;
+        top: -10px;
+      }
+      .stock__text{
+        line-height: 1.2;
+        text-align: center;
+      }
+      .stock__date{
+        font-size: 12px;
+        position: absolute;
+        right: 5px;
+        bottom: -15px;
+      }
+  }
+  
+}

@@ -1,0 +1,97 @@
+
+.WashPage{
+  .Wash__name{
+    margin-top: 100px;
+  }
+  
+  .Wash__map{
+    margin-bottom: 50px;
+    .Wash__map__inner{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      .map{
+        width: 80%;
+        height: 250px;
+        background-color: #4E78E2;
+      }
+    }
+    .Wash__map__info{
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin: 0 auto;
+        height: 60px;
+        align-items: center;
+        background-color: #D9D9D9;
+        border-radius: 5px 5px 10px 10px;
+      .Wash__map__text{
+        font-size: 10px;
+        display: block;
+      }
+      button{
+        margin-right: 15px;
+      }
+    }
+  }
+  .Wash__read{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .slider{
+     width:100%;
+     display: flex;
+     justify-content: center;
+     margin-bottom: 45px;
+    .slider__inner{
+      padding-top: 15px;
+      width: 100%;
+      height: 225px;
+      background-color: #4E78E2;
+    img{
+        background-size: cover;
+        width: 100px;
+        height: 135px;
+        margin-right: 10px;  
+    }
+    :last-child{
+      margin-right: 0;
+    }
+    .slider__but{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-top: 15px;
+      img{ 
+          margin: 0 15px;
+          width: 40px;
+          height:20px; 
+          transition: all .1s linear;
+      }
+      :hover{
+          opacity: .8;
+          cursor: pointer;
+      }
+      .curcle__inner{
+          display: flex;
+          align-items: center;
+          .curcle{
+              content: " ";
+              position: relative;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              margin-right: 10px;
+          }
+        }     
+      }
+    }
+  }
+  .stocks{
+    margin-top: -35px;
+    margin-bottom: 115px;
+  }
+}

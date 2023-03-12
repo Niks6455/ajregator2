@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Header_Hamburger.module.scss';
 import people from './../../images/header/people.svg';
 import IconClose from './../../images/header/hamburger-close.svg';
@@ -8,9 +8,7 @@ const Header = () => {
 
   
     const [show, setShow] = React.useState(false);
-    const handleLogout = () => {
-        console.log('LogOut');
-    }
+   
 
     return(
 
@@ -23,7 +21,7 @@ const Header = () => {
 
            <div className={styles.flex}>
               <div className={styles.peopleIcons}>
-                <img src={show ? '' : people}></img>
+                <img src={show ? '' : people} alt="people"></img>
               </div>
 
               <button className={styles.button1} type='button' onClick={() => setShow(!show)}>

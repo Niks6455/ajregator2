@@ -5,7 +5,7 @@ import Layout from './../../common/Layout'
 import Header from "../../common/header/Header";
 import Footer from './../../common/footer/Footer'
 import img1 from "./../../images/register/Caterpillar.png"
-import img2 from "./../../images/register/Vector.png"
+import Title from "../../ui/title/Title";
 
 export default function Authorization() {
 const {
@@ -35,11 +35,8 @@ return (
         
         <div className={styles.form__inner}>
         <Layout>
-                <div className={styles.title}>
-                    <div className={styles.title__inner}>
-                        <h2> Авторизация </h2>
-                    </div>
-                </div>
+       
+                <Title text="Авторизация"/>
             <form onSubmit={handleSubmit(onSubmit)}>             
 
                 {/*----------------------------------------------------------------------------- Почта */}
@@ -87,7 +84,7 @@ return (
             </form>
             </Layout>
             <div className={styles.images1}>
-                <img src={img1}></img>
+                <img src={img1} alt="bg"></img>
             </div>
             {/* <div className={styles.images2}>
                 <img src={img2}></img>
