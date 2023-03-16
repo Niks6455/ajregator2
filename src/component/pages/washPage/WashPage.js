@@ -99,8 +99,8 @@ export default function WashPage({timeWork="Круглосуточно", Price="
                 </div>
 
                 <div className={styles.Wash__map__info}>
-                  <Button text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"12"}/>
-                  <Button text={"Позвонить"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"12"}/>
+                  <Button text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+                  <Button text={"Позвонить"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
                   <div className={styles.Wash__map__text}>
                     <div className={styles.Wash__map__time}>Время работы: {timeWork}</div>
                       <div className={styles.Wash__map__price}>Средний чек: {Price}</div>

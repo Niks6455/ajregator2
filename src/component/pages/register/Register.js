@@ -177,8 +177,8 @@ return (
 
 
                 <div className={styles.button__div}>
-                    <button className={styles.button}>
-                      <input value="Зарегистрироваться" style={!isValid ? {color:"#b1acac"} : {color:"white"} } type="submit" disabled={!isValid}/>
+                    <button className={styles.button} >
+                      <input value="Зарегистрироваться" style={!isValid ? {color:"#b1acac", fontSize: 13} : {color:"white", fontSize: 13} } type="submit" disabled={!isValid}/>
                     </button>
                 </div>
 

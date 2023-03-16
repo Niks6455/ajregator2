@@ -69,15 +69,15 @@ const Wash = ({address, time, name}) => {
                 </div>
                 <div className={styles.button}>
                     <div className={styles.button__inner}>
-                        <Link to="/WashPage"> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/></Link>
+                        <Link to="/WashPage"> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link>
                     </div>
 
                     <div className={styles.button__inner}>
-                    <Link to="/StartAppoint">   <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/></Link> 
+                    <Link to="/StartAppoint">   <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link> 
                     </div>
 
                     <div className={styles.button__inner}>
-                    <Button text={"Маршрут"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"16"}/>
+                    <Button text={"Маршрут"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/>
                     </div>
                 </div>
             </div>
