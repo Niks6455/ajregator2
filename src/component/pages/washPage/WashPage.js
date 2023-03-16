@@ -1,3 +1,4 @@
+import MapComponent from "../../ui/Map/MapComponent";
 import React, {useState} from "react";
 import Header from "../../common/header/Header";
 import styles from './WashPage.module.scss';
@@ -12,7 +13,7 @@ import right from "./../../images/slider/right.png"
 import left from "./../../images/slider/left.png"
 import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
-
+import { Link } from "react-router-dom";
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
 
  //подгрузить из бд для каждой моки свое!
@@ -76,9 +77,8 @@ export default function WashPage({timeWork="Круглосуточно", Price="
        text: 'Студентам скидка 5%',
        date: '1.09. — 31.09.'
      }
-     
    ];
-
+  
   let [startIndex, setStartIndex] = useState(0);
   const endIndex = startIndex + 3;
   const currentSlides = slides.slice(startIndex, endIndex);
@@ -94,7 +94,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
 
                 <div className={styles.Wash__map__inner}>
                   <div className={styles.map}>
-                  
+                  <MapComponent w={"300"} h={"250"}/>
                   </div>
                 </div>
 
@@ -109,7 +109,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
               </div>
 
               <div className={styles.Wash__read}>
-                <Button text={"ЗАПИСАТЬСЯ"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"50"} w={"180"}  size={"12"}/>
+                <Link to="/StartAppoint"><Button text={"ЗАПИСАТЬСЯ"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"50"} w={"180"}  size={"12"}/></Link>
               </div>
             
               <div className={styles.slider}>

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+@mixin box{
+    box-shadow: 10px 8px 7px rgba(0, 0, 0, .35);
+    border-radius: 10px; 
+}
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+// Оглавление //
+.title{
+    background: $clblue;
+    width: 100%;
+    height: auto;
+}
+
+.title__inner{
+    width:100%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 20px 0;
+    h3{
+        font-size: 14px;
+    }
+    h1{
+        font-size: 22px;
+    }
+    h1::after{
+        content: '';
+        display: flex;
+        flex-wrap: nowrap;
+        background-color: #2C589A;
+        width: 100px;
+        height: 3px;
+        margin: 15px auto;
+    }
+
+
+}
+
+// Меню //
+.container{
+    width: 100%;
+
+    .container__inner{
+        width: 96%;
+        background-color: #ffffff;
+        margin: 0 auto;
+        border-radius: 10px 10px 0 0;
+        margin-top: -25px ;
+        box-shadow: 0 -8px 5px -4px rgba(0, 0, 0, .35);
+
+        .container__title{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px ;
+
+        }
+        img{
+            border-radius: 10px;
+            margin: 0 auto;
+            box-shadow: 10px 8px 7px rgba(0, 0, 0, .35);
+        }
+        h2{
+            text-transform: uppercase;
+            position: absolute;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 18px;
+            padding-bottom: 15px;
+        }
+
+        .box_stove{
+            width: 100%;
+            height: auto;
+            display: flex;
+            position: relative;
+            justify-content: center;
+            margin-top: -25px;
+        }
+        .stove{
+            position: relative;
+            img{
+                position: absolute;
+                box-shadow:none;
+                right: 5px;
+                top: 3px;
+            }
+            background-color: #ffffff;
+            width: 75px;
+            height: 40px;
+            margin: 0 10px;
+            box-shadow: 7px 5px 2px rgba(0, 0, 0, .35);
+            border-radius: 14px;
+            padding: 10px;
+        }
+        
+        .stove__text{
+            display: flex;
+            font-size: 14px;
+            font-weight: 600;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            color: $clblue;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .stove__text__number{
+            color: $clblue;
+            display: flex;
+            height: 0;
+            font-size: 16px;
+            font-weight: 600;
+            justify-content: center;
+          position: relative;
+          top: -7px;
+          left: -10px;
+        }
+        .active{
+            background-color: $clblue;
+            color:#ffffff;
+        }
+    }
+
+    
+}
+
+
+//меню при записи на мойку
+.manu{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: auto;
+    .manu__inner{
+    
+        display: flex;
+        position: absolute;
+        right: 10px;
+        margin: 5px;
+        .manu__inner__img__home{
+            width: 28px;
+            height: 28px;
+            margin-right: 5px;
+    
+        }
+        .manu__inner__img__lk{
+            width: 28px;
+            height: 28px;
+    
+    
+        }
+        
+        
+    }
+    .manu__inner__img__back{
+        position:absolute;
+        left: 10px;
+        width: 28px;
+        height: 28px;
+        margin: 5px;
+    }
+}

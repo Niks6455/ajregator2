@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.calendar__box
+{
+    width: 100%;
+    height: 400px;
+    .calendar__box__inner{
+        width: 85%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 20px;
+        background-color: #E9E9E9;
+        padding-top: 20px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, .35);
+        
+
+    }
+    .calendar__month{
+        display: flex;
+        position: relative;
+        flex-wrap: nowrap;
+    }
+    .month__previous, .month__next, .month__name{
+        display: flex;
+    }
+    .month__previous, .month__next{
+        display: flex;
+        position: absolute;
+        background-color: $clblue ;
+        padding: 5px;
+        width: 23px;
+        height: 23px;
+        border-radius: 100%;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 22px;
+        color: rgb(0, 0, 0);
+
+    }
+    .month__previous{
+        left: 15px;
+        b{
+            position: relative;
+            top: -11px;
+            left: -2px;
+        }
+    }
+    .month__next{
+        right: 20px;
+        b{
+            position: relative;
+            top: -11px;
+            left: 2px;
+        }
+    }
+    .month__name{
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+    }
+}
+
+.calendar__day{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    
+    .calendar__day__inner{
+        display: flex;
+        justify-content: center;
+        width: 25px;
+        margin: 5px   (95%/28);
+        font-weight: 400;
+
+    }
+    .active{
+        border-radius: 100%;
+        background-color: $clblue;
+    }
+    .occupied{
+        border-radius: 100%;
+        background-color: #E46471;
+    }
+}
+
+.calendar__week{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin:  0 10px;
+    margin-bottom: 10px;
+    .calendar__week__inner{
+        width: 25px;
+        margin: 5px  (95%/28);
+        color: rgb(143, 143, 143);
+        font-size: 14px;
+    }
+}
+
+.calendar__day__box{
+    margin: 0 10px;
+}
+
+
+//кнопка отправки данных о записи
+.button__send__data__box{
+    width: 100%;
+    height: auto;
+    
+    .button__send__data{
+        display: flex;
+        margin: 0 auto;
+        width: 160px;
+        height: 40px;
+        background-color: $clblue;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 40px;  
+        align-items: center;
+        border-radius: 6px;
+        text-transform: uppercase;
+        transition: all 0.1ms linear;
+    }
+    
+    .button__send__data:active{
+        background-color: #4265bd;
+    }
+}

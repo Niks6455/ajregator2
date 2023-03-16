@@ -188,7 +188,7 @@ return (
                         <Link to="/authorization">Авторизация</Link>
                     </button>
                     <button className={styles.time__butt__text}>
-                        <Link to="/Homepage">Homepage</Link>
+                        <Link to="/HomePage">Homepage</Link>
                     </button>
                 </div>
               

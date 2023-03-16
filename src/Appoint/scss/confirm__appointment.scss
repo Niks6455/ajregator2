@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+@mixin box($h,$w){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $clblue;
+    width: $h;
+    height: $w;
+    padding-bottom: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 8px 5px 4px rgba(0, 0, 0, .35);
+}
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+// Оглавление //
+.title__confirm{
+    background: $clblue;
+    width: 100%;
+    height: 105px;
+}
+
+.title__inner__confirm{
+    position: relative;
+    display: flex;
+    width:100%;
+    height: 20px;
+    color: rgb(255, 255, 255);
+    padding: 20px 0;
+
+    flex-wrap: nowrap;
+
+    .title__inner__confirm__logo{
+        display: flex;
+        margin: 0 auto;
+        
+    }
+
+    h1{
+        // margin-left: 30px;
+        display: flex;
+        font-size: 22px;
+       
+        
+    }
+    .title__inner__confirm__img{
+        display: flex;
+        margin: 0 10px 0 15px;
+        width: 18px;
+        height: 25px;
+        
+
+    }
+    .title__inner__confirm__img__home{
+        display: flex;
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        right: 55px;
+    }
+    .title__inner__confirm__img__lk{
+        display: flex;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 15px;
+    }
+    .title__inner__confirm__img__back{
+        display: flex;
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        left: 15px;
+    }
+
+}
+
+
+
+
+
+// Меню //
+.container__confirm{
+    width: 100%;
+
+    .container__inner__confirm{
+        width: 96%;
+        background-color: #ffffff;
+        margin: 0 auto;
+        border-radius: 10px 10px 0 0;
+        margin-top: -15px ;
+        box-shadow: 0 -8px 5px -4px rgba(0, 0, 0, .35);
+
+        .container__title__confirm{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+
+        }
+        img{
+            
+            border-radius: 10px;
+            margin: 0 auto;
+            box-shadow: 10px 8px 7px rgba(0, 0, 0, .35);
+            margin-top: -25px;
+        }
+        h2{
+            position: absolute;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 18px;
+            // padding-bottom: 15px;
+        }
+        .text1{
+            padding-bottom: 40px;
+        }
+        .text2{
+            padding-bottom: 0;
+        }
+
+        h3{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            color: $clblue;
+   
+        }
+
+        .container__title__confirm__inner{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+
+
+
+
+
+
+        .block__name{
+            @include box(150px,80px);
+        }
+
+        .block__time{
+
+            @include box(150px,110px);
+
+            position: relative;
+            h3 {
+                position: absolute;
+                display: flex;
+                color: #ffffff;
+                // padding-bottom: 50px;
+            }
+            .block__time__icon{
+                border-radius:0;
+                box-shadow: none;
+                position: absolute;
+                left: 10px;
+                top: 40px;
+                width: 30px;
+                width: 30px;
+            }
+        }
+
+        .block__calendar{
+            position: relative;
+            @include box(150px,140px);
+
+            margin-top: -10px;
+
+            flex-wrap: wrap;
+
+            .block__calendar__icon{
+                border-radius:0;
+                box-shadow: none;
+                position: absolute;
+                left: 10px;
+                top: 40px;
+                width: 30px;
+                width: 30px;
+            }
+
+            h3 {
+                position: absolute;
+                display: flex;
+                color: #ffffff;
+                padding-bottom: 50px;
+            }
+            
+            h6 {
+                display: flex;
+                color: #ffffff;
+                padding-top: 30px;
+                text-transform: uppercase;
+
+            }
+
+
+        }
+
+
+
+        .block__box{
+            position: relative;
+            @include box(150px,110px);
+
+
+            flex-wrap: wrap;
+
+            .block__calendar__icon{
+                border-radius:0;
+                box-shadow: none;
+                position: absolute;
+                left: 10px;
+                top: 40px;
+                width: 30px;
+                width: 30px;
+            }
+
+            h3 {
+                position: absolute;
+                display: flex;
+                color: #ffffff;
+                padding-bottom: 50px;
+            }
+            
+            h6 {
+                display: flex;
+                color: #ffffff;
+                padding-top: 30px;
+                text-transform: uppercase;
+
+            }
+        }
+        
+
+        .container__inner__confirm__button__outer{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 150px;
+            align-items: center;
+            .btn{
+                display: flex;
+                width: 100%;
+            }
+        }
+
+        .container__inner__confirm__button{
+            display: flex;
+            width: auto;
+            height: auto;
+            padding: 10px 25px;
+            background-color: $clblue;
+            border-radius: 10px;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+           
+        }
+        
+
+    }
+
+    
+}
+
+.container__inner__confirm__box{
+    position: absolute;
+    bottom: 0;
+    background-color: $clblue;
+    width: 100%;
+    height: 50px;
+}

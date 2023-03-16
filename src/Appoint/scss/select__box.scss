@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.box__box
+{
+    width: 100%;
+    height: 400px;
+    .box__box__inner{
+        
+        width: 100%;
+        max-height: 80%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 20px;
+        background-color: #ffffff;
+        padding-top: 20px;
+        padding-bottom: 20px; 
+        overflow-y:auto;
+    }
+
+    .box__block__box{
+        margin: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+
+    }
+
+    .box__block{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        background-color: #d6d5d5;
+        border-radius: 20%;
+
+        margin: 5px;
+        
+        
+    }
+    .occupied{
+        border-radius: 20%;
+        background-color: #E46471;
+    }
+    .active{
+        border-radius: 20%;
+        background-color: $clblue;
+    }
+
+    .box__block__img{
+        display: flex;
+        width: 50px;
+        height: 50px;
+        padding-bottom: 10px;
+        pointer-events: none;
+        
+
+    }
+    .box__block__text{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+        font-weight: 600;
+        color: #343434;
+        pointer-events: none;
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//кнопка отправки данных о записи
+.button__send__data__box{
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    
+    .button__send__data{
+        display: flex;
+        margin: 0 auto;
+        width: 160px;
+        height: 40px;
+        background-color: $clblue;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        align-items: center;
+        border-radius: 6px;
+        text-transform: uppercase;
+        transition: all 0.1ms linear;
+    }
+    
+    .button__send__data:active{
+        background-color: #4265bd;
+    }
+}

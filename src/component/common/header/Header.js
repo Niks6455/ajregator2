@@ -21,7 +21,7 @@ const Header = () => {
 
            <div className={styles.flex}>
               <div className={styles.peopleIcons}>
-                <img src={show ? '' : people} alt="people"></img>
+              <Link to="/MyPage"><img src={show ? '' : people} ></img></Link>  
               </div>
 
               <button className={styles.button1} type='button' onClick={() => setShow(!show)}>
@@ -32,7 +32,7 @@ const Header = () => {
           
               <nav className= {styles.menu  + (show ? 'show' : '')}>
                 <ul>
-                  <Link to='/about'><li>Личный кабинет</li></Link>
+                  <Link to='/MyPage'><li>Личный кабинет</li></Link>
                   <Link to='/about'><li>О нас</li></Link>
                   <Link to='/about'><li>Контакты</li></Link>
                 </ul>
