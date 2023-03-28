@@ -10,9 +10,14 @@ import WashPage from "./component/pages/washPage/WashPage";
 import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
+import SelectTime from "./Appoint/js/SelectTime";
+import NewCalendar from "./Appoint/js/NewCalendar";
+import SelectBox from "./Appoint/js/SelectBox";
+import ConfirmAppointment from "./Appoint/js/ConfirmAppointment";
+
 
 function App() {
-
+  const [dataActiveInTitle, setDataActiveInTitle] = useState(0)
   return (
   
     <BrowserRouter>
@@ -28,7 +33,12 @@ function App() {
               <Route path='/HomePage' element={<HomePage />}/>
               <Route path='/WashPage' element={<WashPage/>}/>
               <Route path="/MyPage" element={<MyPage/>}/>
-              <Route path="/StartAppoint" element={<StartAppoint/>}/>
+              <Route path="/StartAppoint/*" element={<StartAppoint/>}> 
+                    {/* <Route path="*" element={<NewCalendar  dataActiveInTitle={dataActiveInTitle} setDataActiveInTitle={setDataActiveInTitle}/>} /> 
+                    <Route path="SelectTime" element={<SelectTime/>}/>
+                    <Route path="SelectBox" element={<SelectBox/>}/>
+                    <Route path="ConfirmAppointment" element={<ConfirmAppointment/>}/> */}
+              </Route>
             
             </Routes> 
            

@@ -8,11 +8,13 @@ import icon3f from './../img/icon3f.png'
 
 import icon1b from './../img/icon1b.png'
 import icon2b from './../img/icon2b.png'
+import icon3b from './../img/icon3b.png'
 
 
 
-function ContainerTitle(props){
-    // console.log("title ",props.dataActiveInTitle)
+
+function    ContainerTitle(props){
+    // console.log("props.flagTimeActive ", props.flagTimeActive)
 
     return(
         <div>
@@ -42,7 +44,7 @@ function ContainerTitle(props){
 
                     }
                     {
-                        props.flagTime === true?
+                        props.flagTimeActive === true?
                             <div  type="button" className="stove active ">
                                 <img src={icon2b} alt=""/>
                                 <div className="stove__text__number active">{props.timeActiveInTitle}</div>
@@ -57,13 +59,22 @@ function ContainerTitle(props){
 
                     }
 
-                    
+                    {
+                        props.flagBoxActive === true?
+                        <div  type="button" className= "stove active ">
+                            <img src={icon3b} alt=""/>
+                            <div className="stove__text__number active">{props.boxActiveInTitle}</div>
+                            <div className="stove__text active">бокс</div>
+                        </div>
+                        :
 
-                    <div  type="button" className= "stove ">
-                        <img src={icon3f} alt=""/>
-                        <div className="stove__text__number">{props.boxActiveInTitle}</div>
-                        <div className="stove__text ">бокс</div>
-                    </div>
+                        <div  type="button" className= "stove ">
+                            <img src={icon3f} alt=""/>
+                            <div className="stove__text__number">{props.boxActiveInTitle}</div>
+                            <div className="stove__text ">бокс</div>
+                        </div>
+                    }
+
                 </div>
         </div>
        

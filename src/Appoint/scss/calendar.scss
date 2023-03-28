@@ -49,16 +49,22 @@ $clblue: #4E78E2;
         left: 15px;
         b{
             position: relative;
-            top: -11px;
-            left: -2px;
+            top: -10px;
+            left: -1px;
+            font-size: 20px;
+            font-weight: 600;
+
         }
     }
     .month__next{
         right: 20px;
         b{
             position: relative;
-            top: -11px;
-            left: 2px;
+            top: -10px;
+            left: 1px;
+            font-size: 20px;
+            font-weight: 600;
+
         }
     }
     .month__name{
@@ -79,7 +85,7 @@ $clblue: #4E78E2;
         display: flex;
         justify-content: center;
         width: 25px;
-        margin: 5px   (95%/28);
+        margin: 5px   2%;
         font-weight: 400;
 
     }

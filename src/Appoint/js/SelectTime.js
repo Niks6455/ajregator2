@@ -1,6 +1,11 @@
 //выбор времени
 
 import React from "react";
+import { Link } from "react-router-dom";
+import Header from "./Header";
+import ContainerTitle from "./ContainerTitle";
+
+
 var id =0
 
 var activeFlag = false
@@ -8,17 +13,9 @@ var activeFlag = false
 
 function SelectTime(props){
 
-
+    props.setFlagTimeActive(true)
     // var occupiedElement = [{h: 8,m: 15},{h: 9,m: 30} ,{h: 11,m: 0} ,{h: 12,m: 45}]
     var occupiedElement = [[8,15] , [9,0], [11,45], [13,0], [14,15] , [22,30]]
-
-
-        
-
-
-
-
-
 
 
     var timeStart = [8,15]  // время начала работы автомойки, задает владелец мойки
@@ -73,14 +70,6 @@ function SelectTime(props){
 
 
 
-
-
-
-
-
-
-
-
     // цикл заполнения времени в ячейках
     for(var q = hor1; q < hor2 * step+1; q++){
         if(tempHor < hor2){
@@ -120,10 +109,6 @@ function SelectTime(props){
     // console.log(massTimer)
 
 
-    
-
-
-
 
     var flag = false
     var allMassTimer = [];
@@ -137,26 +122,6 @@ function SelectTime(props){
         x = String(x) + " "
         var y =  `${activeMass[0]}`
         y = String(y)
-        // console.log(y)
-        // if(activeMass.length === 0){
-        //     y = 0
-        //     y = String(y)
-        // }
-
-        // var xy = [x,y]
-
-        // console.log("hhhh =", xy)
-
-
-        // console.log(activeMass)
-
-
-        // if(activeMass.length === 0){
-        //     props.setTimeActiveInTitle(0)
-        // }
-
-
-
 
         if(x === y){
             // console.log(" if -------- ",xy)
@@ -188,22 +153,38 @@ function SelectTime(props){
         }        
         }
 
-
-       
-    
-        
     }
 
-    // console.log(occupiedElement)
-
-
-
-
-
     return(
-        <div className="time__block__box" >
-                {allMassTimer.map(el=> el.value)}
-        </div>
+        <main>
+             <Header/>
+            <div className="container">
+                    <div className="container__inner">
+                        <ContainerTitle  dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} />
+                        </div>
+
+                            <div className="time__box"> 
+                                <div className="time__box__inner"> 
+                                    <div className="time__block__box" >
+                                            {allMassTimer.map(el=> el.value)}
+                                    </div>
+                                </div>
+                                {
+                                activeMass.length !== 0 ?
+                                <Link to="./../SelectBox">
+                                    <div className="button__send__data__box">
+                                        <main className="button__send__data"  type="button">Выбрать время</main>       
+                                    </div>
+                                </Link>:
+                                    <div className="button__send__data__box">
+                                        <main className="button__send__data" style={ {background: `rgb(128 128 128)`}} type="button">Выбрать время</main>       
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+        </main>
+
                 
 
         
