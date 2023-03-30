@@ -14,7 +14,27 @@ import left from "./../../images/slider/left.png"
 import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
+import { useForm} from "react-hook-form";
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
+  
+  const {
+    register,
+    formState:{errors, isValid},
+    handleSubmit,
+    reset
+ } = useForm({
+    mode: "onBlur"
+ });
+
+
+ const onSubmit = (data) =>{ 
+  
+        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));     
+        reset();
+ }//data- хранит всю заполненную информацию о форме
+
+
 
  //подгрузить из бд для каждой моки свое!
   const slides = [
@@ -46,6 +66,34 @@ export default function WashPage({timeWork="Круглосуточно", Price="
   ];
 
   //подгрузить из бд для каждой моки свое!
+   const services = [
+    {
+      id:"1",
+      text: 'Базовая мойка кузова',
+      date: 'Цена: 500руб.'
+     },
+     {
+      id:"2",
+      text: 'палитроль кузова',
+      date: 'Цена: 800руб.'
+     },
+     {
+      id:"3",
+      text: 'Чистка салона',
+      date: 'Цена: 300руб.'
+     },
+     {
+      id:"4",
+      text: 'Палировка кузова',
+      date: 'Цена: 1500руб.'
+     },
+     {
+      id:"5",
+      text: 'Кирамическое покрытие кузова',
+      date: 'Цена: 2500руб.'
+     }
+   
+   ]
    const stocks = [
      {
       id:"1",
@@ -111,7 +159,19 @@ export default function WashPage({timeWork="Круглосуточно", Price="
               <div className={styles.Wash__read}>
                 <Link to="/StartAppoint"><Button text={"ЗАПИСАТЬСЯ"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"50"} w={"180"}  size={"12"}/></Link>
               </div>
-            
+
+              <div className={styles.WashDescription}>
+                  <h1>Описание мойки</h1>
+                  <div className={styles.WashDescription__text}>
+                    <p>Ручная мойка — та, где моющее средство (мыльный раствор) наносится на кузов вручную. Вода при этом может подаваться и через «Керхер» — мойку высокого давления, что заметно ускоряет процесс. Хотя чаще ручная мойка машины ассоциируется с губкой и ведром. Использование пеногенератора делает мойку бесконтактной — моющий состав разбрызгивается на кузов в виде «снега» (активной пены) и действует автономно, не требуя растирания.</p>
+                  </div>
+              </div>
+
+              <Title text="УСЛУГИ"/>
+              <div className={styles.stocks}>
+                  <Stocks props={services}/>
+              </div>
+
               <div className={styles.slider}>
                   <div className={styles.slider__inner}>
                     <Slider className={styles.slider__img} slides={currentSlides} />
@@ -127,17 +187,32 @@ export default function WashPage({timeWork="Круглосуточно", Price="
                     </div>   
                 </div>
 
-                <div className={styles.reviews}>
-                  <ReviewSlider reviews={reviews}/>
-                </div>
+              
 
                 <Title text="АКЦИИ"/>
                 
                 <div className={styles.stocks}>
                   <Stocks props={stocks}/>
                 </div>
-           </div>
-             
+
+                <div className={styles.reviews}>
+                  <ReviewSlider reviews={reviews}/>
+                </div>
+
+                <div className={styles.reviews__form}>
+                  <div className={styles.reviews__form__inner}>
+                  <h1>Оставьте отзыв</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>   
+                      <div className={styles.form__inner}>
+                        <textarea className={styles.field} placeholder="Текст отзыва"{...register("Text__reviews")}/>                           
+                        <div className={styles.button__div}>
+                          <button type="submit" className={styles.button}>Отправить</button>
+                        </div> 
+                      </div>      
+                    </form>    
+                  </div>
+                </div>
+           </div>       
            <Footer/>
        </div>
    

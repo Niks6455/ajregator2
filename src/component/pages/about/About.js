@@ -43,8 +43,8 @@ export default function About() {
 
                 </div>
               
-                <div className={Style.About_lastText}>
-                    <h1>Лев который есть да - это тоже мы</h1>
+                <div className={Style.About_lastText} >
+                   <Button bg_color="#4E78E2" text="Стать Партнером" size="18" />
                 </div>
                 
             </Layout>
