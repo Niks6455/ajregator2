@@ -1,5 +1,5 @@
 import React from 'react';
-import { YMaps, Map } from 'react-yandex-maps';
+import { YMaps, Map } from 'react-yandex-map';
 
 function MapComponent({w, h}) {
   return (
