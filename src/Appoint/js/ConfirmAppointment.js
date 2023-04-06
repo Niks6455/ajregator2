@@ -15,14 +15,8 @@ function ConfirmAppointment(props){
     var monthNmae = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ]
 
 
-    // console.log(props.timeActiveInTitle)
-
-
-
-
     return(
         <div>
-
 
             <div className="title__confirm">
                 <div className="title__inner__confirm">
@@ -33,15 +27,10 @@ function ConfirmAppointment(props){
                         <h1>CLEANCAR</h1>
                     </div>
                     
-                    <img type="button" onClick={props.funcSetFlagConfirm} className="title__inner__confirm__img__home" src = {iconHome}></img>
-                    <img type="button" onClick={props.funcSetFlagMyPage} className="title__inner__confirm__img__lk" src = {iconLK}></img>
-
-
-                    
-                 </div>  
-
-                 
-                    
+                    <Link to="/HomePage"> <img type="button" onClick={props.funcSetFlagConfirm} className="title__inner__confirm__img__home" src = {iconHome}></img></Link>
+                    <Link to="./../MyPage" > <img type="button" onClick={props.funcSetFlagMyPage} className="title__inner__confirm__img__lk" src = {iconLK}></img> </Link>
+                   
+                 </div>                  
             </div>
 
 
@@ -86,15 +75,11 @@ function ConfirmAppointment(props){
                 
                 <div className="container__inner__confirm__button__outer">
                    <Link to="/HomePage"><div type="button" onClick={props.funcSetFlagConfirmAppointment} className="container__inner__confirm__button">Подтвердить</div>  </Link>  
-                    {/* <div type="button" onClick={props.funcSetFlagConfirm} className="container__inner__confirm__button">Главная</div> */}
-                </div>
-                
-                
 
+                </div>
 
                 </div>
             </div>
-            <div className="container__inner__confirm__box"></div>
 
         </div>
         

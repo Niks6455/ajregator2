@@ -1,4 +1,7 @@
 import React, { useState } from "react"
+import { Link } from "react-router-dom";
+import Header from "./Header";
+import ContainerTitle from "./ContainerTitle";
 // import CalendarDay from "./CalendarDay"
 
 let i = 0
@@ -7,6 +10,8 @@ var dataActive = []
 
 
 function NewCalendar(props){
+    // console.log(props.dataActiveInTitle)
+
 
     var busyData = ["05.03.2023","28.02.2023", "17.03.2023", "08.04.2023", "26.05.2023"]
     var busyDataNormal = []
@@ -22,7 +27,7 @@ function NewCalendar(props){
         busyDataNormal.push({day: busyDataDay, month:busyDataMonth })
         
     }
-    console.log(busyDataNormal)
+    // console.log(busyDataNormal)
 
 
     var monthNmae = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ]
@@ -123,7 +128,7 @@ function NewCalendar(props){
         else {
             firstDayWeekInState = new Date(data.getFullYear(), data.getMonth(), 1).getDay()
         }
-        console.log("-----------",firstDayWeekInState)
+        // console.log("-----------",firstDayWeekInState)
         setFirstDay(firstDayWeekInState)
         setMonthName(monthNmae[data.getMonth()])
 
@@ -138,9 +143,9 @@ function NewCalendar(props){
     const ClicNumber=(el,i)=>{
        
        
-        console.log(el)
-        console.log(el.target.innerHTML)
-        console.log(i)
+        // console.log(el)
+        // console.log(el.target.innerHTML)
+        // console.log(i)
 
         
         // listNumbers1[]
@@ -163,16 +168,23 @@ function NewCalendar(props){
             }
             
         }
-        console.log(dataActive)
 
 
 
-
+        // console.log("dataActive.length ",dataActive.length)
 
         var massDataTitle = []
+        // console.log("massDataTitle ",  massDataTitle)
+
         if(dataActive.length > 0){
+            // console.log("mass3 ",  massDataTitle)
+
             massDataTitle.push(dataActive[0].day,".", dataActive[0].month+1)
             props.setDataActiveInTitle(massDataTitle)
+
+            // console.log("mass2 ",  massDataTitle)
+
+
         }else{
             props.setDataActiveInTitle(0)
         }
@@ -181,13 +193,6 @@ function NewCalendar(props){
     }
     
     
-   
-   
-
-
-   
-
- 
     var listNumbers1 = [] 
     var listNumbers2 = [] 
     var listNumbers3 = [] 
@@ -208,7 +213,7 @@ function NewCalendar(props){
 
 
 
-        console.log("CreatCalendarRow")
+        // console.log("CreatCalendarRow")
 
         var first = 0
         var end = 7
@@ -426,7 +431,7 @@ function NewCalendar(props){
                 // console.clear()
                 // console.log("=== ", listNumbers6[g].value.props.children)
                 // console.log("=== ", dataActive)
-
+                
                 if(Number(dataActive[0].day) === Number(listNumbers6[g].value.props.children) && Number(dataActive[0].month) === Number(i)){
                     listNumbers6[g].value = <div key={listNumbers6[g].id} type="button" onClick={(key)=>ClicNumber(key, i)} className="calendar__day__inner active">{listNumbers6[g].value.props.children}</div >
             
@@ -445,47 +450,73 @@ function NewCalendar(props){
 
 
 
-    
+    // console.log("dataActive ",dataActive)
+    // console.log("props.DataActiveInTitle ",props.dataActiveInTitle)
+
     
     return(
-        <div>
-            <div className="calendar__month">
-                <div type="button" className="month__previous" onClick={previousMonthName}> <b>{'<'} </b></div>
-                <b className="month__name">{MonthName} {year}</b>
+        <main>
+        <Header />
+            <div className="container">
+                    <div className="container__inner">
+                        <ContainerTitle dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} />
+                            <div className="calendar__box"> 
+                                <div className="calendar__box__inner">
+                                    <div className="calendar__month">
+                                        <div type="button" className="month__previous" onClick={previousMonthName}> <b>{'<'} </b></div>
+                                        <b className="month__name">{MonthName} {year}</b>
 
-                <div type="button" className="month__next" onClick={nextMonthName}> <b>{'>'}</b></div> 
-            </div>
+                                        <div type="button" className="month__next" onClick={nextMonthName}> <b>{'>'}</b></div> 
+                                    </div>
 
-            <div className="calendar__week">
-                {
-                week.map((el) =>(
-                <div key={el.day} className="calendar__week__inner">{el.day}</div>) 
-                )
-                }
-            </div>
-            <div className="calendar__day__box">
-                <div  key="l1" className="calendar__day">
-                    {listNumbers1.map(el=> el.value)}
-                </div >
-                <div  key="l2" className="calendar__day">
-                    {listNumbers2.map(el=> el.value)}
-                </div >
-                <div  key="l3" className="calendar__day">
-                    {listNumbers3.map(el=> el.value)}
-                </div >
-                <div  key="l4" className="calendar__day">
-                    {listNumbers4.map(el=> el.value)}
-                </div >
-                <div  key="l5" className="calendar__day">
-                    {listNumbers5.map(el=> el.value)}
-                </div >
-                <div  key="l6" className="calendar__day">
-                    {listNumbers6.map(el=> el.value)}
-                </div >
-            </div>
-            {/* <CalendarDay defCount={firstDay}  countLastDay={countDay} step={step}/> */}
-            
-        </div>
+                                    <div className="calendar__week">
+                                        {
+                                        week.map((el) =>(
+                                        <div key={el.day} className="calendar__week__inner">{el.day}</div>) 
+                                        )
+                                        }
+                                    </div>
+                                    <div className="calendar__day__box">
+                                        <div  key="l1" className="calendar__day">
+                                            {listNumbers1.map(el=> el.value)}
+                                        </div >
+                                        <div  key="l2" className="calendar__day">
+                                            {listNumbers2.map(el=> el.value)}
+                                        </div >
+                                        <div  key="l3" className="calendar__day">
+                                            {listNumbers3.map(el=> el.value)}
+                                        </div >
+                                        <div  key="l4" className="calendar__day">
+                                            {listNumbers4.map(el=> el.value)}
+                                        </div >
+                                        <div  key="l5" className="calendar__day">
+                                            {listNumbers5.map(el=> el.value)}
+                                        </div >
+                                        <div  key="l6" className="calendar__day">
+                                            {listNumbers6.map(el=> el.value)}
+                                        </div >
+                                    </div>
+                                    {/* <CalendarDay defCount={firstDay}  countLastDay={countDay} step={step}/> */}
+                                    
+                                </div>
+                                <div>{
+                                    dataActive.length !== 0 ?
+                                    <Link to="SelectTime"> 
+                                    <div className="button__send__data__box">
+                                         <main className="button__send__data" onClick={props.flagCalendarActivate} type="button">Выбрать дату</main>          
+                                    </div>
+                                    </Link>
+                                    : <div className="button__send__data__box">
+                                         <main className="button__send__data"  style={ {background: `rgb(128 128 128)`}}>Выбрать дату</main>          
+                                     </div>
+                                    }
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
 
         
     )

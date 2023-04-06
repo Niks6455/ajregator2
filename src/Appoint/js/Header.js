@@ -15,8 +15,8 @@ function Header(props){
 
                 <div className="manu">
                     <div className="manu__inner">
-                      <img type="button" onClick={props.funcSetFlagConfirm} className="manu__inner__img__home" src = {iconHome}></img>
-                        <img type="button" onClick={props.funcSetFlagMyPage} className="manu__inner__img__lk" src = {iconLK}></img>
+                    <Link to="/HomePage"> <img type="button" onClick={props.funcSetFlagConfirm} className="manu__inner__img__home" src = {iconHome}></img></Link>
+                      <Link to="MyPage" > <img type="button" onClick={props.funcSetFlagMyPage} className="manu__inner__img__lk" src = {iconLK}></img> </Link>
                         
                     </div>  
                      <Link to="/HomePage"> <img type="button" onClick={props.funcButtonBack} className="manu__inner__img__back" src = {iconBack}></img></Link>
