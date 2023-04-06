@@ -11,6 +11,7 @@ import bott from "./../../images/Home/arrow.png"
 import top from "./../../images/Home/arrow2.png"
 import Button from "./../Button";
 import { Link } from "react-router-dom";
+import Rating from "../Rating/Rating";
 const Wash = ({address, time, name}) => {
 
     const slides = [
@@ -48,6 +49,7 @@ const Wash = ({address, time, name}) => {
                     <div className={styles.name}>
                         <p>{name}</p>
                         <p>{address}</p>
+                        <Rating rating="423"/>
                     </div>
                     <div className={styles.time}>
                         <p>Время работы:</p>
