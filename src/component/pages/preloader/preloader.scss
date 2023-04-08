@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: $clblue ;
+    z-index: 100;
+}
+
+.preloader{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    
+}
+
+
+
+
+
+
+
+//прелоадер
+@keyframes ldio-i63x5v1zow {
+    0% { transform: translate(-50%,-50%) rotate(0deg); }
+    100% { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+  .ldio-i63x5v1zow div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 10px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+  }
+  .ldio-i63x5v1zow div {
+    animation: ldio-i63x5v1zow 1s linear infinite;
+    top: 100px;
+    left: 100px
+  }
+  .loadingio-spinner-rolling-ak4xzbmxbdm {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: $clblue;
+    
+  }
+  .ldio-i63x5v1zow {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldio-i63x5v1zow div { box-sizing: content-box; }
+  
