@@ -10,16 +10,10 @@ import WashPage from "./component/pages/washPage/WashPage";
 import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
-import Preloader from "./component/pages/preloader/Preloader";
-
-import SelectTime from "./Appoint/js/SelectTime";
-import NewCalendar from "./Appoint/js/NewCalendar";
-import SelectBox from "./Appoint/js/SelectBox";
-import ConfirmAppointment from "./Appoint/js/ConfirmAppointment";
 
 
 function App() {
-  const [dataActiveInTitle, setDataActiveInTitle] = useState(0)
+
   return (
 
     <BrowserRouter>
@@ -28,8 +22,6 @@ function App() {
          
             <Routes> 
               {/* <Route path='/' element={<Home />}/> */}
-              {/* <Route path='/' element={<Preloader />}/> */}
-
               <Route path='/' element={<Main />}/>
               <Route path='/Register' element={<Register />}/>
               <Route path='/Authorization' element={<Authorization />}/>
@@ -37,12 +29,7 @@ function App() {
               <Route path='/HomePage' element={<HomePage />}/>
               <Route path='/WashPage' element={<WashPage/>}/>
               <Route path="/MyPage" element={<MyPage/>}/>
-              <Route path="/StartAppoint/*" element={<StartAppoint/>}> 
-                    {/* <Route path="*" element={<NewCalendar  dataActiveInTitle={dataActiveInTitle} setDataActiveInTitle={setDataActiveInTitle}/>} /> 
-                    <Route path="SelectTime" element={<SelectTime/>}/>
-                    <Route path="SelectBox" element={<SelectBox/>}/>
-                    <Route path="ConfirmAppointment" element={<ConfirmAppointment/>}/> */}
-              </Route>
+              <Route path="/StartAppoint/*" element={<StartAppoint/>}/>
             
             </Routes> 
            
