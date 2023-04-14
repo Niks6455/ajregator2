@@ -29,7 +29,7 @@ export default function Main(){
       let i = 0
        
       React.useEffect(() =>{
-            console.log(document.querySelectorAll('img')) 
+            // console.log(document.querySelectorAll('img')) 
             Array.from(document.querySelectorAll('img')).forEach((file, index)=>{
                   file.onload=()=>{
                         i++
@@ -37,13 +37,10 @@ export default function Main(){
                               setTimeout(() => {  
                                     setIsLoading(false)
                               document.body.style.overflow = "visible"
-                              console.log("да")
                                }, 1000);
                               
                         }
-                        console.log(file)
                   }
-                  console.log("--",file)
             }) 
             document.body.style.overflow = "hidden"
 
