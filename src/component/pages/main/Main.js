@@ -9,7 +9,10 @@ import Icon4 from './../../images/Main/Icons/Group 47.png';
 import card from './../../images/Main/elem/card.png';
 import Footer from './../../common/footer/Footer.js';
 import { Link } from "react-router-dom";
-import React from 'react';
+import React, { useState } from 'react';
+
+import Loader from '../loader/Loader';
+
 
 
 var scrollHeight = Math.max(
@@ -19,12 +22,37 @@ var scrollHeight = Math.max(
     );//Прокрутка с верху
 
 var HeightY = document.documentElement.clientHeight ;//просто высота экрана
-console.log(scrollHeight, HeightY);
+// console.log(scrollHeight, HeightY);
 
 export default function Main(){
+      const [isLoading, setIsLoading] = useState(true)
+      let i = 0
+       
+      React.useEffect(() =>{
+            console.log(document.querySelectorAll('img')) 
+            Array.from(document.querySelectorAll('img')).forEach((file, index)=>{
+                  file.onload=()=>{
+                        i++
+                        if(i === 3 ){
+                              setIsLoading(false)
+                              document.body.style.overflow = "visible"
+                              console.log("да")
+                        }
+                        console.log(file)
+                  }
+                  console.log("--",file)
+            }) 
+            document.body.style.overflow = "hidden"
+
+      },[])
+      
+      
     
+
           return(
             <div className={styles.main__page}> 
+                  <Loader isLoading={isLoading}/>
+
                   <Header/>
                         <div className={styles.main__inner}>
                               <div className={styles.main__first} >
