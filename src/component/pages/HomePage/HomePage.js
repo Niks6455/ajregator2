@@ -13,7 +13,7 @@ export default function HomePage() {
    const Map__Height = screenHeight -50;
     return(
        <div className={styles.HomePage}>
-          <Header/>   
+          {/* <Header/>    */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent h={Map__Height}/>
             </div>

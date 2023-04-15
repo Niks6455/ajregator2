@@ -1,33 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import "./mapComponent.scss"
-
-const mapState = {center: [47.208208, 38.937189], zoom: 13}
-const placeMark = {
-
-  geometry: [47.208208, 38.937189], 
-  properties: {
-      hintContent: 'Это хинт',
-      balloonContent: 'Это балун'
-  }
-  
-}
+// import "./mapComponent.scss"
 
 function MapComponent({w, h}) {
-
-  const [mapOnLoad, setMapOnLoad] = useState(true)
 
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
       <YMaps>
-        {
-        mapOnLoad?
-        <Map state={mapState} width={'100%'} height={'100%'}>           
-          <Placemark {...placeMark} />
-         
-        </Map>:
-        <div>Loading...</div>
-      }
+          <Map width={'100%'} height={'100%'}
+              defaultState={{
+                center: [47.208208, 38.937189],
+                zoom: 13,
+                controls: ["zoomControl", "fullscreenControl"],
+              }}
+              modules={["control.ZoomControl", "control.FullscreenControl"]}
+            >
+            <Placemark
+              modules={["geoObject.addon.balloon"]}
+              defaultGeometry={[55.75, 37.57]}
+              properties={{
+                balloonContentBody:
+                  "This is balloon loaded by the Yandex.Maps API module system",
+              }}
+            />
+      </Map>
       </YMaps>
     </div>
   );
