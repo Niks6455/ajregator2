@@ -18,7 +18,7 @@ export default function HomePage() {
             <MapComponent h={Map__Height}/>
             </div>
             <Wash time={"Круглосуточно"} address={"Восточная ул. 10а"} name={"MOI CUM"} />
-          <Footer/>
+          {/* <Footer/> */}
        </div>
    
     ) 

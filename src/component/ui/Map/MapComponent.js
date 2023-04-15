@@ -20,14 +20,15 @@ function MapComponent({w, h}) {
 
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
-    {value:<Placemark
+    {value:<Placemark key={key}
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     properties={{
       balloonContentBody:
         coordinats[i].content,
+        
     }}
-  />, key: key },
+  />,  }
   
   )
   key++;
@@ -48,22 +49,7 @@ for(var i = 0; i < coordinats.length; i++){
             >
 
               {listPoint.map(el=> el.value) }
-            {/* <Placemark
-              modules={["geoObject.addon.balloon"]}
-              defaultGeometry={[47.208208, 38.937189]}
-              properties={{
-                balloonContentBody:
-                  "Автомойка1",
-              }}
-            />
-             <Placemark
-              modules={["geoObject.addon.balloon"]}
-              defaultGeometry={[47.230820, 38.927189]}
-              properties={{
-                balloonContentBody:
-                  "Автомойка2",
-              }}
-            /> */}
+
             <GeolocationControl options={{ float: "left" }} />
             <RouteButton options={{ float: "right" }} />
             <SearchControl options={{ float: "right" }} />
