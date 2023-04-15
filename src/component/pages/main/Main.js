@@ -37,6 +37,7 @@ export default function Main(){
                               setTimeout(() => {  
                                     setIsLoading(false)
                               document.body.style.overflow = "visible"
+
                                }, 1000);
                               
                         }
