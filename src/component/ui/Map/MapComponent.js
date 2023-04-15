@@ -1,7 +1,7 @@
 import React from 'react';
 import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } from 'react-yandex-maps';
 import { TrafficControl, ZoomControl } from 'react-yandex-maps';
-// import "./mapComponent.scss"
+import "./mapComponent.scss"
 
 
 var listPoint = []
