@@ -5,6 +5,8 @@ import Footer from "../../common/footer/Footer";
 import Wash from "./../../ui/Wash__info__Home/Wash";
 import MapComponent from "../../ui/Map/MapComponent";
 
+// import MyMap from "../map/MyMap";
+
 export default function HomePage() {
    const screenHeight = window.screen.height
    console.log(screenHeight);
