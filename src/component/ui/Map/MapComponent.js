@@ -28,26 +28,27 @@ for(var i = 0; i < coordinats.length; i++){
     {value:<Placemark key={key}
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
+    
     properties={{
+      
       balloonContentBody:
       `<div class="content__body">
             <div class="content__text">${coordinats[i].content}</div>
 
-            <div class="content__prise">Кузов: от ${coordinats[i].prise}₽</div>
-
-            <div>
+            <div class="content__prise">
             <img class="star" src=${star}></img>
-            ${coordinats[i].rating}
+            <b>${coordinats[i].rating}</b>
+            Кузов: от ${coordinats[i].prise}₽
             </div>
         </div>
       `
-        ,      
-         
+        ,  
     }}
     
     options={{   
       iconLayout: 'default#image',
       iconImageHref: poi,
+      
       
       // iconImageSize: [30, 42],
       // iconImageOffset: [-3, -42]  
@@ -71,7 +72,7 @@ for(var i = 0; i < coordinats.length; i++){
             >
 
               {listPoint.map(el=> el.value) }
-
+              
             <GeolocationControl options={{ float: "left" }} />
             <RouteButton options={{ float: "right" }} />
             <SearchControl options={{ float: "right" }} />
