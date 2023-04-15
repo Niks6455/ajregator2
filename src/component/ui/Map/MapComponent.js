@@ -3,7 +3,35 @@ import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } 
 import { TrafficControl, ZoomControl } from 'react-yandex-maps';
 // import "./mapComponent.scss"
 
+
+var listPoint = []
+var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
+  {x:47.208208, y:38.937189, content: 'Автомойка'}, 
+  {x:47.308208, y:38.937189, content: 'Автомойка'},
+  {x:47.508208, y:38.967189, content: 'Автомойка'},
+  {x:47.226208, y:38.957189, content: 'Автомойка'}, 
+
+]
+var key = 0
 function MapComponent({w, h}) {
+
+for(var i = 0; i < coordinats.length; i++){
+  listPoint.push(
+    {value:<Placemark
+    modules={["geoObject.addon.balloon"]}
+    defaultGeometry={[coordinats[i].x, coordinats[i].y]}
+    properties={{
+      balloonContentBody:
+        coordinats[i].content,
+    }}
+  />, key: key },
+  
+  )
+  key++;
+}
+
+  console.log("point ", listPoint)
+
 
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
@@ -15,7 +43,9 @@ function MapComponent({w, h}) {
                 
               }}
             >
-            <Placemark
+
+              {listPoint.map(el=> el.value) }
+            {/* <Placemark
               modules={["geoObject.addon.balloon"]}
               defaultGeometry={[47.208208, 38.937189]}
               properties={{
@@ -30,7 +60,7 @@ function MapComponent({w, h}) {
                 balloonContentBody:
                   "Автомойка2",
               }}
-            />
+            /> */}
             <GeolocationControl options={{ float: "left" }} />
             <RouteButton options={{ float: "right" }} />
             <SearchControl options={{ float: "right" }} />
