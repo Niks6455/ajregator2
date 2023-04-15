@@ -2,6 +2,7 @@ import React from 'react';
 import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } from 'react-yandex-maps';
 import { TrafficControl, ZoomControl } from 'react-yandex-maps';
 import "./mapComponent.scss"
+import poi from './img/poi.png'
 
 
 var listPoint = []
@@ -27,6 +28,14 @@ for(var i = 0; i < coordinats.length; i++){
       balloonContentBody:
         coordinats[i].content,
         
+    }}
+    
+    options={{   
+      iconLayout: 'default#image',
+      iconImageHref: poi,
+      
+      // iconImageSize: [30, 42],
+      // iconImageOffset: [-3, -42]  
     }}
   />,  }
   
