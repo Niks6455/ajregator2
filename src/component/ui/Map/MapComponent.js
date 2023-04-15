@@ -11,11 +11,15 @@ var listPoint = []
 var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
   {x:47.208208, y:38.937189,
      content:
-      `<div>Автомойка 1</div>
-        <div>500 руб</div>
-        <div>
-         <img class="star" src=${star}></img>
-        4.3
+      `<div class="content__body">
+            <div class="content__text">Автомойка - 1</div>
+
+            <div class="content__prise">500-1000₽ кузов</div>
+
+            <div>
+            <img class="star" src=${star}></img>
+            4.3
+            </div>
         </div>
       `
   }, 
@@ -29,6 +33,8 @@ var coordinats = [ //точки которые берем с бд (коорди�
 ]
 var key = 0
 function MapComponent({w, h}) {
+ 
+
 
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
@@ -53,8 +59,6 @@ for(var i = 0; i < coordinats.length; i++){
   )
   key++;
 }
-
-  console.log("point ", listPoint)
 
 
   return (
