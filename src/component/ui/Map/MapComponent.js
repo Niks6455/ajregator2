@@ -42,7 +42,7 @@ for(var i = 0; i < coordinats.length; i++){
             </div>
         </div>
       `
-        ,  
+        ,   
     }}
     
     options={{   
@@ -57,8 +57,8 @@ for(var i = 0; i < coordinats.length; i++){
   
   )
   key++;
+  
 }
-
 
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
