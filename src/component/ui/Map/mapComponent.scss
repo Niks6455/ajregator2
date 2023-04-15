@@ -1,3 +1,21 @@
 [class*="copyrights-pane"]{
     display: none !important;
 }
+.content{
+    width: 100px;
+    height: 100px;
+    background-color: #ca5a5a;
+    text-transform: uppercase;
+}
+.ymaps-2-1-79-balloon{
+    width: auto;
+    height: auto;
+}
+.ymaps-2-1-79-balloon__layout{
+    height: 100%;
+}
+.star{
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+}

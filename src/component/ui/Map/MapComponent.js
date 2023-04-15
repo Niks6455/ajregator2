@@ -3,15 +3,26 @@ import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } 
 import { TrafficControl, ZoomControl } from 'react-yandex-maps';
 import "./mapComponent.scss"
 import poi from './img/poi.png'
+import star from './img/star.png'
+
 
 
 var listPoint = []
 var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
-  {x:47.208208, y:38.937189, content: 'Автомойка'}, 
-  {x:47.200551, y:38.916079, content: 'Автомойка'},
-  {x:47.217043, y:38.920761, content: 'Автомойка'},
+  {x:47.208208, y:38.937189,
+     content:
+      `<div>Автомойка 1</div>
+        <div>500 руб</div>
+        <div>
+         <img class="star" src=${star}></img>
+        4.3
+        </div>
+      `
+  }, 
+  {x:47.200551, y:38.916079, content: 'Автомойка 2'},
+  {x:47.217043, y:38.920761, content: 'Автомойка 3'},
   {x:47.224817, y:38.922566, content: 'Реал'}, 
-  {x:47.233268, y:38.915890, content: 'Автомойка'},
+  {x:47.233268, y:38.915890, content: 'Автомойка 4'},
   {x:47.256496, y:38.895906, content: 'Автомойка на стоянке'}, 
 
 
@@ -26,8 +37,8 @@ for(var i = 0; i < coordinats.length; i++){
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     properties={{
       balloonContentBody:
-        coordinats[i].content,
-        
+        coordinats[i].content,      
+         
     }}
     
     options={{   
