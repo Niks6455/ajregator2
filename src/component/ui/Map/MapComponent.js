@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { ReactDOM } from 'react';
 import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } from 'react-yandex-maps';
-import { TrafficControl, ZoomControl } from 'react-yandex-maps';
+import { TrafficControl, ZoomControl, withYMaps } from 'react-yandex-maps';
 import "./mapComponent.scss"
 import poi from './img/poi.png'
 import star from './img/star.png'
+import Loader from '../../pages/loader/Loader';
 
 
 
@@ -19,8 +21,76 @@ var coordinats = [ //точки которые берем с бд (коорди�
 
 ]
 var key = 0
+
+
+const elementsPoint = 0
+
 function MapComponent({w, h}) {
- 
+  const [isLoading, setIsLoading] = React.useState(true);
+
+
+  // -----------------------------------------------------
+  const PositionedMap = React.memo(({ ymaps }) => {
+    const [loadedCoords, setLoading] = React.useState(false);
+    // const [coords, setCoords] = React.useState([55.751574, 37.573856]);
+    
+    const onLoad = () => {
+      ymaps.geolocation.geocode
+        .get({
+          provider: "browser",
+          mapStateAutoApply: true
+        })
+        .then(res => {
+          // setCoords(res.geoObjects.position);
+          setLoading(true);
+          setIsLoading(false);
+        });
+    };
+
+    React.useEffect(() => {
+      onLoad();
+    }, []);
+
+    // if(!loadedCoords){
+    //   return(
+    //     <div>Loading...</div>
+    //   )
+    // }
+    return (
+      loadedCoords && (
+        <Map width={'100%'} height={'100%'}
+          state={{
+            center: [47.208208, 38.937189],
+            zoom: 13
+          }}
+        />
+      )
+    );
+    
+  });
+  const ConnectedMap = React.useMemo(() => {
+    return withYMaps(PositionedMap, true, [["geolocation", "geocode"]]);
+  }, [PositionedMap]);
+  // -----------------------------------------------------
+
+  if(!isLoading){
+    let elementsPoint = document.getElementsByClassName("ymaps-2-1-79-image")
+    console.log("--",elementsPoint.length)
+    console.log("----",elementsPoint)
+    for(let t = 0; t < elementsPoint.length; t++)
+    {
+      // elementsPoint.setAttribute("onclick","alert('blah');");
+      elementsPoint[t].onclick = function(){
+        alert("dddddd")
+      }
+    console.log("fffff")
+  
+  
+    }
+
+  }
+  
+
 
 
 for(var i = 0; i < coordinats.length; i++){
@@ -29,21 +99,21 @@ for(var i = 0; i < coordinats.length; i++){
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
-    properties={{
+    // properties={{
       
-      balloonContentBody:
-      `<div class="content__body">
-            <div class="content__text">${coordinats[i].content}</div>
+    //   balloonContentBody:
+    //   `<div class="content__body">
+    //         <div class="content__text">${coordinats[i].content}</div>
 
-            <div class="content__prise">
-            <img class="star" src=${star}></img>
-            <b>${coordinats[i].rating}</b>
-            Кузов: от ${coordinats[i].prise}₽
-            </div>
-        </div>
-      `
-        ,   
-    }}
+    //         <div class="content__prise">
+    //         <img class="star" src=${star}></img>
+    //         <b>${coordinats[i].rating}</b>
+    //         Кузов: от ${coordinats[i].prise}₽
+    //         </div>
+    //     </div>
+    //   `
+    //     ,   
+    // }}
     
     options={{   
       iconLayout: 'default#image',
@@ -63,6 +133,7 @@ for(var i = 0; i < coordinats.length; i++){
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
+        <Loader isLoading={isLoading}/>
           <Map width={'100%'} height={'100%'}
               defaultState={{
                 center: [47.208208, 38.937189],
@@ -70,7 +141,7 @@ for(var i = 0; i < coordinats.length; i++){
                 
               }}
             >
-
+              
               {listPoint.map(el=> el.value) }
               
             <GeolocationControl options={{ float: "left" }} />
@@ -78,7 +149,8 @@ for(var i = 0; i < coordinats.length; i++){
             <SearchControl options={{ float: "right" }} />
             <TrafficControl options={{ float: "right" }} />
             <ZoomControl options={{ float: "right" }} />
-      </Map>
+         </Map>
+         <ConnectedMap />
       </YMaps>
     </div>
   );

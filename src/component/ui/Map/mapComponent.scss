@@ -4,7 +4,9 @@ $clblue: #4E78E2;
 [class*="copyrights-pane"]{
     display: none !important;
 }
-
+[class*="ymaps-2-1-79-image"]{
+    z-index: 2000 !important;
+}
 
 .ymaps-2-1-79-balloon{
     width: auto;
