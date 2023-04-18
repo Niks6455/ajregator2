@@ -99,21 +99,22 @@ for(var i = 0; i < coordinats.length; i++){
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
-    // properties={{
+    properties={{
       
-    //   balloonContentBody:
-    //   `<div class="content__body">
-    //         <div class="content__text">${coordinats[i].content}</div>
+      balloonContentBody:
+      `<div class="content__body">
+            <div class="content__text">${coordinats[i].content}</div>
 
-    //         <div class="content__prise">
-    //         <img class="star" src=${star}></img>
-    //         <b>${coordinats[i].rating}</b>
-    //         Кузов: от ${coordinats[i].prise}₽
-    //         </div>
-    //     </div>
-    //   `
-    //     ,   
-    // }}
+            <div class="content__prise">
+            <img class="star" src=${star}></img>
+            <b>${coordinats[i].rating}</b>
+            Кузов: от ${coordinats[i].prise}₽
+            </div>
+        </div>
+      `
+        ,   
+        
+    }}
     
     options={{   
       iconLayout: 'default#image',
