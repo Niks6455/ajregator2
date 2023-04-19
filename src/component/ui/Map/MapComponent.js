@@ -32,16 +32,13 @@ function MapComponent({w, h}) {
   // -----------------------------------------------------
   const PositionedMap = React.memo(({ ymaps }) => {
     const [loadedCoords, setLoading] = React.useState(false);
-    // const [coords, setCoords] = React.useState([55.751574, 37.573856]);
-    
-    const onLoad = () => {
+      const onLoad = () => {
       ymaps.geolocation.geocode
         .get({
           provider: "browser",
           mapStateAutoApply: true
         })
         .then(res => {
-          // setCoords(res.geoObjects.position);
           setLoading(true);
           setIsLoading(false);
         });
@@ -63,7 +60,15 @@ function MapComponent({w, h}) {
             center: [47.208208, 38.937189],
             zoom: 13
           }}
-        />
+        >
+          {listPoint.map(el=> el.value) }
+          <GeolocationControl options={{ float: "left" }} />
+            <RouteButton options={{ float: "right" }} />
+            <SearchControl options={{ float: "right" }} />
+            <TrafficControl options={{ float: "right" }} />
+            <ZoomControl options={{ float: "right" }} />
+        </Map>
+        
       )
     );
     
@@ -92,16 +97,15 @@ function MapComponent({w, h}) {
   
 
 
-
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
-    {value:<Placemark key={key}
+    {value:<Placemark key={key} 
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
     properties={{
-      
-      balloonContentBody:
+
+      balloonContentBody: 
       `<div class="content__body">
             <div class="content__text">${coordinats[i].content}</div>
 
@@ -113,16 +117,13 @@ for(var i = 0; i < coordinats.length; i++){
         </div>
       `
         ,   
-        
+   
     }}
     
     options={{   
       iconLayout: 'default#image',
       iconImageHref: poi,
-      
-      
-      // iconImageSize: [30, 42],
-      // iconImageOffset: [-3, -42]  
+
     }}
   />,  }
   
@@ -135,14 +136,13 @@ for(var i = 0; i < coordinats.length; i++){
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
         <Loader isLoading={isLoading}/>
-          <Map width={'100%'} height={'100%'}
+          {/* <Map width={'100%'} height={'100%'}
               defaultState={{
                 center: [47.208208, 38.937189],
                 zoom: 13,
                 
               }}
             >
-              
               {listPoint.map(el=> el.value) }
               
             <GeolocationControl options={{ float: "left" }} />
@@ -150,7 +150,7 @@ for(var i = 0; i < coordinats.length; i++){
             <SearchControl options={{ float: "right" }} />
             <TrafficControl options={{ float: "right" }} />
             <ZoomControl options={{ float: "right" }} />
-         </Map>
+         </Map> */}
          <ConnectedMap />
       </YMaps>
     </div>
