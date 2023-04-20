@@ -15,6 +15,7 @@ import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
 import { useForm} from "react-hook-form";
+
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
   
   const {
@@ -28,12 +29,11 @@ export default function WashPage({timeWork="Круглосуточно", Price="
 
 
  const onSubmit = (data) =>{ 
-  
+      console.log(JSON.stringify(data));     
         alert(JSON.stringify(data));
-        console.log(JSON.stringify(data));     
+    
         reset();
  }//data- хранит всю заполненную информацию о форме
-
 
 
  //подгрузить из бд для каждой моки свое!
@@ -204,7 +204,8 @@ export default function WashPage({timeWork="Круглосуточно", Price="
                   <h1>Оставьте отзыв</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>   
                       <div className={styles.form__inner}>
-                        <textarea className={styles.field} placeholder="Текст отзыва"{...register("Text__reviews")}/>                           
+                         <textarea className={styles.field} placeholder="Текст отзыва"{...register("Text__reviews")}/> 
+                                                 
                         <div className={styles.button__div}>
                           <button type="submit" className={styles.button}>Отправить</button>
                         </div> 
@@ -214,9 +215,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
                 </div>
            </div>       
            <Footer/>
-       </div>
-   
-       
+       </div>   
     ) 
    
    
