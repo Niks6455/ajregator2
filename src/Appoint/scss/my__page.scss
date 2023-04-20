@@ -416,13 +416,26 @@ $clblue: #4E78E2;
     transition: all 0.1ms linear;
 }
 
-.my__page__inner__img__home{
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    margin-right: 5px;
-    right: 10px;
-    top: 10px;
-    
 
+
+.header__MyPage{
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    align-items: center;
+    .my__page__inner__img__home{
+        margin: 8px;
+    }
+    .button__exit{
+        border: none;
+        background-color: #4E78E2;
+        color: #ffffff;
+        font-size: 18px;
+        margin: 8px;
+        display: flex;
+        transition: color .2s linear;
+        
+    }:hover{
+        color: #000000;
+    }
 }
