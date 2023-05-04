@@ -7,6 +7,18 @@ import poi from './img/poi.png'
 import star from './img/star.png'
 import Loader from '../../pages/loader/Loader';
 
+if (!navigator.geolocation) {
+    alert("браузер не поддерживает геолокацию");
+
+} else {
+  navigator.geolocation.watchPosition(function (position) {
+          // console.log("браузер поддерживает геолокацию!");
+      },
+      function (error) {
+          if (error.code == error.PERMISSION_DENIED)
+              alert("Дайте разрешение на определение местоположения");
+      });
+}
 
 
 var listPoint = []
