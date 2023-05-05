@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+[class*="copyrights-pane"]{
+    display: none !important;
+}
+// [class*="ymaps-2-1-79-events-pane ymaps-2-1-79-user-selection-none"]{
+//     z-index: 1000 !important;
+
+// }
+// [class*="ymaps-2-1-79-image"]{
+//     position: absolute !important;
+//     z-index: 2000 !important;
+
+// }
+
+.ymaps-2-1-79-balloon{
+    width: auto;
+    height: auto;
+    box-shadow: none !important;
+
+}
+.ymaps-2-1-79-balloon__layout{
+    height: 100%;
+    border-radius: 15%;
+    border: none;
+    box-shadow:none;
+
+}
+.star{
+    width: 15px;
+    height: 15px;
+    margin-bottom: 4px;
+    
+}
+.content__text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    
+}
+.content__prise{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(122, 122, 122);
+}

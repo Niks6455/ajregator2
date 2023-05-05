@@ -7,15 +7,20 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
-    "node-sass": "^7.0.3",
+    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.1",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+<<<<<<< HEAD
     "react-yandex-map": "^4.6.0",
     "sass": "^1.60.0",
+=======
+    "react-yandex-maps": "^4.6.0",
+    "sass": "^1.59.3",
+>>>>>>> Artur
     "web-vitals": "^2.1.4"
   },
   "scripts": {
