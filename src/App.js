@@ -10,11 +10,6 @@ import WashPage from "./component/pages/washPage/WashPage";
 import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
-import SelectTime from "./Appoint/js/SelectTime";
-import NewCalendar from "./Appoint/js/NewCalendar";
-import SelectBox from "./Appoint/js/SelectBox";
-import ConfirmAppointment from "./Appoint/js/ConfirmAppointment";
-
 
 function App() {
   const [dataActiveInTitle, setDataActiveInTitle] = useState(0)
