@@ -10,11 +10,6 @@ import WashPage from "./component/pages/washPage/WashPage";
 import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Artur
-
 function App() {
 
   return (
