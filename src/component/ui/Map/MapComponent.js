@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ReactDOM } from 'react';
 import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } from 'react-yandex-maps';
-import { TrafficControl, ZoomControl, withYMaps } from 'react-yandex-maps';
+import { TrafficControl, ZoomControl, withYMaps, Balloon } from 'react-yandex-maps';
 import "./mapComponent.scss"
 import poi from './img/poi.png'
 import star from './img/star.png'
@@ -38,8 +38,8 @@ var key = 0
 const elementsPoint = 0
 
 function MapComponent({w, h}) {
-  const [isLoading, setIsLoading] = React.useState(true);
 
+  const [isLoading, setIsLoading] = useState(true);
 
   // -----------------------------------------------------
   const PositionedMap = React.memo(({ ymaps }) => {
@@ -55,9 +55,11 @@ function MapComponent({w, h}) {
           setIsLoading(false);
         });
     };
+    
 
-    React.useEffect(() => {
+    useEffect(() => {
       onLoad();
+
     }, []);
 
     // if(!loadedCoords){
@@ -90,28 +92,28 @@ function MapComponent({w, h}) {
   }, [PositionedMap]);
   // -----------------------------------------------------
 
-  if(!isLoading){
-    let elementsPoint = document.getElementsByClassName("ymaps-2-1-79-image")
-    console.log("--",elementsPoint.length)
-    console.log("----",elementsPoint)
-    for(let t = 0; t < elementsPoint.length; t++)
-    {
-      // elementsPoint.setAttribute("onclick","alert('blah');");
-      elementsPoint[t].onclick = function(){
-        alert("dddddd")
-      }
-    console.log("fffff")
+  // if(!isLoading){
+  //   let elementsPoint = document.getElementsByClassName("ymaps-2-1-79-image")
+  //   console.log("--",elementsPoint.length)
+  //   console.log("----",elementsPoint)
+  //   for(let t = 0; t < elementsPoint.length; t++)
+  //   {
+  //     // elementsPoint.setAttribute("onclick","alert('blah');"); 
+  //     elementsPoint[t].addEventListener('click', function() {
+  //       console.log('Image clicked')
+  //     })
+  //   console.log("fffff") 
   
   
-    }
+  //   }
 
-  }
+  // }
   
 
 
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
-    {value:<Placemark key={key} 
+    {value:<Placemark key={key}  
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
@@ -129,14 +131,18 @@ for(var i = 0; i < coordinats.length; i++){
         </div>
       `
         ,   
-   
+  
     }}
     
     options={{   
+      // openBalloon: false,
+      // open: false, 
       iconLayout: 'default#image',
       iconImageHref: poi,
-
+      
     }}
+
+    
   />,  }
   
   )
@@ -164,6 +170,7 @@ for(var i = 0; i < coordinats.length; i++){
             <ZoomControl options={{ float: "right" }} />
          </Map> */}
          <ConnectedMap />
+
       </YMaps>
     </div>
   );
