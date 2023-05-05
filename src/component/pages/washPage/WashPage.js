@@ -74,7 +74,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
      },
      {
       id:"2",
-      text: 'палитроль кузова',
+      text: 'Полироль кузова',
       date: 'Цена: 800руб.'
      },
      {
@@ -84,12 +84,12 @@ export default function WashPage({timeWork="Круглосуточно", Price="
      },
      {
       id:"4",
-      text: 'Палировка кузова',
+      text: 'Полировка кузова',
       date: 'Цена: 1500руб.'
      },
      {
       id:"5",
-      text: 'Кирамическое покрытие кузова',
+      text: 'Керамическое покрытие кузова',
       date: 'Цена: 2500руб.'
      }
    

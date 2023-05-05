@@ -83,7 +83,7 @@ return (
 
 
                 {/*----------------------------------------------------------------------------- чекбокс */}
-                <div className={styles.check__st}>
+                {/* <div className={styles.check__st}>
                     {[...Array(2)].map((_, idx) => (
                         <div key={idx} className={styles.check__inner}>
                             <div  className={styles.check}>
@@ -97,7 +97,7 @@ return (
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
                 {/*----------------------------------------------------------------------------- //чекбокс */}
             
 
@@ -195,13 +195,13 @@ return (
             </form>
             </Layout>
                 {/* img1 */}
-            <div className={styles.images1}>
+            {/* <div className={styles.images1}>
                 <img src={img1} alt="bg1"></img>
-            </div>
+            </div> */}
                  {/* img2 */}
-            <div className={styles.images2}>
+            {/* <div className={styles.images2}>
                 <img src={img2} alt="bg2"></img>
-            </div>
+            </div> */}
 
             </div>
         <Footer/>
