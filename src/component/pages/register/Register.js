@@ -195,13 +195,13 @@ return (
             </form>
             </Layout>
                 {/* img1 */}
-            {/* <div className={styles.images1}>
+             <div className={styles.images1}>
                 <img src={img1} alt="bg1"></img>
-            </div> */}
+            </div> 
                  {/* img2 */}
-            {/* <div className={styles.images2}>
+             <div className={styles.images2}>
                 <img src={img2} alt="bg2"></img>
-            </div> */}
+            </div> 
 
             </div>
         <Footer/>

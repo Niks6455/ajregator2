@@ -6,6 +6,7 @@ import Header from "../../common/header/Header";
 import Footer from './../../common/footer/Footer'
 import img1 from "./../../images/register/Caterpillar.png"
 import Title from "../../ui/title/Title";
+import { Link } from "react-router-dom";
 
 export default function Authorization() {
 const {
@@ -82,6 +83,10 @@ return (
                 </div>
             
             </form>
+            <div className={styles.no_reg}>
+                <p>Вы ещё не зарегестрированы?<Link to="/Register" style={{color: "#6363F5", fontSize: "14px", textDecoration: "none", marginLeft:"5px"}}>Зарегестироваться</Link></p>
+            </div>
+          
             </Layout>
             <div className={styles.images1}>
                 <img src={img1} alt="bg"></img>

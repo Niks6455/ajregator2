@@ -1,14 +1,14 @@
 @import "./../../../scss/color.scss";
 .form{
     display: flex;
-    padding-top: 100px;
+    padding-top: 85px;
     width: 100%;
     justify-content: center;
     color: rgb(0, 0, 0);
    
     form{
         margin: 0 40px;
-       top: -35px;
+        top: -35px;
         text-align: center;
     }
     Footer{
@@ -21,15 +21,12 @@
         text-align: center;
         background-repeat: no-repeat;
         background-position: center;  
-          
         display: flex;
         justify-content: center;
         width: 100%;
-        margin-bottom: 25px;
-        padding-top: 100px;
+       
         .title__inner{
             position: relative;
-            top: -60px;
             color: #ffffff;
         }
     }
@@ -53,7 +50,7 @@
             border: none;
             background-color: $blue;
             width: 180px;
-            height: 50px;
+            height: 40px;
             border-radius: 5px;
         }
     }
@@ -62,8 +59,8 @@
     border: 2px #6363F5 solid;
     border-radius: 5px 5px 0px 0px;
     border-bottom: none;
-    width: 240px;
-    height: 50px;
+    width: 220px;
+    height: 40px;
 }
 .marg{
     margin-bottom: 10px;
@@ -79,4 +76,17 @@
     right: 20px;
     top: 350px;
     z-index: -1;
+}
+
+.no_reg{
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    text-align: center;
+    color: #000000;
+    margin-top: 15px;
+    line-height: 1.2;
+    p{
+        font-size: 12px;
+    }       
 }
