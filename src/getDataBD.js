@@ -40,6 +40,8 @@ export {url_SelectBox}
 var url_HomePage = 'http://ajrejator/index.php' // блок информации на карте
 export {url_HomePage}
 
+var url_WashPage = 'http://ajrejator/index.php' // блок информации страница подробнее о мойке
+export {url_WashPage}
 
 
 //----------------------------------------------------------------------------

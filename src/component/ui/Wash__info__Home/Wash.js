@@ -13,7 +13,7 @@ import Button from "./../Button";
 import { Link } from "react-router-dom";
 
 const Wash = ({address, time, name, arrPhoto}) => {
-    console.log(arrPhoto[0])
+    // console.log(arrPhoto[0])
     
     // if(arrPhoto.length !== 0){
     //     let a = String(`"${arrPhoto[0]}"`)
