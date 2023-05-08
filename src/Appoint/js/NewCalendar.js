@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import ContainerTitle from "./ContainerTitle";
+
+import { url_NewCalendar } from "../../getDataBD";
 // import CalendarDay from "./CalendarDay"
 
 let i = 0
@@ -9,11 +11,39 @@ let flag = 0;
 var dataActive = []
 
 
+
 function NewCalendar(props){
+
+
+    // Запросим от бэка окупированные даты
+    const [dataGet, setDataGet] = useState([]);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await fetch(url_NewCalendar);
+        const jsonData = await response.json();
+        setDataGet(jsonData);
+      }
+      fetchData();
+    }, []);
+  
+ 
+    console.log("data",dataGet)
+if(dataGet.length!== 0){ // если данные нашлись 
+    var busyData = dataGet[0].busyData;
+    
+}
+else{   // если данные не загрузились
+    var busyData = ["05.03.2023","28.02.2023", "17.03.2023", "08.05.2023", "26.05.2023"]
+
+}
+
+// ---------------------------------------
+
+
     // console.log(props.dataActiveInTitle)
 
 
-    var busyData = ["05.03.2023","28.02.2023", "17.03.2023", "08.04.2023", "26.05.2023"]
     var busyDataNormal = []
     for(var y = 0; y < busyData.length; y++){
         var busyDataDay = `${busyData[y][0]}${busyData[y][1]}`
@@ -456,7 +486,7 @@ function NewCalendar(props){
     
     return(
         <main>
-        <Header />
+        <Header flagCalendar={true} />
             <div className="container">
                     <div className="container__inner">
                         <ContainerTitle dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} />

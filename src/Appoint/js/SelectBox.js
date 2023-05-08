@@ -1,9 +1,11 @@
 //выбор времени
 
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Header from "./Header";
 import ContainerTitle from "./ContainerTitle";
 import iconBox from "./../img/icon_box.png"
+
+import { url_SelectBox } from "../../getDataBD";
 
 import { Link } from "react-router-dom";
 
@@ -11,10 +13,35 @@ var massActiveBox = 0
 
 function SelectBox(props){
 
-    props.setFlagBoxActive(true)
-    props.setFlagTimeActive(true)
+ // Запросим от бэка окупированные даты
+ const [dataGet, setDataGet] = useState([]);
 
+ useEffect(() => {
+   async function fetchData() {
+     const response = await fetch(url_SelectBox);
+     const jsonData = await response.json();
+     setDataGet(jsonData);
+   }
+   fetchData();
+ }, []);
+
+
+ console.log("data",dataGet)
+if(dataGet.length!== 0){ // если данные нашлись 
+ var occupiedElement = dataGet[0].occupiedElementBox;  
+ 
+}
+else{   // если данные не загрузились
     var occupiedElement = [1,3,5,12]    //даты которые заняты
+}
+
+// ---------------------------------------
+
+
+    // props.setFlagBoxActive(true)
+    // props.setFlagTimeActive(true)
+
+    // var occupiedElement = [1,3,5,12]    //даты которые заняты
 
     var numberBox = 12  //колличество боксов
 

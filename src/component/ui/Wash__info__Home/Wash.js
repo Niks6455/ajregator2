@@ -11,7 +11,27 @@ import bott from "./../../images/Home/arrow.png"
 import top from "./../../images/Home/arrow2.png"
 import Button from "./../Button";
 import { Link } from "react-router-dom";
-const Wash = ({address, time, name}) => {
+
+const Wash = ({address, time, name, arrPhoto}) => {
+    console.log(arrPhoto[0])
+    
+    // if(arrPhoto.length !== 0){
+    //     let a = String(`"${arrPhoto[0]}"`)
+    //     // console.log(a)
+    //     const img1 = require('./../../images/slider/1.jpg');
+    //     const img2 = require('./../../images/slider/2.jpg');
+    //     const img3 = require('./../../images/slider/3.jpg');
+
+    // }
+    // else {
+    //     const img1 = require('./../../images/slider/1.jpg');
+    //     const img2 = require('./../../images/slider/2.jpg');
+    //     const img3 = require('./../../images/slider/3.jpg');
+
+    // }
+
+    
+
 
     const slides = [
         img1,
@@ -31,7 +51,7 @@ const Wash = ({address, time, name}) => {
     const handleMenuClick = () => {
         setOpenInfo(!openInfo);
       };
-      console.log(openInfo);
+    //   console.log(openInfo);
     const endIndex = startIndex + 3;
     const currentSlides = slides.slice(startIndex, endIndex);
 

@@ -8,10 +8,42 @@ import iconHome from "./../img/icon_home.png"
 import { Link } from "react-router-dom";
 
 import iconCar1 from "./../img/my_page_car1.png"
+import { useEffect, useState } from "react";
 
-var name="Роман Вочках", car="Приора ";
+import { url_MyPage } from "../../getDataBD";
+// -----------------------------------------------------
+
 
 function MyPage(props){
+
+// ---------------------------------------------------
+ // Запросим от бэка 
+ const [dataGet, setDataGet] = useState([]);
+
+ useEffect(() => {
+   async function fetchData() {
+     const response = await fetch(url_MyPage);
+     const jsonData = await response.json();
+     setDataGet(jsonData);
+   }
+   fetchData();
+ }, []);
+
+
+ console.log("data",dataGet)
+if(dataGet.length!== 0){ // если данные нашлись 
+ var name = dataGet[0].MyPageInfo.name;
+ var car = dataGet[0].MyPageInfo.car;
+
+ 
+}
+else{   // если данные не загрузились
+
+    var name = "Роман Вочках";
+    var car = "Lada Niva";
+}
+
+// ---------------------------------------
 
 
     return(

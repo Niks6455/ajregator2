@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+@mixin myPageTitle{
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: $clblue;
+    b{
+        margin: 0 auto;
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 10px 0;
+    }
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .35);
+
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.my__page__head{
+    width: 100%;
+    height: auto;
+    background-color: $clblue;
+    border-radius: 0 0 15px 15px;
+
+}
+
+.my__page__head__inner{
+    
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    flex-wrap: nowrap;
+    
+    .img__box{
+        display: flex   ;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 50%;
+        }
+    }
+    
+
+    .text{
+        display:flex;
+        position: relative;
+        width: 60%;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        h2{
+            display: flex;
+            align-items: center;
+            width: auto;
+            text-transform: uppercase;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        b{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: #ffffff;
+            font-size: 10px;
+            opacity: 80%;
+        }
+        padding-bottom: 10px; 
+        
+    }
+
+   
+}
+
+.my__page__inner__img__home{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin-right: 5px;
+    right: 10px;
+    top: 10px;
+
+
+}

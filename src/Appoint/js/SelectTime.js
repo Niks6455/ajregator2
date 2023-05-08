@@ -1,9 +1,11 @@
 //выбор времени
 
-import React from "react";
+import React, {useState, useEffect}from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import ContainerTitle from "./ContainerTitle";
+
+import { url_SelectTime } from "../../getDataBD";
 
 
 var id =0
@@ -13,9 +15,40 @@ var activeFlag = false
 
 function SelectTime(props){
 
-    props.setFlagTimeActive(true)
-    // var occupiedElement = [{h: 8,m: 15},{h: 9,m: 30} ,{h: 11,m: 0} ,{h: 12,m: 45}]
+
+    // Запросим от бэка окупированное время
+    const [dataGet, setDataGet] = useState([]);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await fetch(url_SelectTime);
+        const jsonData = await response.json();
+        setDataGet(jsonData);
+      }
+      fetchData();
+    }, []);
+  
+ 
+    console.log("data",dataGet)
+if(dataGet.length!== 0){ // если данные нашлись 
+    var occupiedElement = dataGet[0].occupiedElement;
+    
+}
+else{   // если данные не загрузились
     var occupiedElement = [[8,15] , [9,0], [11,45], [13,0], [14,15] , [22,30]]
+
+
+}
+
+
+
+
+
+
+    // props.setFlagTimeActive(true)
+
+    // var occupiedElement = [{h: 8,m: 15},{h: 9,m: 30} ,{h: 11,m: 0} ,{h: 12,m: 45}]
+    // var occupiedElement = [[8,15] , [9,0], [11,45], [13,0], [14,15] , [22,30]]
 
 
     var timeStart = [8,15]  // время начала работы автомойки, задает владелец мойки
@@ -157,7 +190,7 @@ function SelectTime(props){
 
     return(
         <main>
-             <Header/>
+             <Header flagTime={true}/>
             <div className="container">
                     <div className="container__inner">
                         <ContainerTitle  dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} />
