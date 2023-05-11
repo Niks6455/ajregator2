@@ -1,5 +1,8 @@
 
 .WashPage{
+  .Wash__inner{
+    margin-bottom: 55px;
+  }
   .Wash__name{
     margin-top: 100px;
   }
@@ -13,7 +16,7 @@
       .map{
         width: 80%;
         height: 250px;
-        background-color: #4E78E2;
+      
       }
     }
     .Wash__map__info{
@@ -40,7 +43,28 @@
     width: 100%;
     margin-bottom: 50px;
   }
-  
+  .WashDescription{
+    p, h1{
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    margin-bottom: 15px;
+    }
+    .WashDescription__text{
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      p{
+        border-radius: 10px;
+        background-color: #D9D9D9;
+        padding:10px 20px;
+        width: 80%;
+        height: 300px;
+        overflow-y: scroll;
+      }
+    }
+    margin-bottom: 25px;
+  }
   .slider{
      width:100%;
      display: flex;
@@ -94,4 +118,54 @@
     margin-top: -35px;
     margin-bottom: 115px;
   }
+ .reviews__form{
+  width: 100%;
+  background-color: #4E78E2;
+  height: 215px;
+  margin: 35px 0;
+  justify-content: center;
+  display: flex;
+  .reviews__form__inner{
+    width: 100%;
+    h1{
+      margin-top: 10px;
+      color: #ffffff;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    }
+    form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .field{
+      display: flex;
+      margin: 0 auto;
+      width: 70%;
+      height: 85px;
+      border-radius: 10px;
+      padding: 3px;
+ 
+    }
+    .form__inner{
+      width: 100%;
+    }
+    .button__div{
+      display: flex;
+      justify-content: right;
+      width: 85%;
+      padding-top: 15px;
+      .button{
+        background-color: #ffffff;
+        color: #4E78E2;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        text-decoration: none;
+        padding: 5px 12px;
+      }
+    }
+  }
+ }
 }

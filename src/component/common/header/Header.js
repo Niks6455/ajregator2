@@ -20,9 +20,9 @@ const Header = () => {
         <div className={styles.navR}>
 
            <div className={styles.flex}>
-              <div className={styles.peopleIcons}>
+              {/* <div className={styles.peopleIcons}>
               <Link to="/MyPage"><img src={show ? '' : people} ></img></Link>  
-              </div>
+              </div> */}
 
               <button className={styles.button1} type='button' onClick={() => setShow(!show)}>
                     <img src={show ? IconClose : IconOpen} alt='Auth'></img>
@@ -33,8 +33,8 @@ const Header = () => {
               <nav className= {styles.menu  + (show ? 'show' : '')}>
                 <ul>
                   <Link to='/MyPage'><li>Личный кабинет</li></Link>
+                  <Link to=''><li>Контакты</li></Link> 
                   <Link to='/about'><li>О нас</li></Link>
-                  <Link to='/about'><li>Контакты</li></Link>
                 </ul>
               </nav>  
               

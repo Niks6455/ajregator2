@@ -49,9 +49,9 @@ else{   // если данные не загрузились
    const Map__Height = screenHeight -50;
     return(
        <div className={styles.HomePage}>
-          {/* <Header/>    */}
+          <Header/>    
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
-            <MapComponent h={Map__Height}/>
+            <MapComponent h={Map__Height} />
             </div>
             <Wash time={time} address={address} name={name} arrPhoto={arrPhoto}/>
           {/* <Footer/> */}

@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { ReactDOM } from 'react';
-import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl } from 'react-yandex-maps';
-import { TrafficControl, ZoomControl, withYMaps, Balloon } from 'react-yandex-maps';
-import "./mapComponent.scss"
-import poi from './img/poi.png'
-import star from './img/star.png'
+import React, { useEffect, useState} from 'react';
+import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-map';
+import "./mapComponent.scss";
+import poi from './img/poi.png';
+import star from './img/star.png';
 import Loader from '../../pages/loader/Loader';
 
 
@@ -17,13 +15,12 @@ var coordinats = [ //точки которые берем с бд (коорди�
   {x:47.224817, y:38.922566, content: 'Реал', prise:300, rating: 4.3}, 
   {x:47.233268, y:38.915890, content: 'Автомойка 4', prise:400, rating: 2.2},
   {x:47.256496, y:38.895906, content: 'Автомойка на стоянке', prise:600, rating: 4.4}, 
-
-
 ]
 var key = 0
 
 
 const elementsPoint = 0
+
 
 function MapComponent({w, h}) {
 

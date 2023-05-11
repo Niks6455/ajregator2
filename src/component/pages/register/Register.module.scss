@@ -46,6 +46,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+   
     .check__inner{
         display: flex;
         label{
@@ -60,8 +61,9 @@
 }
 .field{
     border: 2px #6363F5 solid;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px;
     border-bottom: none;
+   
 }
 .marg{
     margin-bottom: 10px;

@@ -10,8 +10,11 @@ import WashPage from "./component/pages/washPage/WashPage";
 import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
+<<<<<<< HEAD
 
 //"start": "react-scripts start --port 3001",
+=======
+>>>>>>> main
 function App() {
 
   return (
