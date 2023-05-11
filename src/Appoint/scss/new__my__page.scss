@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.container__mypage{
+    width: 100%;
+    height: 100vh;
+
+    .title__mypage{
+        width: 100%;
+        height: 100px;
+        background-color: $clblue;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        // padding-bottom: 10px;
+    }
+
+
+    // оглавление где аватар имя марка маниын
+    .title__inner__mypage{
+        display: flex;
+        height: 80px;
+        padding-top: 15px;
+        
+        // background-color: aqua;
+
+        .panel1__mypage{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            // background-color: #f0f8ff;
+            .panel1__mypage__img{
+                display: flex;
+                padding-left: 15px;
+            }
+            //-----------------------------------
+            .panel1__mypage__text{
+                display: flex;
+                width: auto;
+                max-width: 100px;
+                padding-left: 15px;
+                padding-top: 10px;
+                flex-wrap: wrap;
+                color: #ffffff;
+                
+            }
+            .panel1__name{
+                overflow: auto;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                scroll-behavior: smooth;
+                white-space: nowrap;
+                display: inline-block;
+                height: 25px;
+                width: auto;
+                
+            }
+            .panel1__car{
+                overflow: auto;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                white-space: nowrap;
+
+                display: inline-block;
+                font-size: 11px;
+                height: 25px;
+                width: auto;
+                padding-bottom: 15px;
+            }
+            //-----------------------------------
+            .arrow {
+                display: flex;
+                position: relative;
+                width: auto;
+                padding-left: 15px;
+            }
+              
+              .arrow::after {
+                content: "";
+                width: 13px;
+                height: 13px;
+                border-top: 2px solid #fdfdfd !important;
+                border-right: 2px solid #ffffff !important;
+                margin: 16px 0 0 10px;
+                display: inline-block;
+                transition: 1s;
+                transform: rotate(45deg);
+                margin: auto;
+              }
+
+            
+        }
+        .panel2__mypage{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            
+            // background-color: aqua;
+    
+        }
+    }
+
+    //мои записи
+    .container__appointments__mypage{
+        width: 100%;
+        height: 300px;
+        // background-color: #d0d0d0;
+
+        .appointments__title__mypage{
+            width: 100%;
+            height: 70px;
+            .appointments__title__mypag__text{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding-top: 10px;
+                color: #4065c1;
+
+            }
+        }
+
+        .appointments__blog__mypage{
+            width: 100%;
+            height: 200px;
+
+           .scroll__bar__mypage{
+                display: flex;
+                overflow-x: auto;
+                height: 200px;
+            }
+
+            .blog1__mypage{
+                flex: 0 0 auto;
+                display: flex;
+                width: 140px;
+                height: 160px;
+                background-color: $clblue;
+                margin-right: 20px;
+                margin-left: 20px;
+                border-radius: 15px;
+                color: #ffffff;
+                flex-wrap: wrap;
+
+                .blog1__title__mypage{
+                    display: flex;
+                    width: 100%;
+                    height: auto;
+                    justify-content: center;
+                    margin-top: 20px;
+                    font-size: 12px;
+                }
+                .blog1__body__mypage{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    width: 100%;
+                    height: 100px;
+                    .blog1__body__data{
+                        position: relative;
+                        width:100%;
+                        padding-left: 15px ;
+                        .blog1__body__text{
+                            display: flex;
+                            position: absolute;
+                            right: 15px;
+                            top:2px;
+                        }
+                        img{
+                            width: 25px;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+    }
+
+}

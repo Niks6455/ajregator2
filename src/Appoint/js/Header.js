@@ -24,7 +24,7 @@ function Header(props){
                 
 
                 {
-                    props.flagCalendar === true ? <h3>Выберите дату</h3> : <h3>Выберите время</h3>
+                    props.flagCalendar === true ? <h3>Выберите дату</h3> : props.flagTime === true ? <h3>Выберите время</h3>: <h3>Выберите бокс</h3>
                 }
                 
                 <h1>Запись на мойку</h1>

@@ -6,6 +6,8 @@ import SelectTime from "./SelectTime"
 import SelectBox from "./SelectBox"
 import ConfirmAppointment from "./ConfirmAppointment"
 import MyPage from "./MyPage"
+import NewMyPage from "./NewMyPage"
+
 
 
 import {Route, Routes} from "react-router-dom"
@@ -34,7 +36,7 @@ const [flagBoxActive, setFlagBoxActive] = useState(false)
                 <Route path="SelectTime" element={<SelectTime dataActiveInTitle={dataActiveInTitle} setTimeActiveInTitle={setTimeActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} flagTimeActive={flagTimeActive} setFlagTimeActive={setFlagTimeActive}/>}/>
                 <Route path="SelectBox" element={<SelectBox dataActiveInTitle={dataActiveInTitle}  timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} setBoxActiveInTitle={setBoxActiveInTitle} flagTimeActive={flagTimeActive} flagBoxActive={flagBoxActive} setFlagTimeActive={setFlagTimeActive} setFlagBoxActive={setFlagBoxActive}/>}/>
                 <Route path="ConfirmAppointment" element={<ConfirmAppointment dataActiveInTitle={dataActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} />}/>
-                <Route path="MyPage" element={<MyPage/>}/>
+                <Route path="MyPage" element={<NewMyPage/>}/>
             </Routes>
         </main>
     )

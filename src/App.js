@@ -11,12 +11,12 @@ import MyPage from "./Appoint/js/MyPage";
 import StartAppoint from "./Appoint/StartAppoint";
 
 
-
+//"start": "react-scripts start --port 3001",
 function App() {
 
   return (
 
-    <BrowserRouter>
+    <BrowserRouter >
      
         <div className="Container">
          

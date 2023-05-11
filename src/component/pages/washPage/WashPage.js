@@ -1,5 +1,5 @@
 import MapComponent from "../../ui/Map/MapComponent";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../../common/header/Header";
 import styles from './WashPage.module.scss';
 import Footer from "../../common/footer/Footer"
@@ -14,22 +14,44 @@ import left from "./../../images/slider/left.png"
 import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
+
+import { url_WashPage } from "../../../getDataBD";
+
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
 
- //подгрузить из бд для каждой моки свое!
-  const slides = [
-    img1,
-    img2,
-    img3,
-    img2,
-    img3,
-    img1,
-    img3,
-    img1,
-    img2,
-  ];
 
-  //подгрузить из бд для каждой моки свое!
+  // Запросим от бэка 
+ const [dataGet, setDataGet] = useState([]);
+
+ useEffect(() => {
+   async function fetchData() {
+     const response = await fetch(url_WashPage);
+     const jsonData = await response.json();
+     setDataGet(jsonData);
+   }
+   fetchData();
+ }, []);
+
+
+ console.log("data",dataGet)
+
+ const reviews = []
+ const stocks = []
+
+if(dataGet.length!== 0){ // если данные нашлись  washPageInfoStocks
+    //заполним массив с коменнтариями
+   for(var i = 0; i < dataGet[0].washPageInfo.length; i++){
+    reviews.push({text: dataGet[0].washPageInfo[i].text, author:dataGet[0].washPageInfo[i].author, key: i })
+   }
+  //  console.log("reviews ", reviews)
+
+  for(var i = 0; i < dataGet[0].washPageInfoStocks.length; i++){
+    stocks.push({id: dataGet[0].washPageInfoStocks[i].id, text: dataGet[0].washPageInfoStocks[i].text, data: dataGet[0].washPageInfoStocks[i].data,  key: i })
+   }
+
+}
+else{   // если данные не загрузились
+    //подгрузить из бд для каждой моки свое!
   const reviews = [
     {
       text: 'Классная автомойка удобные боксы, вода теплая, напор хороший, зимой удобно мыть машину есть где попить кофе!',
@@ -45,39 +67,61 @@ export default function WashPage({timeWork="Круглосуточно", Price="
     }
   ];
 
+
   //подгрузить из бд для каждой моки свое!
-   const stocks = [
-     {
-      id:"1",
-      text: 'Каждая 5 кружка кофе в подарок',
+  const stocks = [
+    {
+     id:"1",
+     text: 'Каждая 5 кружка кофе в подарок',
+     date: '1.09. — 31.09.'
+    },
+    {
+     id:"2",
+      text: 'Скидка 10% в день рождение',
+      date: '22.11. — 22.12.'
+    },
+    {
+     id:"3",
+      text: 'Студентам скидка 5%',
+      date: '22.11. — 22.12.'
+    },
+    {
+     id:"4",
+     text: 'Каждая 5 кружка кофе в подарок',
+     date: '1.09. — 31.09.'
+    },
+    {
+     id:"5",
+      text: 'Скидка 10% в день рождение',
+      date: '22.11. — 22.12.'
+    },
+    {
+     id:"6",
+      text: 'Студентам скидка 5%',
       date: '1.09. — 31.09.'
-     },
-     {
-      id:"2",
-       text: 'Скидка 10% в день рождение',
-       date: '22.11. — 22.12.'
-     },
-     {
-      id:"3",
-       text: 'Студентам скидка 5%',
-       date: '22.11. — 22.12.'
-     },
-     {
-      id:"4",
-      text: 'Каждая 5 кружка кофе в подарок',
-      date: '1.09. — 31.09.'
-     },
-     {
-      id:"5",
-       text: 'Скидка 10% в день рождение',
-       date: '22.11. — 22.12.'
-     },
-     {
-      id:"6",
-       text: 'Студентам скидка 5%',
-       date: '1.09. — 31.09.'
-     }
-   ];
+    }
+  ];
+}
+
+
+
+
+ //подгрузить из бд для каждой моки свое!
+  const slides = [
+    img1,
+    img2,
+    img3,
+    img2,
+    img3,
+    img1,
+    img3,
+    img1,
+    img2,
+  ];
+
+ 
+
+  
   
   let [startIndex, setStartIndex] = useState(0);
   const endIndex = startIndex + 3;
@@ -106,7 +150,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
                       <div className={styles.Wash__map__price}>Средний чек: {Price}</div>
                   </div>
                 </div>
-              </div>
+              </div> 
 
               <div className={styles.Wash__read}>
                 <Link to="/StartAppoint"><Button text={"ЗАПИСАТЬСЯ"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"50"} w={"180"}  size={"12"}/></Link>
