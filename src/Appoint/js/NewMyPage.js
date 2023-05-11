@@ -42,6 +42,50 @@ var name="Роман Вочках", car="Лада Приора";
 
 
 
+var boxAppoint = []
+
+for(var l = 0; l < 6; l++){
+  boxAppoint.push( {
+    key: l,
+    value:
+    <div className="blog1__mypage">
+                        <div className="blog1__title__mypage">
+                          Мойка ЮГ
+                        </div>
+
+                        <div className="blog1__body__mypage">
+                          <div className="blog1__body__left">
+                              <div className="blog1__body__left__img">
+                                <img src={icon1b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon3b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon2b} alt="х"></img>
+                              </div>
+                          </div>
+
+                          <div className="blog1__body__right">
+                              <div className="blog1__body__right__text">
+                                  09.05.23
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  бокс 1
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  9 : 30
+                              </div>
+                          </div>
+
+                        </div>
+
+                    </div>
+  }
+
+  )
+}
+
 
     return(
         <main>
@@ -81,50 +125,60 @@ var name="Роман Вочках", car="Лада Приора";
                 <div className="appointments__blog__mypage">
 
                   <div className="scroll__bar__mypage">
-
-                    <div className="blog1__mypage">
+                    {
+                     boxAppoint.map((el)=>(
+                        el.value
+                     ))
+                    }
+                    {/* <div className="blog1__mypage">
                         <div className="blog1__title__mypage">
                           Мойка ЮГ
                         </div>
-                        <div className="blog1__body__mypage">
-                            <div className="blog1__body__data">
-                              <img src={icon1b} alt="х"></img>
-                              <div className="blog1__body__text">09.05.23</div>
-                            </div>
-                            <div className="blog1__body__box">
-                              <img src={icon3b} alt="х"></img>
-                              <div className="blog1__body__text">бокс 1</div>
-                            </div>
-                            {/* <div className="blog1__body__time">
-                              <img src={icon2b} alt="х"></img>
-                              <div className="blog1__body__text">9 : 30</div>
-                            </div> */}
-                        </div>
-                    </div>
 
-                    <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
                         <div className="blog1__body__mypage">
-                          
-                        </div>
-                    </div>
+                          <div className="blog1__body__left">
+                              <div className="blog1__body__left__img">
+                                <img src={icon1b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon3b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon2b} alt="х"></img>
+                              </div>
+                          </div>
 
-                    <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
-                        <div className="blog1__body__mypage">
-                          
-                        </div>
-                    </div>
-                  
+                          <div className="blog1__body__right">
+                              <div className="blog1__body__right__text">
+                                  09.05.23
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  бокс 1
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  9 : 30
+                              </div>
+                          </div>
+
+                        </div> */}
+
+                    {/* </div> */}
                   </div>
 
                  
                 </div>
               </div>
+              
+            <div className="history__mypage">
+                <div className="history__title__mypage">
+                  <div className="history__title__mypag__text">
+                    История
+                  </div>
+                </div>
+            </div>
+
+
+
            </div>
         </main>
     )
