@@ -11,7 +11,8 @@ import bott from "./../../images/Home/arrow.png"
 import top from "./../../images/Home/arrow2.png"
 import Button from "./../Button";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
+import Rating from "../Rating/Rating";
+
 
 const Wash = ({address, time, name, arrPhoto}) => {
     // console.log(arrPhoto[0])
@@ -33,10 +34,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
 
     
 
-=======
-import Rating from "../Rating/Rating";
-const Wash = ({address, time, name}) => {
->>>>>>> main
+// const Wash = ({address, time, name}) => {
 
     const slides = [
         img1,

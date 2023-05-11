@@ -49,17 +49,12 @@ else{   // если данные не загрузились
     return(
         <main>
             <div className="my__page__head">
-<<<<<<< HEAD
               {/* <Link to="/HomePage"><img type="button" onClick={props.funcSetFlagConfirm} className="my__page__inner__img__home" src = {iconHome}></img></Link>   */}
               <Link to="/NewMyPage"><img type="button" onClick={props.funcSetFlagConfirm} className="my__page__inner__img__home" src = {iconHome}></img></Link>  
-
-=======
                 <div className="header__MyPage">
                   <button className="button__exit" type="button" >Выйти</button>
                     <Link to="/HomePage"><img type="button" onClick={props.funcSetFlagConfirm} className="my__page__inner__img__home" src = {iconHome}></img></Link>  
                 </div>
-                
->>>>>>> main
 
                 <div className="my__page__head__inner">
                  
