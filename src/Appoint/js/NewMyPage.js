@@ -155,9 +155,9 @@ const [burgerClick, setBurgerClick] = useState(false)
                           <Link to="/HomePage"><div className="panel3__burger__text__mypage">
                             Главная
                           </div></Link>
-                          <div className="panel3__burger__text__mypage">
+                          <Link to="../Parameters"><div className="panel3__burger__text__mypage">
                             Настройки
-                          </div>
+                          </div></Link> 
                           <Link to="/Register"><div className="panel3__burger__text__mypage">
                             Выход
                           </div></Link> 

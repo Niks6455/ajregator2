@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+$clblue: #4E78E2;
+
+*{
+    padding: 0;
+    margin: 0 ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+
+.container__param{
+    width: 100%;
+    height: calc(100vh - 2*85px);
+    .container__head__param{
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        width: 100%;
+        height: auto;
+        margin-top: 120px;
+        background-color: $clblue;
+        padding: 6px;
+        font-size: 16px;
+    }
+
+    //личная информация пользоватля
+    .container__myinfo__param{
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 20px;
+
+        .myinfo__name__title1__param{
+            font-weight: 600;
+        }
+        .myinfo__name__title2__param{
+            width: 100%;
+            height: auto;
+            background-color: #d3d3d3;
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+    }
+}
