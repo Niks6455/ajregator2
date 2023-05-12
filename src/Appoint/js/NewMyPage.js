@@ -28,14 +28,13 @@ useEffect(() => {
   fetchData();
 }, []);
 
-
-console.log("data",data)
+// console.log("data",data)
 if(data.length!== 0){ // если данные нашлись 
 var name=data[0].name, car=data[0].car;
 
 }
 else{   // если данные не загрузились
-var name="Роман Вочках", car="Лада Приора";
+var name="Роман", car="Лада Приора";
 }
 
 // ---------------------------------------
@@ -43,6 +42,10 @@ var name="Роман Вочках", car="Лада Приора";
 
 // блоки в моих записях
 var boxAppoint = []
+// строки в таблице истории
+var rowHistory = []
+
+// var name = "Роман"
 
 for(var l = 0; l < 6; l++){
   boxAppoint.push( {
@@ -87,15 +90,14 @@ for(var l = 0; l < 6; l++){
 }
 
 
-// строки в таблице истории
-var rowHistory = []
+
 
 for(var r = 0; r < 10; r++){
   rowHistory.push({
     key: r,
     value:  
     <tr>
-    <td>Мойка Юг</td>
+    <td>МойкаЮг</td>
     <td>06.05.23</td>
     <td>09:30</td>
     <td>1</td>
@@ -106,6 +108,21 @@ for(var r = 0; r < 10; r++){
 
 
 
+
+
+ // обработчик события при клике на div
+
+const [burgerClick, setBurgerClick] = useState(false)
+
+ const handleClick = () => {
+  if(burgerClick){
+    setBurgerClick(false);
+  } 
+  else{
+    setBurgerClick(true)
+  }
+  // console.log(burgerClick)
+};
 
     return(
         <main>
@@ -120,16 +137,34 @@ for(var r = 0; r < 10; r++){
 
                           </div>
                           <div className="panel1__mypage__text">
-                            <div className="panel1__name">Роман Вочках</div>
-                            <div className="panel1__car">Лада Niva Traval</div>
+                            <div className="panel1__name">{name}</div>
+                            <div className="panel1__car">{car}</div>
                           </div>
                           <div className="arrow"></div>
 
 
                         </div>
                         <div className="panel2__mypage">
-                            {/* бурегр */}
+                            <div className="panel2__inner__mypage" onClick={handleClick}>
+                                <div className="panel2__inner__inner__mypage"></div>
+                            </div>
                         </div>
+
+                        { burgerClick?
+                        <div className="panel3__burger__mypage">
+                          <Link to="/HomePage"><div className="panel3__burger__text__mypage">
+                            Главная
+                          </div></Link>
+                          <div className="panel3__burger__text__mypage">
+                            Настройки
+                          </div>
+                          <Link to="/Register"><div className="panel3__burger__text__mypage">
+                            Выход
+                          </div></Link> 
+                        </div>
+                        :
+                        <div></div>
+                        }
                     </div>
                 </div>
 
