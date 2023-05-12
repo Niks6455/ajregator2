@@ -41,6 +41,35 @@ $clblue: #4E78E2;
             padding-left: 10px;
             padding-top: 4px;
             padding-bottom: 4px;
+            margin-bottom: 10px;
+            border: none;
+            
+        }
+
+        .carinfo__param{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .myinfo__btn__param{
+            display: flex;
+            width: 100%;
+            justify-content: right;
+            
+            // padding-right:10px;
+
+            .myinfo__btn__inner__param{
+                background-color: $clblue;
+                padding: 5px 15px;
+                border-radius: 8px;
+                color: #fff;
+                margin-top: 10px;
+                border: none;
+
+            }
         }
     }
 }

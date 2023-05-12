@@ -136,10 +136,12 @@ const [burgerClick, setBurgerClick] = useState(false)
                             <img src={iconFace} alt="avatar"></img>
 
                           </div>
+                          <Link to="../Parameters">
                           <div className="panel1__mypage__text">
                             <div className="panel1__name">{name}</div>
                             <div className="panel1__car">{car}</div>
                           </div>
+                          </Link>
                           <div className="arrow"></div>
 
 
