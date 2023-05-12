@@ -41,7 +41,7 @@ var name="Роман Вочках", car="Лада Приора";
 // ---------------------------------------
 
 
-
+// блоки в моих записях
 var boxAppoint = []
 
 for(var l = 0; l < 6; l++){
@@ -87,6 +87,26 @@ for(var l = 0; l < 6; l++){
 }
 
 
+// строки в таблице истории
+var rowHistory = []
+
+for(var r = 0; r < 10; r++){
+  rowHistory.push({
+    key: r,
+    value:  
+    <tr>
+    <td>Мойка Юг</td>
+    <td>06.05.23</td>
+    <td>09:30</td>
+    <td>1</td>
+    </tr>
+
+  })
+}
+
+
+
+
     return(
         <main>
            <div className="container__mypage">
@@ -130,51 +150,39 @@ for(var l = 0; l < 6; l++){
                         el.value
                      ))
                     }
-                    {/* <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
-
-                        <div className="blog1__body__mypage">
-                          <div className="blog1__body__left">
-                              <div className="blog1__body__left__img">
-                                <img src={icon1b} alt="х"></img>
-                              </div>
-                              <div className="blog1__body__left__img">
-                                <img src={icon3b} alt="х"></img>
-                              </div>
-                              <div className="blog1__body__left__img">
-                                <img src={icon2b} alt="х"></img>
-                              </div>
-                          </div>
-
-                          <div className="blog1__body__right">
-                              <div className="blog1__body__right__text">
-                                  09.05.23
-                              </div>
-                              <div className="blog1__body__right__text">
-                                  бокс 1
-                              </div>
-                              <div className="blog1__body__right__text">
-                                  9 : 30
-                              </div>
-                          </div>
-
-                        </div> */}
-
-                    {/* </div> */}
                   </div>
-
                  
                 </div>
               </div>
               
             <div className="history__mypage">
+
                 <div className="history__title__mypage">
                   <div className="history__title__mypag__text">
                     История
                   </div>
                 </div>
+                
+                <div className="history__container__mypage">
+                    <div className="history__blog2__mypage">
+                        <table className="history__table__mypage">
+                          <tr>
+                            <td>Название</td>
+                            <td>Дата</td>
+                            <td>Время</td>
+                            <td>Бокс</td>
+                          </tr>
+
+                          {
+                            rowHistory.map((el)=>(
+                            el.value
+                          ))
+                          }
+                        </table>
+
+                    </div>
+                </div>
+                
             </div>
 
 
