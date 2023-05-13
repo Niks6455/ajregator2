@@ -35,13 +35,25 @@ hr {
   background-color: #ffffff;
   width: 100%;
   margin-bottom: 0;
+  
 }
 .close__menu{ 
+  opacity: 0;
   height: 50px;
   position: relative;
   bottom: 0px;
   z-index: 10;
   overflow-y:hidden;
+  animation: fadeIn .7s ease-in-out forwards; /* запускаем анимацию с задержкой в 1 секунду */
+
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* начальное значение */
+    }
+    to {
+        opacity: 1; /* конечное значение */
+    }
 }
 
 .fas img, .far img{

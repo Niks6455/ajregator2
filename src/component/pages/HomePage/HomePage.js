@@ -37,7 +37,7 @@ if(dataGet.length!== 0){ // если данные нашлись
 else{   // если данные не загрузились
    var time = "Круглосуточно"
    var address = "Восточная ул. 10а"
-   var name = "MOI CUM"
+   var name = "MOI CAM"
    var arrPhoto = []
 }
 
@@ -49,7 +49,7 @@ else{   // если данные не загрузились
    const Map__Height = screenHeight -50;
     return(
        <div className={styles.HomePage}>
-          <Header/>    
+          {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent h={Map__Height} />
             </div>
