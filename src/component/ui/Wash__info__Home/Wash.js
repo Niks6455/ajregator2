@@ -82,6 +82,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
     const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
     const [dragging, setDragging] = useState(false);
     const ref = useRef(null);
+
   
     const handleTouchStart = (event) => {
       const touch = event.touches[0];
@@ -105,13 +106,13 @@ const Wash = ({address, time, name, arrPhoto}) => {
   
     const handleTouchEnd = () => {
       setDragging(false);
-      if(position.y > screenHeight - 100){
+      if(position.y > screenHeight - 150){
         setPosition({
             //   x: touch.clientX - startPosition.x,
               y: screenHeight,
             });
       }
-      if(position.y < 300){
+      if(position.y < 400){
         setPosition({
             //   x: touch.clientX - startPosition.x,
               y: screenHeight-375,
@@ -128,6 +129,17 @@ const Wash = ({address, time, name, arrPhoto}) => {
 
     };
 
+
+
+    const styleIcon = {
+        opacity: 0,
+        transition: "all 1s ease-in-out",
+    };
+    const styleIcon2 = {
+        opacity: '60%',
+        transition: "all 1s ease-in-out",
+    };
+   
   
 
     return(
@@ -136,7 +148,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-      style={style}
+        style={style}
     //   className={openInfo ? 'open__menu' : 'close__menu'}
 
         
@@ -146,10 +158,10 @@ const Wash = ({address, time, name, arrPhoto}) => {
 
   
             <div  className={styles.menu__butt}>
-                <img className={styles.icon__lk} src={iconLK} alt="x"></img>
+                <img className={styles.icon__lk} src={iconLK} alt="x"  style={position.y < 400? styleIcon: styleIcon2}></img>
                 {/* <img  className={styles.info__menu} onClick={handleMenuClick} src={openInfo ? bott : top } alt="btn__butt"></img> */}
-                <div className={styles.button__top} onClick={handleMenuClick} src={openInfo ? bott : top }></div>
-                <img className={styles.icon__home} src={iconHome} alt="x"></img>
+                <div className={styles.button__top} onClick={handleMenuClick} src={openInfo ? bott : top } ></div>
+                <img className={styles.icon__home} src={iconHome} alt="x" style={position.y < 400? styleIcon: styleIcon2}></img>
             </div>
             
                 <div className={styles.info}>   
