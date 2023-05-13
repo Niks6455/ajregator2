@@ -21,6 +21,7 @@ import { useForm} from "react-hook-form";
 
 
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
+document.body.classList.remove('body__style');
   
   const {
     register,

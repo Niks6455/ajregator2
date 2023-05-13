@@ -14,6 +14,7 @@ import { url_MyPage } from "../../getDataBD";
 
 
 function NewMyPage(props){
+document.body.classList.remove('body__style');
     
 // ---------------------------------------------------
 // Запросим от бэка имя фамилия и марку машины
@@ -125,6 +126,7 @@ const [burgerClick, setBurgerClick] = useState(false)
 };
 
     return(
+      
         <main>
            <div className="container__mypage">
 

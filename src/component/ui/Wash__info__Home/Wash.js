@@ -138,6 +138,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
     const styleIcon2 = {
         opacity: '60%',
         transition: "all 1s ease-in-out",
+        
     };
    
   
@@ -158,10 +159,10 @@ const Wash = ({address, time, name, arrPhoto}) => {
 
   
             <div  className={styles.menu__butt}>
-                <img className={styles.icon__lk} src={iconLK} alt="x"  style={position.y < 400? styleIcon: styleIcon2}></img>
+                <Link to="/MyPage"><img className={styles.icon__lk} src={iconLK} alt="x"  style={position.y < 400? styleIcon: styleIcon2}></img></Link> 
                 {/* <img  className={styles.info__menu} onClick={handleMenuClick} src={openInfo ? bott : top } alt="btn__butt"></img> */}
                 <div className={styles.button__top} onClick={handleMenuClick} src={openInfo ? bott : top } ></div>
-                <img className={styles.icon__home} src={iconHome} alt="x" style={position.y < 400? styleIcon: styleIcon2}></img>
+                <Link to="/HomePage"><img className={styles.icon__home} src={iconHome} alt="x" style={position.y < 400? styleIcon: styleIcon2}></img></Link>
             </div>
             
                 <div className={styles.info}>   

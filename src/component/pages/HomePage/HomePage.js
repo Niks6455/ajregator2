@@ -43,12 +43,14 @@ else{   // если данные не загрузились
 
 // ---------------------------------------
 
+window.scrollTo(0, 0);
+document.body.classList.add('body__style');
 
    const screenHeight = window.screen.height
    // console.log(screenHeight);
    const Map__Height = screenHeight -50;
     return(
-       <div className={styles.HomePage}>
+       <div className={styles.HomePage} >
           {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent h={Map__Height} />

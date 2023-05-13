@@ -9,7 +9,13 @@ import img2 from "./../../images/register/Vector.png"
 import { Link } from "react-router-dom";
 import Title from "./../../ui/title/Title";
 
+
+
 export default function Register() {
+window.scrollTo(0, 0);
+
+document.body.classList.remove('body__style');
+
 const {
     register,
     formState:{errors, isValid},

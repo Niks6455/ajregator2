@@ -150,7 +150,7 @@ for(var i = 0; i < coordinats.length; i++){
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
-        <Loader isLoading={isLoading}/>
+        {/* <Loader isLoading={isLoading}/> */}
           {/* <Map width={'100%'} height={'100%'}
               defaultState={{
                 center: [47.208208, 38.937189],
