@@ -4,6 +4,7 @@ import iconLK from "./../img/icon_LK.png"
 import iconBack from "./../img/back.png"
 import { Link } from "react-router-dom"
 function Header(props){
+ 
     return(
         <div className="title">
 
@@ -19,7 +20,7 @@ function Header(props){
                       <Link to="MyPage" > <img type="button" onClick={props.funcSetFlagMyPage} className="manu__inner__img__lk" src = {iconLK}></img> </Link>
                         
                     </div>  
-                     <Link to="/HomePage"> <img type="button" onClick={props.funcButtonBack} className="manu__inner__img__back" src = {iconBack}></img></Link>
+                     <Link  to="/HomePage"><img type="button" onClick={props.funcButtonBack} className="manu__inner__img__back" src = {iconBack}></img></Link>
                 </div>
                 
 
