@@ -7,6 +7,7 @@ import SelectBox from "./SelectBox"
 import ConfirmAppointment from "./ConfirmAppointment"
 import MyPage from "./MyPage"
 import NewMyPage from "./NewMyPage"
+import Parameters from "./Parameters"
 
 
 
@@ -37,6 +38,7 @@ const [flagBoxActive, setFlagBoxActive] = useState(false)
                 <Route path="SelectBox" element={<SelectBox dataActiveInTitle={dataActiveInTitle}  timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} setBoxActiveInTitle={setBoxActiveInTitle} flagTimeActive={flagTimeActive} flagBoxActive={flagBoxActive} setFlagTimeActive={setFlagTimeActive} setFlagBoxActive={setFlagBoxActive}/>}/>
                 <Route path="ConfirmAppointment" element={<ConfirmAppointment dataActiveInTitle={dataActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} />}/>
                 <Route path="MyPage" element={<NewMyPage/>}/>
+                <Route path="Parameters" element={<Parameters/>}/>
             </Routes>
         </main>
     )

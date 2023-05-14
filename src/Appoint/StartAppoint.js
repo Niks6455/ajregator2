@@ -7,6 +7,7 @@ import './scss/select__box.scss'
 import './scss/confirm__appointment.scss'
 // import './scss/my__page.scss'
 import './scss/new__my__page.scss'
+import './scss/parameters.scss'
 
 
 

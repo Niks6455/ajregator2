@@ -28,22 +28,104 @@ useEffect(() => {
   fetchData();
 }, []);
 
-
-console.log("data",data)
+// console.log("data",data)
 if(data.length!== 0){ // если данные нашлись 
 var name=data[0].name, car=data[0].car;
 
 }
 else{   // если данные не загрузились
-var name="Роман Вочках", car="Лада Приора";
+var name="Роман", car="Лада Приора";
 }
 
 // ---------------------------------------
 
 
+// блоки в моих записях
+var boxAppoint = []
+// строки в таблице истории
+var rowHistory = []
 
+// var name = "Роман"
+
+for(var l = 0; l < 6; l++){
+  boxAppoint.push( {
+    key: l,
+    value:
+    <div className="blog1__mypage">
+                        <div className="blog1__title__mypage">
+                          Мойка ЮГ
+                        </div>
+
+                        <div className="blog1__body__mypage">
+                          <div className="blog1__body__left">
+                              <div className="blog1__body__left__img">
+                                <img src={icon1b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon3b} alt="х"></img>
+                              </div>
+                              <div className="blog1__body__left__img">
+                                <img src={icon2b} alt="х"></img>
+                              </div>
+                          </div>
+
+                          <div className="blog1__body__right">
+                              <div className="blog1__body__right__text">
+                                  09.05.23
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  бокс 1
+                              </div>
+                              <div className="blog1__body__right__text">
+                                  9 : 30
+                              </div>
+                          </div>
+
+                        </div>
+
+                    </div>
+  }
+
+  )
+}
+
+
+
+
+for(var r = 0; r < 10; r++){
+  rowHistory.push({
+    key: r,
+    value:  
+    <tr>
+    <td>МойкаЮг</td>
+    <td>06.05.23</td>
+    <td>09:30</td>
+    <td>1</td>
+    </tr>
+
+  })
+}
+
+
+
+
+
+ // обработчик события при клике на div
+
+const [burgerClick, setBurgerClick] = useState(false)
+
+ const handleClick = () => {
+  if(burgerClick){
+    setBurgerClick(false);
+  } 
+  else{
+    setBurgerClick(true)
+  }
+  // console.log(burgerClick)
+};
 
     return(
+      
         <main>
            <div className="container__mypage">
 
@@ -55,17 +137,37 @@ var name="Роман Вочках", car="Лада Приора";
                             <img src={iconFace} alt="avatar"></img>
 
                           </div>
+                          <Link to="../Parameters">
                           <div className="panel1__mypage__text">
-                            <div className="panel1__name">Роман Вочках</div>
-                            <div className="panel1__car">Лада Niva Traval</div>
+                            <div className="panel1__name">{name}</div>
+                            <div className="panel1__car">{car}</div>
                           </div>
+                          </Link>
                           <div className="arrow"></div>
 
 
                         </div>
                         <div className="panel2__mypage">
-                            {/* бурегр */}
+                            <div className="panel2__inner__mypage" onClick={handleClick}>
+                                <div className="panel2__inner__inner__mypage"></div>
+                            </div>
                         </div>
+
+                        { burgerClick?
+                        <div className="panel3__burger__mypage">
+                          <Link to="/HomePage"><div className="panel3__burger__text__mypage">
+                            Главная
+                          </div></Link>
+                          <Link to="../Parameters"><div className="panel3__burger__text__mypage">
+                            Настройки
+                          </div></Link> 
+                          <Link to="/Register"><div className="panel3__burger__text__mypage">
+                            Выход
+                          </div></Link> 
+                        </div>
+                        :
+                        <div></div>
+                        }
                     </div>
                 </div>
 
@@ -81,50 +183,48 @@ var name="Роман Вочках", car="Лада Приора";
                 <div className="appointments__blog__mypage">
 
                   <div className="scroll__bar__mypage">
-
-                    <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
-                        <div className="blog1__body__mypage">
-                            <div className="blog1__body__data">
-                              <img src={icon1b} alt="х"></img>
-                              <div className="blog1__body__text">09.05.23</div>
-                            </div>
-                            <div className="blog1__body__box">
-                              <img src={icon3b} alt="х"></img>
-                              <div className="blog1__body__text">бокс 1</div>
-                            </div>
-                            {/* <div className="blog1__body__time">
-                              <img src={icon2b} alt="х"></img>
-                              <div className="blog1__body__text">9 : 30</div>
-                            </div> */}
-                        </div>
-                    </div>
-
-                    <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
-                        <div className="blog1__body__mypage">
-                          
-                        </div>
-                    </div>
-
-                    <div className="blog1__mypage">
-                        <div className="blog1__title__mypage">
-                          Мойка ЮГ
-                        </div>
-                        <div className="blog1__body__mypage">
-                          
-                        </div>
-                    </div>
-                  
+                    {
+                     boxAppoint.map((el)=>(
+                        el.value
+                     ))
+                    }
                   </div>
-
                  
                 </div>
               </div>
+              
+            <div className="history__mypage">
+
+                <div className="history__title__mypage">
+                  <div className="history__title__mypag__text">
+                    История
+                  </div>
+                </div>
+                
+                <div className="history__container__mypage">
+                    <div className="history__blog2__mypage">
+                        <table className="history__table__mypage">
+                          <tr>
+                            <td>Название</td>
+                            <td>Дата</td>
+                            <td>Время</td>
+                            <td>Бокс</td>
+                          </tr>
+
+                          {
+                            rowHistory.map((el)=>(
+                            el.value
+                          ))
+                          }
+                        </table>
+
+                    </div>
+                </div>
+                
+            </div>
+
+
+
            </div>
         </main>
     )

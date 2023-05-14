@@ -14,12 +14,11 @@ import left from "./../../images/slider/left.png"
 import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 
 import { url_WashPage } from "../../../getDataBD";
-=======
+
 import { useForm} from "react-hook-form";
->>>>>>> main
+
 
 export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
   
@@ -59,6 +58,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
 
  const reviews = []
  const stocks = []
+ const services = []
 
 if(dataGet.length!== 0){ // если данные нашлись  washPageInfoStocks
     //заполним массив с коменнтариями
@@ -91,7 +91,7 @@ else{   // если данные не загрузились
 
 
   //подгрузить из бд для каждой моки свое!
-<<<<<<< HEAD
+
   const stocks = [
     {
      id:"1",
@@ -121,7 +121,10 @@ else{   // если данные не загрузились
     {
      id:"6",
       text: 'Студентам скидка 5%',
-=======
+      date: '22.11. — 22.12.'
+    }
+  ]
+  
    const services = [
     {
       id:"1",
@@ -150,14 +153,7 @@ else{   // если данные не загрузились
      }
    
    ]
-   const stocks = [
-     {
-      id:"1",
-      text: 'Каждая 5 кружка кофе в подарок',
->>>>>>> main
-      date: '1.09. — 31.09.'
-    }
-  ];
+  
 }
 
 

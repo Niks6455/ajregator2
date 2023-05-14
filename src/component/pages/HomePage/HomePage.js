@@ -10,7 +10,15 @@ import { url_HomePage } from "../../../getDataBD";
 // import MyMap from "../map/MyMap";
 
 export default function HomePage() {
-
+   useEffect(() => {
+      // Запрещаем прокрутку на странице при монтировании компонента
+      document.body.style.overflow = 'hidden';
+      // Возвращаем прокрутку при размонтировании компонента
+      return () => {
+        document.body.style.overflow = 'auto';
+      }
+    }, []);
+  
 
  // Запросим от бэка 
  const [dataGet, setDataGet] = useState([]);
@@ -37,19 +45,21 @@ if(dataGet.length!== 0){ // если данные нашлись
 else{   // если данные не загрузились
    var time = "Круглосуточно"
    var address = "Восточная ул. 10а"
-   var name = "MOI CUM"
+   var name = "MOI CAM"
    var arrPhoto = []
 }
 
 // ---------------------------------------
 
+window.scrollTo(0, 0);
+document.body.classList.add('body__style');
 
    const screenHeight = window.screen.height
    // console.log(screenHeight);
    const Map__Height = screenHeight -50;
     return(
-       <div className={styles.HomePage}>
-          <Header/>    
+       <div className={styles.HomePage} >
+          {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent h={Map__Height} />
             </div>

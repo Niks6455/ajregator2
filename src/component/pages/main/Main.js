@@ -33,7 +33,8 @@ export default function Main(){
             Array.from(document.querySelectorAll('img')).forEach((file, index)=>{
                   file.onload=()=>{
                         i++
-                        if(i === 3){
+                        // console.log(i)
+                        if(i === 2){
                               setTimeout(() => {  
                                     setIsLoading(false)
                               document.body.style.overflow = "visible"

@@ -7,14 +7,12 @@ import About from "./component/pages/about/About";
 import Authorization from "./component/pages/authorization/authorization";
 import HomePage from "./component/pages/HomePage/HomePage";
 import WashPage from "./component/pages/washPage/WashPage";
-import MyPage from "./Appoint/js/MyPage";
+import MyPage from "./Appoint/js/NewMyPage";
 import StartAppoint from "./Appoint/StartAppoint";
-
-<<<<<<< HEAD
+import Parameters from "./Appoint/js/Parameters";
 
 //"start": "react-scripts start --port 3001",
-=======
->>>>>>> main
+
 function App() {
 
   return (
@@ -33,7 +31,7 @@ function App() {
               <Route path='/WashPage' element={<WashPage/>}/>
               <Route path="/MyPage" element={<MyPage/>}/>
               <Route path="/StartAppoint/*" element={<StartAppoint/>}/>
-            
+              <Route path="/Parameters" element={<Parameters/>}/>
             </Routes> 
            
          

@@ -1,10 +1,22 @@
 import React, { useEffect, useState} from 'react';
-import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-map';
+import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-maps';
 import "./mapComponent.scss";
 import poi from './img/poi.png';
 import star from './img/star.png';
 import Loader from '../../pages/loader/Loader';
 
+if (!navigator.geolocation) {
+    alert("браузер не поддерживает геолокацию");
+
+} else {
+  navigator.geolocation.watchPosition(function (position) {
+          // console.log("браузер поддерживает геолокацию!");
+      },
+      function (error) {
+          if (error.code == error.PERMISSION_DENIED)
+              alert("Дайте разрешение на определение местоположения");
+      });
+}
 
 
 var listPoint = []
@@ -138,7 +150,7 @@ for(var i = 0; i < coordinats.length; i++){
   return (
     <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
-        <Loader isLoading={isLoading}/>
+        {/* <Loader isLoading={isLoading}/> */}
           {/* <Map width={'100%'} height={'100%'}
               defaultState={{
                 center: [47.208208, 38.937189],
