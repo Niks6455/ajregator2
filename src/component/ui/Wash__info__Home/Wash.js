@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import Rating from "../Rating/Rating";
 
 import iconLK from "./../../images/Home/icon_lk.png"
-import iconHome from "./../../images/Home/icon_home.png"
+import iconHome from "./../../images/Home/icon_team.png"
 
 
 
@@ -90,8 +90,11 @@ const Wash = ({address, time, name, arrPhoto}) => {
         // x: touch.clientX - position.x,
         y: touch.clientY - position.y,
       });
-      setDragging(true);
-      
+      if(touch.clientY- position.y < 100){
+        setDragging(true);
+
+      }
+    //   console.log(touch.clientY- position.y)
     };
   
     const handleTouchMove = (event) => {
@@ -162,7 +165,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
                 <Link to="/MyPage"><img className={styles.icon__lk} src={iconLK} alt="x"  style={position.y < 400? styleIcon: styleIcon2}></img></Link> 
                 {/* <img  className={styles.info__menu} onClick={handleMenuClick} src={openInfo ? bott : top } alt="btn__butt"></img> */}
                 <div className={styles.button__top} onClick={handleMenuClick} src={openInfo ? bott : top } ></div>
-                <Link to="/HomePage"><img className={styles.icon__home} src={iconHome} alt="x" style={position.y < 400? styleIcon: styleIcon2}></img></Link>
+                <Link to="/About"><img className={styles.icon__home} src={iconHome} alt="x" style={position.y < 400? styleIcon: styleIcon2}></img></Link>
             </div>
             
                 <div className={styles.info}>   

@@ -14,7 +14,6 @@ var dataActive = []
 
 function NewCalendar(props){
 
-    document.body.classList.remove('body__style');
 
     // Запросим от бэка окупированные даты
     const [dataGet, setDataGet] = useState([]);

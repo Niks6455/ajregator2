@@ -14,7 +14,6 @@ import Title from "./../../ui/title/Title";
 export default function Register() {
 window.scrollTo(0, 0);
 
-document.body.classList.remove('body__style');
 
 const {
     register,

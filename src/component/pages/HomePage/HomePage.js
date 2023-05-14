@@ -10,7 +10,15 @@ import { url_HomePage } from "../../../getDataBD";
 // import MyMap from "../map/MyMap";
 
 export default function HomePage() {
-
+   useEffect(() => {
+      // Запрещаем прокрутку на странице при монтировании компонента
+      document.body.style.overflow = 'hidden';
+      // Возвращаем прокрутку при размонтировании компонента
+      return () => {
+        document.body.style.overflow = 'auto';
+      }
+    }, []);
+  
 
  // Запросим от бэка 
  const [dataGet, setDataGet] = useState([]);
