@@ -124,6 +124,12 @@ function MapComponent({w, h}) {
 
 
   }
+  const [openWash, setOpenWash] = useState(false);
+
+  function fun(){
+    setOpenWash(true)
+    alert(openWash)
+  }
 
 
 for(var i = 0; i < coordinats.length; i++){
@@ -135,7 +141,7 @@ for(var i = 0; i < coordinats.length; i++){
     properties={{
 
       balloonContentBody: 
-      `<div class="content__body" id=${i} >
+      `<div class="content__body" id=${i} onClick=\`${fun}\` >
             <div  class="content__text">${coordinats[i].content}</div>
 
             <div class="content__prise">
@@ -154,7 +160,6 @@ for(var i = 0; i < coordinats.length; i++){
       // open: false, 
       iconLayout: 'default#image',
       iconImageHref: poi,
-      state: 'OPEN'
       
       
     }}
