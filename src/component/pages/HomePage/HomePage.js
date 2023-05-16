@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, {useEffect, useState, useRef } from "react";
 import styles from './HomePage.module.scss';
 import Header from "../../common/header/Header";
 import Footer from "../../common/footer/Footer";
@@ -21,7 +21,22 @@ export default function HomePage() {
   
 
  // Запросим от бэка 
+
+const [idContent, setIdContetnt] = useState(0);
+const mapRef = useRef(0);
+// const coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
+//  {x:47.208208, y:38.937189, content: "Автомойка - 1", prise:500, rating: 4.3}, 
+//  {x:47.200551, y:38.916079, content: "Автомойка - 2", prise:1500, rating: 3.3},
+//  {x:47.217043, y:38.920761, content: "Автомойка - 3", prise:100, rating: 5.0},
+//  {x:47.224817, y:38.922566, content: 'Реал', prise:300, rating: 4.3}, 
+//  {x:47.233268, y:38.915890, content: 'Автомойка 4', prise:400, rating: 2.2},
+//  {x:47.256496, y:38.895906, content: 'Автомойка на стоянке', prise:600, rating: 4.4}, 
+// ]
+
+
+
  const [dataGet, setDataGet] = useState([]);
+
 
  useEffect(() => {
    async function fetchData() {
@@ -45,7 +60,7 @@ if(dataGet.length!== 0){ // если данные нашлись
 else{   // если данные не загрузились
    var time = "Круглосуточно"
    var address = "Восточная ул. 10а"
-   var name = "MOI CAM"
+   var name = idContent
    var arrPhoto = []
 }
 
@@ -66,9 +81,9 @@ function funOpenWash(){
        <div className={styles.HomePage} >
           {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
-            <MapComponent h={Map__Height}  />
+            <MapComponent h={Map__Height} mapRef={mapRef} setIdContetnt={setIdContetnt}/>
             </div>
-            <Wash time={time} address={address} name={name} arrPhoto={arrPhoto}/>
+            <Wash time={time} address={address} name={name} arrPhoto={arrPhoto} />
           {/* <Footer/> */}
        </div>
    

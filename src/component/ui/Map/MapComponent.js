@@ -1,5 +1,5 @@
-import React, { useEffect, useState} from 'react';
-import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-maps';
+import React, { useEffect, useState, useRef, useMemo} from 'react';
+import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps, Balloon } from 'react-yandex-maps';
 import "./mapComponent.scss";
 import poi from './img/poi.png';
 import star from './img/star.png';
@@ -21,6 +21,7 @@ if (!navigator.geolocation) {
 
 
 var listPoint = []
+// coordinats в homePage
 var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
   {x:47.208208, y:38.937189, content: "Автомойка - 1", prise:500, rating: 4.3}, 
   {x:47.200551, y:38.916079, content: "Автомойка - 2", prise:1500, rating: 3.3},
@@ -35,7 +36,7 @@ var key = 0
 const elementsPoint = 0
 
 
-function MapComponent({w, h}) {
+function MapComponent( props) {
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -85,9 +86,9 @@ function MapComponent({w, h}) {
     );
     
   });
-  const ConnectedMap = React.useMemo(() => {
+  const ConnectedMap = useMemo(() => {
     return withYMaps(PositionedMap, true, [["geolocation", "geocode"]]);
-  }, [PositionedMap]);
+  }, [ coordinats]);
   // -----------------------------------------------------
 
   // if(!isLoading){
@@ -121,10 +122,12 @@ function MapComponent({w, h}) {
     console.log(divBalun);
     const id = divBalun.getAttribute('id');
     console.log(id); // выведет 'myDiv' в консоль
-
+    props.setIdContetnt(coordinats[id].content);
+    // props.mapRef.current = coordinats[id].content;
 
   }
   const [openWash, setOpenWash] = useState(false);
+  
 
   function fun(){
     setOpenWash(true)
@@ -141,7 +144,7 @@ for(var i = 0; i < coordinats.length; i++){
     properties={{
 
       balloonContentBody: 
-      `<div class="content__body" id=${i} onClick=\`${fun}\` >
+      `<div class="content__body" id=${i} onClick=${fun} >
             <div  class="content__text">${coordinats[i].content}</div>
 
             <div class="content__prise">
@@ -165,15 +168,18 @@ for(var i = 0; i < coordinats.length; i++){
     }}
 
     
-  />,  }
+  > 
+
+  </Placemark>,  }
   
   )
   key++;
+
   
 }
 
   return (
-    <div style={{height: `${h +'px'}`,width: `${w +'px'}` }}>
+    <div style={{height: `${props.h +'px'}`,width: `${props.w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
         {/* <Loader isLoading={isLoading}/> */}
           {/* <Map width={'100%'} height={'100%'}
