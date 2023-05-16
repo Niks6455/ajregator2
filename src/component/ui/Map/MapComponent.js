@@ -106,18 +106,22 @@ function MapComponent({w, h}) {
 
   // }
   
+//функция открытия кооперативного балуна при нажатии на автомойку 
+  function openBalun(){
+    console.log('Clicked')
+  }
 
 
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
-    {value:<Placemark key={key}  
+    {value:<Placemark key={key}  onClick={openBalun} 
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
     properties={{
 
       balloonContentBody: 
-      `<div class="content__body">
+      `<div class="content__body" >
             <div class="content__text">${coordinats[i].content}</div>
 
             <div class="content__prise">
@@ -136,6 +140,7 @@ for(var i = 0; i < coordinats.length; i++){
       // open: false, 
       iconLayout: 'default#image',
       iconImageHref: poi,
+      
       
     }}
 

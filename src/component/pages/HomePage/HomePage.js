@@ -52,7 +52,12 @@ else{   // если данные не загрузились
 // ---------------------------------------
 
 window.scrollTo(0, 0);
-document.body.classList.add('body__style');
+// document.body.classList.add('body__style');
+
+
+function funOpenWash(){
+   console.log('open');
+ }
 
    const screenHeight = window.screen.height
    // console.log(screenHeight);
@@ -61,7 +66,7 @@ document.body.classList.add('body__style');
        <div className={styles.HomePage} >
           {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
-            <MapComponent h={Map__Height} />
+            <MapComponent h={Map__Height}  />
             </div>
             <Wash time={time} address={address} name={name} arrPhoto={arrPhoto}/>
           {/* <Footer/> */}
