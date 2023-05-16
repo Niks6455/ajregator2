@@ -21,15 +21,15 @@ if (!navigator.geolocation) {
 
 
 var listPoint = []
-// coordinats в homePage
-var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
-  {x:47.208208, y:38.937189, content: "Автомойка - 1", prise:500, rating: 4.3}, 
-  {x:47.200551, y:38.916079, content: "Автомойка - 2", prise:1500, rating: 3.3},
-  {x:47.217043, y:38.920761, content: "Автомойка - 3", prise:100, rating: 5.0},
-  {x:47.224817, y:38.922566, content: 'Реал', prise:300, rating: 4.3}, 
-  {x:47.233268, y:38.915890, content: 'Автомойка 4', prise:400, rating: 2.2},
-  {x:47.256496, y:38.895906, content: 'Автомойка на стоянке', prise:600, rating: 4.4}, 
-]
+// props.coordinats в homePage
+// var props.coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
+//   {x:47.208208, y:38.937189, content: "Автомойка - 1", prise:500, rating: 4.3, adres: "Ул. Автомоячная 1а"}, 
+//   {x:47.200551, y:38.916079, content: "Автомойка - 2", prise:1500, rating: 3.3, adres: "Ул. Автомоячная 2а"},
+//   {x:47.217043, y:38.920761, content: "Автомойка - 3", prise:100, rating: 5.0, adres: "Ул. Автомоячная 3а"},
+//   {x:47.224817, y:38.922566, content: 'Реал', prise:300, rating: 4.3, adres: "Ул. Автомоячная 4а"}, 
+//   {x:47.233268, y:38.915890, content: 'Автомойка 4', prise:400, rating: 2.2, adres: "Ул. Автомоячная 5а"},
+//   {x:47.256496, y:38.895906, content: 'Автомойка на стоянке', prise:600, rating: 4.4, adres: "Ул. Автомоячная 6а"}, 
+// ]
 var key = 0
 
 
@@ -88,7 +88,7 @@ function MapComponent( props) {
   });
   const ConnectedMap = useMemo(() => {
     return withYMaps(PositionedMap, true, [["geolocation", "geocode"]]);
-  }, [ coordinats]);
+  }, [ listPoint]);
   // -----------------------------------------------------
 
   // if(!isLoading){
@@ -104,7 +104,7 @@ function MapComponent( props) {
   //   console.log("fffff") 
   
   
-  //   }
+  //   } 
 
   // }
   
@@ -119,11 +119,14 @@ function MapComponent( props) {
     const html = event.originalEvent.target.properties._data.balloonContentBody;
     const range = document.createRange();
     const divBalun = range.createContextualFragment(html).querySelector('div');
-    console.log(divBalun);
+    // console.log(divBalun);
     const id = divBalun.getAttribute('id');
-    console.log(id); // выведет 'myDiv' в консоль
-    props.setIdContetnt(coordinats[id].content);
-    // props.mapRef.current = coordinats[id].content;
+    // console.log(id); // выведет 'myDiv' в консоль
+    props.setIdContetnt(id);
+
+    // props.mapRef.current = props.coordinats[id].content;
+
+    props.funOpenWash()
 
   }
   const [openWash, setOpenWash] = useState(false);
@@ -135,28 +138,30 @@ function MapComponent( props) {
   }
 
 
-for(var i = 0; i < coordinats.length; i++){
+for(var i = 0; i < props.coordinats.length; i++){
   listPoint.push(
     {value:<Placemark id={i}  onClick={openBalun} 
     modules={["geoObject.addon.balloon"]}
-    defaultGeometry={[coordinats[i].x, coordinats[i].y]}
+    defaultGeometry={[props.coordinats[i].x, props.coordinats[i].y]}
     
     properties={{
 
       balloonContentBody: 
       `<div class="content__body" id=${i} onClick=${fun} >
-            <div  class="content__text">${coordinats[i].content}</div>
+            <div  class="content__text">${props.coordinats[i].content}</div>
 
             <div class="content__prise">
-            <img class="star" src=${star}></img>
-            <b>${coordinats[i].rating}</b>
-            Кузов: от ${coordinats[i].prise}₽
+            
+            Кузов: от ${props.coordinats[i].prise}₽
             </div>
         </div>
       `
         ,   
   
     }}
+    // звезды
+    //<img class="star" src=${star}></img>
+    // <b>${props.coordinats[i].rating}</b>
     
     options={{   
       // openBalloon: false,

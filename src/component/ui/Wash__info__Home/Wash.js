@@ -18,7 +18,7 @@ import iconHome from "./../../images/Home/icon_team.png"
 
 
 
-const Wash = ({address, time, name, arrPhoto}) => {
+const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash}) => {
     // console.log(arrPhoto[0])
     
     // if(arrPhoto.length !== 0){
@@ -109,13 +109,13 @@ const Wash = ({address, time, name, arrPhoto}) => {
   
     const handleTouchEnd = () => {
       setDragging(false);
-      if(position.y > screenHeight - 150){
+      if(position.y > screenHeight - 50){
         setPosition({
             //   x: touch.clientX - startPosition.x,
               y: screenHeight,
             });
       }
-      if(position.y < 400){
+      if(position.y < 350){
         setPosition({
             //   x: touch.clientX - startPosition.x,
               y: screenHeight-375,
@@ -144,7 +144,13 @@ const Wash = ({address, time, name, arrPhoto}) => {
         
     };
    
-  
+    if(openMyWash === true && position.y > 587){
+      setPosition({
+          y: screenHeight-75,
+        });
+
+        setOpenMyWash(false)
+    }
 
     return(
 
@@ -173,7 +179,7 @@ const Wash = ({address, time, name, arrPhoto}) => {
                     <div className={styles.name}>
                         <p>{name}</p>
                         <p>{address}</p>
-                         <Rating rating="3"/> 
+                         <Rating rating={reyting}/> 
                     </div>
                     <div className={styles.time}>
                         <p>Время работы:</p>
