@@ -4,6 +4,7 @@ import "./mapComponent.scss";
 import poi from './img/poi.png';
 import star from './img/star.png';
 import Loader from '../../pages/loader/Loader';
+import { json } from 'react-router-dom';
 
 if (!navigator.geolocation) {
     alert("браузер не поддерживает геолокацию");
@@ -106,23 +107,36 @@ function MapComponent({w, h}) {
 
   // }
   
-//функция открытия кооперативного балуна при нажатии на автомойку 
-  function openBalun(){
-    console.log('Clicked')
+//функция которая забирает html код у балуна автомойки на которую нажали и достает из нее данные
+  function openBalun(event){
+    // console.log('Clicked')
+    // console.log(event)
+    // console.log(event.originalEvent.target.geometry._coordinates)
+
+    // var htmltext = event.originalEvent.target.properties._data.balloonContentBody;
+    // console.log(htmltext);
+    const html = event.originalEvent.target.properties._data.balloonContentBody;
+    const range = document.createRange();
+    const divBalun = range.createContextualFragment(html).querySelector('div');
+    console.log(divBalun);
+    const id = divBalun.getAttribute('id');
+    console.log(id); // выведет 'myDiv' в консоль
+
+
   }
 
 
 for(var i = 0; i < coordinats.length; i++){
   listPoint.push(
-    {value:<Placemark key={key}  onClick={openBalun} 
+    {value:<Placemark id={i}  onClick={openBalun} 
     modules={["geoObject.addon.balloon"]}
     defaultGeometry={[coordinats[i].x, coordinats[i].y]}
     
     properties={{
 
       balloonContentBody: 
-      `<div class="content__body" >
-            <div class="content__text">${coordinats[i].content}</div>
+      `<div class="content__body" id=${i} >
+            <div  class="content__text">${coordinats[i].content}</div>
 
             <div class="content__prise">
             <img class="star" src=${star}></img>
@@ -140,6 +154,7 @@ for(var i = 0; i < coordinats.length; i++){
       // open: false, 
       iconLayout: 'default#image',
       iconImageHref: poi,
+      state: 'OPEN'
       
       
     }}
