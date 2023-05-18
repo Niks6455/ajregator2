@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-maps';
+import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps } from 'react-yandex-map';
 import "./mapComponent.scss";
 import poi from './img/poi.png';
 import star from './img/star.png';
