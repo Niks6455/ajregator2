@@ -137,6 +137,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
     const styleIcon = {
         opacity: 0,
         transition: "all 1s ease-in-out",
+        pointerEvents: 'none',
     };
     const styleIcon2 = {
         opacity: '60%',
