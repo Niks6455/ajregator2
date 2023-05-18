@@ -38,7 +38,7 @@ function Parameters(){
                                 <input className="myinfo__name__title2__param" type="text" name="marka" id="marka" placeholder="Лада Приора"/>
                             </div>
                             <div>
-                                <label className="myinfo__name__title1__param" for="type">Фамилия</label>
+                                <label className="myinfo__name__title1__param" for="type">Тип</label>
                                 <input className="myinfo__name__title2__param" type="text" name="type" id="type" placeholder="Седан"/>
                             </div>
                             <div className="myinfo__btn__param">

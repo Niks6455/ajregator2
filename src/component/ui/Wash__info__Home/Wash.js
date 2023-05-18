@@ -163,9 +163,6 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         style={style}
-    //   className={openInfo ? 'open__menu' : 'close__menu'}
-
-        
         >
             <div className={styles.Wash__info}>
             
@@ -198,18 +195,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
 
                     }
                  </div>
-               {/* <div className={styles.slider}>
-                    <Slider className={styles.slider__img} slides={currentSlides} /> 
-                    <div className={styles.slider__but}>
-                    <img  onClick={() => setStartIndex(startIndex === 0 ? startIndex = 0 : startIndex - 3)} src={left} alt="btn__left"></img>
-                        <div className={styles.curcle__inner}>
-                            <span style={startIndex === 0 ? {backgroundColor:"#6B7073", width:"9px", height:"9px"} : {backgroundColor:"#6B7073", opacity:"0.5"}} className={styles.curcle}></span>
-                            <span style={startIndex === 3 ? {backgroundColor:"#6B7073", width:"9px", height:"9px"} : {backgroundColor:"#6B7073", opacity:"0.5"}} className={styles.curcle}></span>
-                            <span style={startIndex === 6 ? {backgroundColor:"#6B7073", width:"9px", height:"9px"} : {backgroundColor:"#6B7073", opacity:"0.5"}} className={styles.curcle}></span>
-                        </div>
-                        <img  onClick={() => setStartIndex(startIndex === 6 ? startIndex = 6 : startIndex + 3)} src={right} alt="btn__right"></img>
-                    </div>   
-                </div> */}
+              
                 <div className={styles.button}>
                     <div className={styles.button__inner}>
                         <Link to="/WashPage"> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link>

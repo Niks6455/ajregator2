@@ -14,6 +14,8 @@ import left from "./../../images/slider/left.png"
 import ReviewSlider from "../../ui/reviewsSlider/RewSlider";
 import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
+import { YMaps, Map, Placemark, ZoomControl} from 'react-yandex-maps';
+import poi from './img/poi.png';
 
 import { url_WashPage } from "../../../getDataBD";
 
@@ -56,9 +58,7 @@ export default function WashPage({timeWork="Круглосуточно", Price="
 
  console.log("data",dataGet)
 
- const reviews = []
- const stocks = []
- const services = []
+ 
 
 if(dataGet.length!== 0){ // если данные нашлись  washPageInfoStocks
     //заполним массив с коменнтариями
@@ -72,7 +72,7 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
    }
 
 }
-else{   // если данные не загрузились
+   // если данные не загрузились
     //подгрузить из бд для каждой моки свое!
   const reviews = [
     {
@@ -154,7 +154,7 @@ else{   // если данные не загрузились
    
    ]
   
-}
+
 
 
 
@@ -191,7 +191,23 @@ else{   // если данные не загрузились
 
                 <div className={styles.Wash__map__inner}>
                   <div className={styles.map}>
-                  <MapComponent w={"300"} h={"250"}/>
+                  {/* <MapComponent w={"300"} h={"250"}/> */}
+                  <YMaps  query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
+                  <Map w={"300"} h={"250"}
+                     state={{
+                      center: [47.208208, 38.937189],
+                      zoom: 13
+                    }}
+                  >
+                      <ZoomControl  options={{ float: "right" }} />
+                      <Placemark geometry={[47.208208, 38.937189]} 
+                       options={{   
+                        iconLayout: 'default#image',
+                        iconImageHref: poi,
+                      }}
+                      />
+                  </Map>
+                  </YMaps>
                   </div>
                 </div>
 
