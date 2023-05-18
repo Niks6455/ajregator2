@@ -101,19 +101,14 @@ function MapComponent( props) {
           <GeolocationControl options={{ float: "left" }} />
             <RouteButton options={{
                 float: "right",
-                size: "large",
-                selectOnClick: false,
-                iconLayout: "default#image",
-                iconImageHref: "https://yastatic.net/s3/mapsapi-icons/taxi/taxi_park.png",
-                iconImageSize: [40, 40],
-                iconImageOffset: [-20, -20],
+
               }}
                />
             <SearchControl options={{ float: "right" }} />
             <TrafficControl options={{ float: "right" }} />
             <ZoomControl options={{ float: "right" }} />
-            <RouteEditor
-            />
+            {/* <RouteEditor
+            /> */}
 
         </Map>
         
