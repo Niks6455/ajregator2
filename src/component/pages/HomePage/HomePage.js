@@ -23,7 +23,9 @@ export default function HomePage() {
  // Запросим от бэка 
 
 const [idContent, setIdContetnt] = useState(0);
+
 const mapRef = useRef(0);
+
 var coordinats = [ //точки которые берем с бд (координаты и данные об автомойке)
   {x:47.208208, y:38.937189, content: "Автомойка - 1", prise:500, rating: 4.3, adres: "Ул. Автомоячная 1а", time: "9-00 до 21-00", reyting: '1'}, 
   {x:47.200551, y:38.916079, content: "Автомойка - 2", prise:1500, rating: 3.3, adres: "Ул. Автомоячная 2а", time: "8-00 до 20-00" , reyting: '2'},
@@ -82,13 +84,31 @@ function funOpenWash(){
    const screenHeight = window.screen.height
    // console.log(screenHeight);
    const Map__Height = screenHeight -50;
+
+
+
+
+  //кнопка маршрут--------------------------------
+  const[marshrut, setMarshrut] = useState(0)
+
+  function funMarshrut(){
+    console.log("handleClick",idContent, "koor", [marshrut[1], marshrut[0] ])
+
+    const pointB = [coordinats[idContent].x, coordinats[idContent].y ]; // координаты точки А
+    const pointA = [marshrut[0], marshrut[1]]; // координаты точки Б
+    const url =` https://yandex.ru/maps/?rtext=${pointA}~${pointB}&rtt=auto`;
+  
+    window.open(url, '_blank');
+  }
+  // =================================
+
     return(
        <div className={styles.HomePage} >
           {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
-            <MapComponent h={Map__Height} mapRef={mapRef} coordinats={coordinats} setIdContetnt={setIdContetnt} funOpenWash={funOpenWash}/>
+            <MapComponent marshrut={marshrut} setMarshrut={setMarshrut} h={Map__Height} mapRef={mapRef} coordinats={coordinats} setIdContetnt={setIdContetnt} funOpenWash={funOpenWash}/>
             </div>
-            <Wash time={time} address={address} name={name} arrPhoto={arrPhoto} reyting={reyting} openMyWash={openMyWash} setOpenMyWash={setOpenMyWash} />
+            <Wash funMarshrut={funMarshrut} time={time} address={address} name={name} arrPhoto={arrPhoto} reyting={reyting} openMyWash={openMyWash} setOpenMyWash={setOpenMyWash} />
           {/* <Footer/> */}
        </div>
    

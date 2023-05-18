@@ -18,7 +18,7 @@ import iconHome from "./../../images/Home/icon_team.png"
 
 
 
-const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash}) => {
+const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash, funMarshrut}) => {
     // console.log(arrPhoto[0])
     
     // if(arrPhoto.length !== 0){
@@ -152,6 +152,9 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
         setOpenMyWash(false)
     }
 
+
+  
+
     return(
 
         <div className='open__menu' ref={ref}
@@ -215,7 +218,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
                     <Link to="/StartAppoint">   <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link> 
                     </div>
 
-                    <div className={styles.button__inner}>
+                    <div className={styles.button__inner} onClick={funMarshrut}>
                     <Button text={"Маршрут"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/>
                     </div>
                 </div>

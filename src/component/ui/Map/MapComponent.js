@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef, useMemo} from 'react';
-import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps, Balloon } from 'react-yandex-maps';
+import { YMaps, Map, Placemark, GeolocationControl,RouteButton, SearchControl, TrafficControl, ZoomControl, withYMaps, Balloon,  RouteEditor, Polyline, RoutePanel, Marker} from 'react-yandex-maps';
 import "./mapComponent.scss";
 import poi from './img/poi.png';
 import star from './img/star.png';
 import Loader from '../../pages/loader/Loader';
-import { json } from 'react-router-dom';
 
 if (!navigator.geolocation) {
     alert("браузер не поддерживает геолокацию");
@@ -40,6 +39,27 @@ function MapComponent( props) {
 
   const [isLoading, setIsLoading] = useState(true);
 
+
+//-------------------------------------------------------------
+//------------------------------------------------------------
+// определим местоположение 
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        props.setMarshrut([position.coords.latitude, position.coords.longitude]);
+      },
+      (error) => {
+        alert('Ошибка при определении местоположения', error);
+      }
+    );
+  } else {
+    alert('Геолокация не поддерживается вашим браузером');
+  }
+
+
+
+
   // -----------------------------------------------------
   const PositionedMap = React.memo(({ ymaps }) => {
     const [loadedCoords, setLoading] = React.useState(false);
@@ -66,8 +86,11 @@ function MapComponent( props) {
     //     <div>Loading...</div>
     //   )
     // }
+
+
     return (
       loadedCoords && (
+        
         <Map width={'100%'} height={'100%'}
           state={{
             center: [47.208208, 38.937189],
@@ -76,10 +99,22 @@ function MapComponent( props) {
         >
           {listPoint.map(el=> el.value) }
           <GeolocationControl options={{ float: "left" }} />
-            <RouteButton options={{ float: "right" }} />
+            <RouteButton options={{
+                float: "right",
+                size: "large",
+                selectOnClick: false,
+                iconLayout: "default#image",
+                iconImageHref: "https://yastatic.net/s3/mapsapi-icons/taxi/taxi_park.png",
+                iconImageSize: [40, 40],
+                iconImageOffset: [-20, -20],
+              }}
+               />
             <SearchControl options={{ float: "right" }} />
             <TrafficControl options={{ float: "right" }} />
             <ZoomControl options={{ float: "right" }} />
+            <RouteEditor
+            />
+
         </Map>
         
       )
@@ -89,24 +124,8 @@ function MapComponent( props) {
   const ConnectedMap = useMemo(() => {
     return withYMaps(PositionedMap, true, [["geolocation", "geocode"]]);
   }, [ listPoint]);
-  // -----------------------------------------------------
+  // -----------------------------------------------------listPoint
 
-  // if(!isLoading){
-  //   let elementsPoint = document.getElementsByClassName("ymaps-2-1-79-image")
-  //   console.log("--",elementsPoint.length)
-  //   console.log("----",elementsPoint)
-  //   for(let t = 0; t < elementsPoint.length; t++)
-  //   {
-  //     // elementsPoint.setAttribute("onclick","alert('blah');"); 
-  //     elementsPoint[t].addEventListener('click', function() {
-  //       console.log('Image clicked')
-  //     })
-  //   console.log("fffff") 
-  
-  
-  //   } 
-
-  // }
   
 //функция которая забирает html код у балуна автомойки на которую нажали и достает из нее данные
   function openBalun(event){
@@ -128,13 +147,14 @@ function MapComponent( props) {
 
     props.funOpenWash()
 
+
   }
   const [openWash, setOpenWash] = useState(false);
   
 
   function fun(){
     setOpenWash(true)
-    alert(openWash)
+    // alert(openWash)
   }
 
 
@@ -164,46 +184,19 @@ for(var i = 0; i < props.coordinats.length; i++){
     // <b>${props.coordinats[i].rating}</b>
     
     options={{   
-      // openBalloon: false,
-      // open: false, 
       iconLayout: 'default#image',
       iconImageHref: poi,
-      
-      
     }}
-
-    
   > 
-
   </Placemark>,  }
-  
   )
   key++;
-
-  
 }
 
   return (
     <div style={{height: `${props.h +'px'}`,width: `${props.w +'px'}` }}>
       <YMaps query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
-        {/* <Loader isLoading={isLoading}/> */}
-          {/* <Map width={'100%'} height={'100%'}
-              defaultState={{
-                center: [47.208208, 38.937189],
-                zoom: 13,
-                
-              }}
-            >
-              {listPoint.map(el=> el.value) }
-              
-            <GeolocationControl options={{ float: "left" }} />
-            <RouteButton options={{ float: "right" }} />
-            <SearchControl options={{ float: "right" }} />
-            <TrafficControl options={{ float: "right" }} />
-            <ZoomControl options={{ float: "right" }} />
-         </Map> */}
-         <ConnectedMap />
-
+        <ConnectedMap />
       </YMaps>
     </div>
   );
