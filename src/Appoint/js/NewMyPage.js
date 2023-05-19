@@ -51,23 +51,22 @@ var rowHistory = []
 
 
 // функицяи удаления записи
-
-const [count, setCount] = useState(0)
+var num = 0;
+const [count, setCount] = useState(10)
 useEffect(() => {
   console.log("Component has been updated");
 }, [boxAppoint]);
 
 function delAppoint(event){
-  
   setCount(prevCount => prevCount + 1)
   console.log("count", count)
   console.log(event.target.id)
-  boxAppoint.splice(event.target.id - count, 1);
+  boxAppointList.splice(event.target.id - num, 1);
   console.log("nox ",boxAppointList)
-  setBoxAppoint(prevCount =>boxAppointList)
+  setBoxAppoint(boxAppointList)
+  num = num+1;
 
-
-  
+ 
 
 }
 
@@ -150,6 +149,16 @@ const [burgerClick, setBurgerClick] = useState(false)
 };
 
 
+if(boxAppoint.length === 0){
+  // console.log("Данных нет")
+  setCount(0) //чтбы вывести сообщение что записей нет 
+
+}
+if(boxAppoint.length < 4){
+  console.log("Данных ", boxAppoint.length)
+
+
+}
 
 
     return(
@@ -204,20 +213,27 @@ const [burgerClick, setBurgerClick] = useState(false)
 
                 <div className="appointments__title__mypage">
                   <div className="appointments__title__mypag__text">
-                    Мои записи {count}
+                    Мои записи
                   </div>
                 </div>
 
                 <div className="appointments__blog__mypage">
 
-                  <div className="scroll__bar__mypage">
-                    {
+                  <div className="scroll__bar__mypage" style={boxAppoint.length < 3? {justifyContent: 'center'} : {}}>
+                    {count !== 0 ?
                      boxAppoint.map((el)=>(
                       <div key={el.key}> 
                         {el.value }
 
                       </div>
                      ))
+                     :
+                     <div className="not__appoint__mypage">
+                      <div className="not__appoint__inner__mypage">
+                          У вас еще нет записей
+
+                      </div>
+                      </div>
                     }
                   </div>
                  
