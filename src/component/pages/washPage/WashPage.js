@@ -185,7 +185,7 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
            <Header/>
            <div className={styles.Wash__inner}>
               <div className={styles.Wash__name}>
-                <Title text="Moi Cum"/>
+                <Title text="Moi Cam"/>
               </div>
               <div className={styles.Wash__map}>
 

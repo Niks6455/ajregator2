@@ -189,6 +189,7 @@ $clblue: #4E78E2;
             }
 
             .blog1__mypage{
+                position: relative;
                 flex: 0 0 auto;
                 display: flex;
                 width: 140px;
@@ -199,6 +200,39 @@ $clblue: #4E78E2;
                 border-radius: 15px;
                 color: #ffffff;
                 flex-wrap: wrap;
+
+                // удаление записи 
+                .gg__close{
+                    position: absolute;
+                    top: 6px;
+                    right: 6px;
+                    box-sizing: border-box;
+                    // position: relative;
+                    display: block;
+                    transform: scale(var(--ggs,1));
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid;
+                    border-radius: 40px
+                }
+                .gg__close::after,
+                .gg__close::before {
+                    content: "";
+                    display: block;
+                    box-sizing: border-box;
+                    position: absolute;
+                    width: 10px;
+                    height: 2px;
+                    background: currentColor;
+                    transform: rotate(45deg);
+                    border-radius: 5px;
+                    top: 8px;
+                    left: 3px
+                }
+                .gg__close::after {
+                    transform: rotate(-45deg)
+                }
+
 
                 .blog1__title__mypage{
                     display: flex;
@@ -308,3 +342,7 @@ $clblue: #4E78E2;
     }
 
 }
+
+
+
+

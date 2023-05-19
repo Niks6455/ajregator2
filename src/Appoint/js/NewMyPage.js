@@ -41,20 +41,45 @@ var name="Роман", car="Лада Приора";
 
 
 // блоки в моих записях
-var boxAppoint = []
+var boxAppointList = []
+var [boxAppoint, setBoxAppoint] = useState(boxAppointList)
 // строки в таблице истории
 var rowHistory = []
 
 // var name = "Роман"
 
+
+
+// функицяи удаления записи
+
+const [count, setCount] = useState(0)
+useEffect(() => {
+  console.log("Component has been updated");
+}, [boxAppoint]);
+
+function delAppoint(event){
+  
+  setCount(prevCount => prevCount + 1)
+  console.log("count", count)
+  console.log(event.target.id)
+  boxAppoint.splice(event.target.id - count, 1);
+  console.log("nox ",boxAppointList)
+  setBoxAppoint(prevCount =>boxAppointList)
+
+
+  
+
+}
+
 for(var l = 0; l < 6; l++){
-  boxAppoint.push( {
+  boxAppointList.push( {
     key: l,
     value:
-    <div className="blog1__mypage">
+    <div className="blog1__mypage" >
                         <div className="blog1__title__mypage">
                           Мойка ЮГ
                         </div>
+                        <div id={l} onClick={delAppoint} className="gg__close"></div>
 
                         <div className="blog1__body__mypage">
                           <div className="blog1__body__left">
@@ -74,7 +99,7 @@ for(var l = 0; l < 6; l++){
                                   09.05.23
                               </div>
                               <div className="blog1__body__right__text">
-                                  бокс 1
+                                  бокс {l}
                               </div>
                               <div className="blog1__body__right__text">
                                   9 : 30
@@ -87,8 +112,8 @@ for(var l = 0; l < 6; l++){
   }
 
   )
-}
 
+}
 
 
 
@@ -123,6 +148,9 @@ const [burgerClick, setBurgerClick] = useState(false)
   }
   // console.log(burgerClick)
 };
+
+
+
 
     return(
       
@@ -176,7 +204,7 @@ const [burgerClick, setBurgerClick] = useState(false)
 
                 <div className="appointments__title__mypage">
                   <div className="appointments__title__mypag__text">
-                    Мои записи
+                    Мои записи {count}
                   </div>
                 </div>
 
@@ -185,7 +213,10 @@ const [burgerClick, setBurgerClick] = useState(false)
                   <div className="scroll__bar__mypage">
                     {
                      boxAppoint.map((el)=>(
-                        el.value
+                      <div key={el.key}> 
+                        {el.value }
+
+                      </div>
                      ))
                     }
                   </div>
