@@ -68,7 +68,7 @@ export default function WashPage(props) {
 
 
   function telOpenFun () {
-    var telLink = 'tel:' + this.textContent;
+    var telLink = 'tel:' + propsData.tel;
     // открываем ссылку в новом окне
     window.open(telLink, '_blank');
   }
