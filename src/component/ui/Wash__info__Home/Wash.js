@@ -18,7 +18,7 @@ import iconHome from "./../../images/Home/icon_team.png"
 
 
 
-const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash, funMarshrut}) => {
+const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash, funMarshrut, coordinats}) => {
     // console.log(arrPhoto[0])
     
     // if(arrPhoto.length !== 0){
@@ -39,6 +39,15 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
     
 
 // const Wash = ({address, time, name}) => {
+
+
+///============================================
+
+    ///данные которые передаем в подробнее
+    var data = coordinats
+
+
+///============================================
 
     const slides = [
         img1,
@@ -154,8 +163,6 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
     }
 
 
-  
-
     return(
 
         <div className='open__menu' ref={ref}
@@ -198,7 +205,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
               
                 <div className={styles.button}>
                     <div className={styles.button__inner}>
-                        <Link to="/WashPage"> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link>
+                        <Link to= '/WashPage' state = {{ data: data }}> <Button text={"Подробнее"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link>
                     </div>
 
                     <div className={styles.button__inner}>

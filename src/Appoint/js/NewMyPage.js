@@ -152,7 +152,7 @@ const [burgerClick, setBurgerClick] = useState(false)
 if(boxAppoint.length === 0){
   // console.log("Данных нет")
   setCount(0) //чтбы вывести сообщение что записей нет 
-  setBoxAppoint(0)
+  setBoxAppoint(0) // без этого бесконечный рендер и страницанакрывается
 }
 
 

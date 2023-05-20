@@ -14,6 +14,7 @@ import Parameters from "./Appoint/js/Parameters";
 //"start": "react-scripts start --port 3001",
 
 function App() {
+  const[marshrutWP, setMarshrutWP] = useState(0)
 
   return (
 
@@ -27,8 +28,8 @@ function App() {
               <Route path='/Register' element={<Register />}/>
               <Route path='/Authorization' element={<Authorization />}/>
               <Route path='/About' element={<About />}/>
-              <Route path='/HomePage' element={<HomePage />}/>
-              <Route path='/WashPage' element={<WashPage/>}/>
+              <Route path='/HomePage' element={<HomePage setMarshrutWP={setMarshrutWP}/>}/>
+              <Route path='/WashPage' element={<WashPage marshrutWP={marshrutWP} />}/>
               <Route path="/MyPage" element={<MyPage/>}/>
               <Route path="/StartAppoint/*" element={<StartAppoint/>}/>
               <Route path="/Parameters" element={<Parameters/>}/>

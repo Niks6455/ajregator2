@@ -9,7 +9,7 @@ import { url_HomePage } from "../../../getDataBD";
 
 // import MyMap from "../map/MyMap";
 
-export default function HomePage() {
+export default function HomePage(props) {
    useEffect(() => {
       // Запрещаем прокрутку на странице при монтировании компонента
       document.body.style.overflow = 'hidden';
@@ -90,7 +90,7 @@ function funOpenWash(){
 
   //кнопка маршрут--------------------------------
   const[marshrut, setMarshrut] = useState(0)
-
+  props.setMarshrutWP('wwww')
   function funMarshrut(){
     console.log("handleClick",idContent, "koor", [marshrut[1], marshrut[0] ])
 
@@ -107,7 +107,7 @@ function funOpenWash(){
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent marshrut={marshrut} setMarshrut={setMarshrut} h={Map__Height} mapRef={mapRef} coordinats={coordinats} setIdContetnt={setIdContetnt} funOpenWash={funOpenWash}/>
             </div>
-            <Wash funMarshrut={funMarshrut} time={time} address={address} name={name} arrPhoto={arrPhoto} reyting={reyting} openMyWash={openMyWash} setOpenMyWash={setOpenMyWash} />
+            <Wash coordinats={coordinats[idContent]} funMarshrut={funMarshrut} time={time} address={address} name={name} arrPhoto={arrPhoto} reyting={reyting} openMyWash={openMyWash} setOpenMyWash={setOpenMyWash} />
        </div>
    
     ) 

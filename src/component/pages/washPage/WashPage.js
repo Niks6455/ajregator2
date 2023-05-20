@@ -16,14 +16,22 @@ import Stocks from "./../../ui/stocks/Stocks";
 import { Link } from "react-router-dom";
 import { YMaps, Map, Placemark, ZoomControl} from 'react-yandex-maps';
 import poi from './img/poi.png';
-
+import {Redirect} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { url_WashPage } from "../../../getDataBD";
+
 
 import { useForm} from "react-hook-form";
 
 
-export default function WashPage({timeWork="Круглосуточно", Price="150"}) {
-  
+export default function WashPage(props) {
+  var timeWork="Круглосуточно";
+  var Price="150";
+  const location = useLocation();
+
+  console.log("funMarshrut", location.state?.data)
+  const propsData = location.state?.data;
+
   const {
     register,
     formState:{errors, isValid},
@@ -195,12 +203,12 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
                   <YMaps  query={{ apikey: 'f3c78576-996b-4eaa-84f8-12a8520d276a' }}>
                   <Map w={"300"} h={"250"}
                      state={{
-                      center: [47.208208, 38.937189],
+                      center: [propsData.x, propsData.y],
                       zoom: 13
                     }}
                   >
                       <ZoomControl  options={{ float: "right" }} />
-                      <Placemark geometry={[47.208208, 38.937189]} 
+                      <Placemark geometry={[propsData.x, propsData.y]} 
                        options={{   
                         iconLayout: 'default#image',
                         iconImageHref: poi,
