@@ -65,6 +65,13 @@ export default function WashPage(props) {
 
   }
 
+
+
+  function telOpenFun () {
+    var telLink = 'tel:' + this.textContent;
+    // открываем ссылку в новом окне
+    window.open(telLink, '_blank');
+  }
   //======================================================
 
   const {
@@ -265,8 +272,10 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
                   <Button  text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
                   
                   }
-                 
-                  <Button text={"Позвонить"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+                  <div onClick={telOpenFun}>
+                  <Button  text={"Позвонить"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+
+                  </div>
                   <div className={styles.Wash__map__text}>
                     <div className={styles.Wash__map__time}>Время работы: {timeWork}</div>
                       <div className={styles.Wash__map__price}>Средний чек: {Price}</div>
