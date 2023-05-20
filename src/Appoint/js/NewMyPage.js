@@ -14,10 +14,31 @@ import { url_MyPage } from "../../getDataBD";
 
 
 function NewMyPage(props){
-    
+
+
+// блоки в моих записях
+var boxAppointList = []
+var [boxAppoint, setBoxAppoint] = useState(boxAppointList)
+// строки в таблице истории
+var rowHistory = []
+
+var [rowHistoryState, setRowHistoryState] = useState(rowHistory)
+
+
 // ---------------------------------------------------
 // Запросим от бэка имя фамилия и марку машины
 const [data, setData] = useState([]);
+const [key, setkey] = useState(0);
+useEffect(() => {
+  // console.log("Component has been updated");
+}, [data]);
+useEffect(() => {
+  setRowHistoryState(rowHistory)
+}, [data]);
+useEffect(() => {
+  // console.log("Component has been updated");
+  setkey(prevCount => prevCount + 1)
+}, [MyPageAppoint]);
 
 useEffect(() => {
   async function fetchData() {
@@ -28,25 +49,83 @@ useEffect(() => {
   fetchData();
 }, []);
 
-// console.log("data",data)
-if(data.length!== 0){ // если данные нашлись 
-var name=data[0].name, car=data[0].car;
+var rowHistoryData = []
+var MyPageAppoint = [] // Записи на личной страничке
+
+if(data.length > 0){ // если данные нашлись 
+  // console.log("data",data[0].MyPageInfo)
+  var name=data[0].MyPageInfo.name, car=data[0].MyPageInfo.car;
+
+  console.log("data",data[0].MyPageHistory )
+
+  for(var v = 0; v < data[0].MyPageAppoint.length; v++){
+    MyPageAppoint.push(
+      {
+        key: v,
+        nameWash: data[0].MyPageAppoint[v].nameWash,  
+        data: data[0].MyPageAppoint[v].data,  
+        box: data[0].MyPageAppoint[v].box,  
+        time: data[0].MyPageAppoint[v].time,  
+       }
+    )
+  }
+
+  for(var v1 = 0; v1 < data[0].MyPageHistory.length; v1++){
+    rowHistory.push(
+      {
+        key: r,
+        value:  
+        <tr>
+        <td>{data[0].MyPageHistory[v1].nameWash}</td>
+        <td>{data[0].MyPageHistory[v1].data}</td>
+        <td>{data[0].MyPageHistory[v1].time}</td>
+        <td>{data[0].MyPageHistory[v1].box}</td>
+        </tr>
+       }
+    )
+  }
+
+  // console.log("MyPageAppoint",MyPageAppoint )
 
 }
-else{   // если данные не загрузились
-var name="Роман", car="Лада Приора";
+// console.log("data.length",data.length )
+
+if(data.length === 0){   // если данные не загрузились
+  var name="Роман", car="Лада Приора";
+  
+  for(var vv = 0; vv < 6; vv++){
+    MyPageAppoint.push(
+      {
+        nameWash: "Мойка Юг",  
+        data: "09.03.23",  
+        box: '1',  
+        time: "9:30",  
+      }
+    )
+  }
+
+
+  for(var r = 0; r < 10; r++){
+    rowHistory.push({
+      key: r,
+      value:  
+      <tr>
+      <td>МойкаЮг</td>
+      <td>06.05.23</td>
+      <td>09:30</td>
+      <td>1</td>
+      </tr>
+  
+    })
+  }
+  
 }
 
 // ---------------------------------------
 
 
-// блоки в моих записях
-var boxAppointList = []
-var [boxAppoint, setBoxAppoint] = useState(boxAppointList)
-// строки в таблице истории
-var rowHistory = []
 
-// var name = "Роман"
+
 
 
 
@@ -54,17 +133,18 @@ var rowHistory = []
 var num = 0;
 const [count, setCount] = useState(10)
 useEffect(() => {
-  console.log("Component has been updated");
+  // console.log("Component has been updated");
 }, [boxAppoint]);
 
 function delAppoint(event){
   if(window.confirm("Отменить запись?")){
 
     setCount(prevCount => prevCount + 1)
-    console.log("count", count)
-    console.log(event.target.id)
+    // console.log("count", count)
+    // console.log(event.target.id)
+
     boxAppointList.splice(event.target.id - num, 1);
-    console.log("nox ",boxAppointList)
+    // console.log("nox ",boxAppointList)
     setBoxAppoint(boxAppointList)
     num = num+1;
 
@@ -73,13 +153,17 @@ function delAppoint(event){
 
 }
 
-for(var l = 0; l < 6; l++){
+var lll = 7
+if(MyPageAppoint.length > 0){
+  lll = MyPageAppoint.length;
+}
+for(var l = 0; l < lll; l++){
   boxAppointList.push( {
     key: l,
     value:
     <div className="blog1__mypage" >
                         <div className="blog1__title__mypage">
-                          Мойка ЮГ
+                          {MyPageAppoint[l].nameWash}
                         </div>
                         <div id={l} onClick={delAppoint} className="gg__close"></div>
 
@@ -98,13 +182,14 @@ for(var l = 0; l < 6; l++){
 
                           <div className="blog1__body__right">
                               <div className="blog1__body__right__text">
-                                  09.05.23
+                                {MyPageAppoint[l].data}
                               </div>
                               <div className="blog1__body__right__text">
-                                  бокс {l}
+                                  бокс {MyPageAppoint[l].box}
                               </div>
                               <div className="blog1__body__right__text">
-                                  9 : 30
+                              {MyPageAppoint[l].time}
+
                               </div>
                           </div>
 
@@ -115,23 +200,16 @@ for(var l = 0; l < 6; l++){
 
   )
 
+
 }
 
+  useEffect(() => {
+    setBoxAppoint(boxAppointList)
+  }, [data]);
 
 
-for(var r = 0; r < 10; r++){
-  rowHistory.push({
-    key: r,
-    value:  
-    <tr>
-    <td>МойкаЮг</td>
-    <td>06.05.23</td>
-    <td>09:30</td>
-    <td>1</td>
-    </tr>
 
-  })
-}
+
 
 
 
@@ -257,7 +335,7 @@ if(boxAppoint.length === 0){
                           </tr>
 
                           {
-                            rowHistory.map((el)=>(
+                            rowHistoryState.map((el)=>(
                             el.value
                           ))
                           }
