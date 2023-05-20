@@ -108,23 +108,51 @@ export default function WashPage(props) {
 
  console.log("data",dataGet)
 
- 
 
-if(dataGet.length!== 0){ // если данные нашлись  washPageInfoStocks
+/////////////////////////////////////////////////////////////
+ var reviews = []
+ var [reviewsState, setReviewsState] = useState([])
+ var stocks = []
+ var [stocksState, setStocksState] = useState([])
+ var services = []
+ var [servicesState, setServicesState] = useState([])
+ var [description, setdescription] = useState("0")
+ var washPageInfoDescriptionsTEMP = '0'
+
+ useEffect(() => {
+  // console.log("Component has been updated");
+  setReviewsState(reviews)
+  setStocksState(stocks)
+  setServicesState(services)
+  setdescription(washPageInfoDescriptionsTEMP)
+
+}, [dataGet]);
+/////////////////////////////////////////////////////////////
+
+
+
+if(dataGet.length > 0){ // если данные нашлись  washPageInfoStocks
     //заполним массив с коменнтариями
    for(var i = 0; i < dataGet[0].washPageInfo.length; i++){
     reviews.push({text: dataGet[0].washPageInfo[i].text, author:dataGet[0].washPageInfo[i].author, key: i })
    }
   //  console.log("reviews ", reviews)
-
+  
   for(var i = 0; i < dataGet[0].washPageInfoStocks.length; i++){
     stocks.push({id: dataGet[0].washPageInfoStocks[i].id, text: dataGet[0].washPageInfoStocks[i].text, data: dataGet[0].washPageInfoStocks[i].data,  key: i })
    }
+   for(var i = 0; i < dataGet[0].washPageInfoServices.length; i++){
+    services.push({id: dataGet[0].washPageInfoServices[i].id, text: dataGet[0].washPageInfoServices[i].text, date: dataGet[0].washPageInfoServices[i].price,  key: i })
+   }
+
+   washPageInfoDescriptionsTEMP = dataGet[0].washPageInfoDescriptions;
 
 }
+if(dataGet.length === 0){
+
    // если данные не загрузились
     //подгрузить из бд для каждой моки свое!
-  const reviews = [
+  reviews = [
     {
       text: 'Классная автомойка удобные боксы, вода теплая, напор хороший, зимой удобно мыть машину есть где попить кофе!',
       author: 'Автомойщик от бога'
@@ -142,7 +170,7 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
 
   //подгрузить из бд для каждой моки свое!
 
-  const stocks = [
+  stocks = [
     {
      id:"1",
      text: 'Каждая 5 кружка кофе в подарок',
@@ -174,8 +202,8 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
       date: '22.11. — 22.12.'
     }
   ]
-  
-   const services = [
+
+  services = [
     {
       id:"1",
       text: 'Базовая мойка кузова',
@@ -204,7 +232,10 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
    
    ]
   
-
+   washPageInfoDescriptionsTEMP = "Ручная мойка — та, где моющее средство (мыльный раствор) наносится на кузов вручную. Вода при этом может подаваться и через «Керхер» — мойку высокого давления, что заметно ускоряет процесс. Хотя чаще ручная мойка машины ассоциируется с губкой и ведром. Использование пеногенератора делает мойку бесконтактной — моющий состав разбрызгивается на кузов в виде «снега» (активной пены) и действует автономно, не требуя растирания"
+}
+  
+   
 
 
 
@@ -291,13 +322,13 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
               <div className={styles.WashDescription}>
                   <h1>Описание мойки</h1>
                   <div className={styles.WashDescription__text}>
-                    <p>Ручная мойка — та, где моющее средство (мыльный раствор) наносится на кузов вручную. Вода при этом может подаваться и через «Керхер» — мойку высокого давления, что заметно ускоряет процесс. Хотя чаще ручная мойка машины ассоциируется с губкой и ведром. Использование пеногенератора делает мойку бесконтактной — моющий состав разбрызгивается на кузов в виде «снега» (активной пены) и действует автономно, не требуя растирания.</p>
+                    <p>{description}</p>
                   </div>
               </div>
 
               <Title text="УСЛУГИ"/>
               <div className={styles.stocks}>
-                  <Stocks props={services}/>
+                  <Stocks props={servicesState}/>
               </div>
 
               <div className={styles.slider}>
@@ -320,11 +351,11 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
                 <Title text="АКЦИИ"/>
                 
                 <div className={styles.stocks}>
-                  <Stocks props={stocks}/>
+                  <Stocks props={stocksState}/>
                 </div>
 
                 <div className={styles.reviews}>
-                  <ReviewSlider reviews={reviews}/>
+                  <ReviewSlider reviews={reviewsState}/>
                 </div>
 
                 <div className={styles.reviews__form}>
