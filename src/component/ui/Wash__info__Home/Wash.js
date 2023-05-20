@@ -57,7 +57,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
         scrollImg.push({
             key: s,
             value: 
-            <div className={styles.scroller__blok}>
+            <div className={styles.scroller__blok} key={s+100}> 
              <img src={slides[s]}></img>
             </div>
         })

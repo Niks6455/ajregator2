@@ -104,12 +104,10 @@ function funOpenWash(){
 
     return(
        <div className={styles.HomePage} >
-          {/* <Header/>     */}
             <div style={{height: `${Map__Height +'px'}`} } className={styles.map}>
             <MapComponent marshrut={marshrut} setMarshrut={setMarshrut} h={Map__Height} mapRef={mapRef} coordinats={coordinats} setIdContetnt={setIdContetnt} funOpenWash={funOpenWash}/>
             </div>
             <Wash funMarshrut={funMarshrut} time={time} address={address} name={name} arrPhoto={arrPhoto} reyting={reyting} openMyWash={openMyWash} setOpenMyWash={setOpenMyWash} />
-          {/* <Footer/> */}
        </div>
    
     ) 

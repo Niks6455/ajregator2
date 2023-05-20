@@ -152,13 +152,9 @@ const [burgerClick, setBurgerClick] = useState(false)
 if(boxAppoint.length === 0){
   // console.log("Данных нет")
   setCount(0) //чтбы вывести сообщение что записей нет 
-
+  setBoxAppoint(0)
 }
-if(boxAppoint.length < 4){
-  console.log("Данных ", boxAppoint.length)
 
-
-}
 
 
     return(
@@ -229,10 +225,9 @@ if(boxAppoint.length < 4){
                      ))
                      :
                      <div className="not__appoint__mypage">
-                      <div className="not__appoint__inner__mypage">
-                          У вас еще нет записей
-
-                      </div>
+                        <div className="not__appoint__inner__mypage">
+                            У вас еще нет записей
+                        </div>
                       </div>
                     }
                   </div>
