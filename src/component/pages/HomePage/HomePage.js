@@ -90,7 +90,8 @@ function funOpenWash(){
 
   //кнопка маршрут--------------------------------
   const[marshrut, setMarshrut] = useState(0)
-  props.setMarshrutWP('wwww')
+
+
   function funMarshrut(){
     console.log("handleClick",idContent, "koor", [marshrut[1], marshrut[0] ])
 

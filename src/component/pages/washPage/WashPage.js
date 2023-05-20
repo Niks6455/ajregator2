@@ -29,8 +29,43 @@ export default function WashPage(props) {
   var Price="150";
   const location = useLocation();
 
+  //======================================================
+  // данные с whash
+
+  const [myCoor, setMyCoor] = useState(0);
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setMyCoor([position.coords.latitude, position.coords.longitude]);
+      },
+      (error) => {
+        alert('Ошибка при определении местоположения', error);
+      }
+    );
+  } else {
+    alert('Геолокация не поддерживается вашим браузером');
+  }
+
+
+  console.log("koor", [myCoor[0],  myCoor[1] ])
+
+
   console.log("funMarshrut", location.state?.data)
   const propsData = location.state?.data;
+  function funMarshrut (){
+
+    console.log("koor", [myCoor[0],  myCoor[1] ])
+
+    const pointB = [propsData.x, propsData.y ]; // координаты точки А
+    const pointA = [myCoor[0], myCoor[1]]; // координаты точки Б
+    const url =` https://yandex.ru/maps/?rtext=${pointA}~${pointB}&rtt=auto`;
+  
+    window.open(url, '_blank');
+
+  }
+
+  //======================================================
 
   const {
     register,
@@ -220,7 +255,17 @@ if(dataGet.length!== 0){ // если данные нашлись  washPageInfoSt
                 </div>
 
                 <div className={styles.Wash__map__info}>
-                  <Button text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+                  {
+                    myCoor[0] !== undefined?
+                    <div onClick={funMarshrut}> 
+                    <Button  text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+
+                  </div> 
+                  :
+                  <Button  text={"Маршрут"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
+                  
+                  }
+                 
                   <Button text={"Позвонить"} bg_color={"#ffffff"} text_color={"#4E78E2"} h={"25"} w={"70"}  size={"10"}/>
                   <div className={styles.Wash__map__text}>
                     <div className={styles.Wash__map__time}>Время работы: {timeWork}</div>
