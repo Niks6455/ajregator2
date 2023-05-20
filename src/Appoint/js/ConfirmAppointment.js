@@ -7,14 +7,21 @@ import bg1 from './../img/bg1.png'
 import iconTime from './../img/icon_time.png'
 import iconCalendar from './../img/icon_calendar.png'
 import iconbox from './../img/icon_big_box.png'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function ConfirmAppointment(props){
 
 
+
     var monthNmae = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ]
+//=========================================================
 
+const location = useLocation();
 
+console.log("funMarshrut", location.state?.data)
+const propsData = location.state?.data;
+
+//=========================================================
     return(
         <div>
 
@@ -47,7 +54,7 @@ function ConfirmAppointment(props){
 
                 <div className="container__title__confirm__inner">
                     <div className="block__name">
-                        Мойка юг
+                        {propsData}
                     </div>
 
                     <div className="block__time">

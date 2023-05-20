@@ -1,7 +1,7 @@
 //выбор времени
 
 import React, {useState, useEffect}from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Header from "./Header";
 import ContainerTitle from "./ContainerTitle";
 
@@ -45,7 +45,7 @@ else{   // если данные не загрузились
 
 
 
-    // props.setFlagTimeActive(true)
+    props.setFlagTimeActive(false)
 
     // var occupiedElement = [{h: 8,m: 15},{h: 9,m: 30} ,{h: 11,m: 0} ,{h: 12,m: 45}]
     // var occupiedElement = [[8,15] , [9,0], [11,45], [13,0], [14,15] , [22,30]]
@@ -188,12 +188,23 @@ else{   // если данные не загрузились
 
     }
 
+
+
+    
+//=========================================================
+   const location = useLocation();
+
+   console.log("funMarshrut", location.state?.data)
+   const propsData = location.state?.data;
+
+//=========================================================
+
     return(
         <main>
              <Header flagTime={true}/>
             <div className="container">
                     <div className="container__inner">
-                        <ContainerTitle  dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} />
+                        <ContainerTitle name={propsData} dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} />
                         </div>
 
                             <div className="time__box"> 
@@ -204,7 +215,7 @@ else{   // если данные не загрузились
                                 </div>
                                 {
                                 activeMass.length !== 0 ?
-                                <Link to="./../SelectBox">
+                                <Link to="./../SelectBox" state = {{ data: propsData }}>
                                     <div className="button__send__data__box">
                                         <main className="button__send__data"  type="button">Выбрать время</main>       
                                     </div>

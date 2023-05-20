@@ -22,7 +22,7 @@ function    ContainerTitle(props){
 
             <div className="container__title">   
                         <img src={bg1} alt=""/>
-                        <h2>Мойка юг</h2>
+                        <h2>{props.name}</h2>
                     </div>
 
 

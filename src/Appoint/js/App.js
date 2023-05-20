@@ -16,7 +16,7 @@ import {Route, Routes} from "react-router-dom"
 
 
 
-function App(){
+function App(props){
         
 const [dataActiveInTitle, setDataActiveInTitle] = useState(0)
 const [timeActiveInTitle, setTimeActiveInTitle] = useState(0)
@@ -25,6 +25,14 @@ const [flagTimeActive, setFlagTimeActive] = useState(false)
 const [flagBoxActive, setFlagBoxActive] = useState(false)
 
 
+console.log(props.propsData)
+// для календаря
+var name = "Автомойка"
+if(props.propsData !== undefined){
+    name = props.propsData.content
+}
+
+// ---------
 
 
 
@@ -33,8 +41,8 @@ const [flagBoxActive, setFlagBoxActive] = useState(false)
         <main>
             {/* <Outlet />         */}
             <Routes>
-                <Route path="*" element={<NewCalendar dataActiveInTitle={dataActiveInTitle} setDataActiveInTitle={setDataActiveInTitle}  timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle}/>} /> 
-                <Route path="SelectTime" element={<SelectTime dataActiveInTitle={dataActiveInTitle} setTimeActiveInTitle={setTimeActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} flagTimeActive={flagTimeActive} setFlagTimeActive={setFlagTimeActive}/>}/>
+                <Route path="*" element={<NewCalendar name={name} dataActiveInTitle={dataActiveInTitle} setDataActiveInTitle={setDataActiveInTitle}  timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle}/>} /> 
+                <Route path="SelectTime"  element={<SelectTime name={name} dataActiveInTitle={dataActiveInTitle} setTimeActiveInTitle={setTimeActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} flagTimeActive={flagTimeActive} setFlagTimeActive={setFlagTimeActive}/>}/>
                 <Route path="SelectBox" element={<SelectBox dataActiveInTitle={dataActiveInTitle}  timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} setBoxActiveInTitle={setBoxActiveInTitle} flagTimeActive={flagTimeActive} flagBoxActive={flagBoxActive} setFlagTimeActive={setFlagTimeActive} setFlagBoxActive={setFlagBoxActive}/>}/>
                 <Route path="ConfirmAppointment" element={<ConfirmAppointment dataActiveInTitle={dataActiveInTitle} timeActiveInTitle={timeActiveInTitle} boxActiveInTitle={boxActiveInTitle} />}/>
                 <Route path="MyPage" element={<NewMyPage/>}/>

@@ -209,7 +209,7 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
                     </div>
 
                     <div className={styles.button__inner}>
-                    <Link to="/StartAppoint">   <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link> 
+                    <Link to="/StartAppoint" state = {{ data: data }}>   <Button text={"Записаться"} bg_color={"#4E78E2"} text_color={"#ffffff"} h={"30"} w={"100"}  size={"14"}/></Link> 
                     </div>
 
                     <div className={styles.button__inner} onClick={funMarshrut}>

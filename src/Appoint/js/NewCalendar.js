@@ -480,8 +480,7 @@ else{   // если данные не загрузились
 
 
 
-    // console.log("dataActive ",dataActive)
-    // console.log("props.DataActiveInTitle ",props.dataActiveInTitle)
+
 
     
     return(
@@ -489,7 +488,7 @@ else{   // если данные не загрузились
         <Header flagCalendar={true} />
             <div className="container">
                     <div className="container__inner">
-                        <ContainerTitle dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} />
+                        <ContainerTitle name={props.name} dataActiveInTitle={props.dataActiveInTitle} timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} />
                             <div className="calendar__box"> 
                                 <div className="calendar__box__inner">
                                     <div className="calendar__month">
@@ -531,7 +530,7 @@ else{   // если данные не загрузились
                                 </div>
                                 <div>{
                                     dataActive.length !== 0 ?
-                                    <Link to="SelectTime"> 
+                                    <Link to="SelectTime" state = {{ data: props.name }}> 
                                     <div className="button__send__data__box">
                                          <main className="button__send__data" onClick={props.flagCalendarActivate} type="button">Выбрать дату</main>          
                                     </div>

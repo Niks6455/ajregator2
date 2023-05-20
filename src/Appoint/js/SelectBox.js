@@ -7,7 +7,7 @@ import iconBox from "./../img/icon_box.png"
 
 import { url_SelectBox } from "../../getDataBD";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 var massActiveBox = 0
 
@@ -39,7 +39,7 @@ else{   // если данные не загрузились
 
 
     // props.setFlagBoxActive(true)
-    // props.setFlagTimeActive(true)
+    props.setFlagTimeActive(true)
 
     // var occupiedElement = [1,3,5,12]    //даты которые заняты
 
@@ -114,7 +114,13 @@ else{   // если данные не загрузились
 
        
     }
+//=========================================================
+const location = useLocation();
 
+console.log("funMarshrut", location.state?.data)
+const propsData = location.state?.data;
+
+//=========================================================
 
 
     return(
@@ -122,7 +128,7 @@ else{   // если данные не загрузились
             <Header/>
             <div className="container">
                     <div className="container__inner">
-                        <ContainerTitle dataActiveInTitle={props.dataActiveInTitle}  timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} flagBoxActive={props.flagBoxActive}/>
+                        <ContainerTitle name={propsData} dataActiveInTitle={props.dataActiveInTitle}  timeActiveInTitle={props.timeActiveInTitle} boxActiveInTitle={props.boxActiveInTitle} flagTimeActive={props.flagTimeActive} flagBoxActive={props.flagBoxActive}/>
                         </div>
 
                         <div className="box__box">
@@ -133,7 +139,7 @@ else{   // если данные не загрузились
                             </div>
                             {
                                 massActiveBox !==0?
-                                <Link to="./../ConfirmAppointment"> 
+                                <Link to="./../ConfirmAppointment" state = {{ data: propsData }}> 
                                     <div className="button__send__data__box">
                                         <main className="button__send__data"  type="button">Выбрать бокс</main>
                                     </div>
