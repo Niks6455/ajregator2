@@ -58,14 +58,17 @@ useEffect(() => {
 }, [boxAppoint]);
 
 function delAppoint(event){
-  setCount(prevCount => prevCount + 1)
-  console.log("count", count)
-  console.log(event.target.id)
-  boxAppointList.splice(event.target.id - num, 1);
-  console.log("nox ",boxAppointList)
-  setBoxAppoint(boxAppointList)
-  num = num+1;
+  if(window.confirm("Отменить запись?")){
 
+    setCount(prevCount => prevCount + 1)
+    console.log("count", count)
+    console.log(event.target.id)
+    boxAppointList.splice(event.target.id - num, 1);
+    console.log("nox ",boxAppointList)
+    setBoxAppoint(boxAppointList)
+    num = num+1;
+
+  }
  
 
 }
