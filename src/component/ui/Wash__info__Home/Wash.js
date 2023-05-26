@@ -154,14 +154,14 @@ const Wash = ({address, time, name, arrPhoto, reyting, openMyWash, setOpenMyWash
         
     };
    
-    if(openMyWash === true && position.y > 587){
+    if(openMyWash === true && position.y > window.innerHeight-80){
       setPosition({
           y: screenHeight-75,
         });
 
         setOpenMyWash(false)
     }
-
+// console.log("(window.innerHeight",window.innerHeight)
 
     return(
 

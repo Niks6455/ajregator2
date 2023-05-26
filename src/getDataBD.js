@@ -25,22 +25,22 @@
 // echo json_encode($myPerem);
 
 
-var url_MyPage = 'http://ajrejator/index.php' // личная страница пользователя 
+var url_MyPage = 'http://cl07635.tw1.ru/data.php' // личная страница пользователя 
 export {url_MyPage}
 
-var url_NewCalendar = 'http://ajrejator/index.php'  // Календарь
+var url_NewCalendar = 'http://cl07635.tw1.ru/data.php'  // Календарь
 export {url_NewCalendar}
 
-var url_SelectTime = 'http://ajrejator/index.php' // Выбор времени
+var url_SelectTime = 'http://cl07635.tw1.ru/data.php' // Выбор времени
 export {url_SelectTime}
 
-var url_SelectBox = 'http://ajrejator/index.php' // Выбор бокса
+var url_SelectBox = 'http://cl07635.tw1.ru/data.php' // Выбор бокса
 export {url_SelectBox}
 
-var url_HomePage = 'http://ajrejator/index.php' // блок информации на карте
+var url_HomePage = 'http://cl07635.tw1.ru/data.php' // блок информации на карте
 export {url_HomePage}
 
-var url_WashPage = 'http://ajrejator/index.php' // блок информации страница подробнее о мойке
+var url_WashPage = 'http://cl07635.tw1.ru/data.php' // блок информации страница подробнее о мойке
 export {url_WashPage}
 
 

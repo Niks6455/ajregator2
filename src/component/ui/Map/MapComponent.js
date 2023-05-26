@@ -44,40 +44,46 @@ function MapComponent( props) {
 //------------------------------------------------------------
 // определим местоположение 
 
-  if (navigator.geolocation) {
+useEffect(() => {
+    if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         props.setMarshrut([position.coords.latitude, position.coords.longitude]);
       },
       (error) => {
-        alert('Ошибка при определении местоположения', error);
+        // alert('Ошибка при определении местоположения', error);
+        props.setMarshrut([47.202278, 38.935119])
       }
     );
   } else {
     alert('Геолокация не поддерживается вашим браузером');
   }
+}, []);
+
+
 
 
 
 
   // -----------------------------------------------------
   const PositionedMap = React.memo(({ ymaps }) => {
-    const [loadedCoords, setLoading] = React.useState(false);
-      const onLoad = () => {
-      ymaps.geolocation.geocode
-        .get({
-          provider: "browser",
-          mapStateAutoApply: true
-        })
-        .then(res => {
-          setLoading(true);
-          setIsLoading(false);
-        });
-    };
+    // const [loadedCoords, setLoading] = React.useState(false);
+    //   const onLoad = () => {
+    //   ymaps.geolocation.geocode
+    //     .get({
+    //       provider: "browser",
+    //       mapStateAutoApply: true
+    //     })
+    //     .then(res => {
+    //       setLoading(true);
+    //       setIsLoading(false);
+    //     });
+    // };
     
 
     useEffect(() => {
-      onLoad();
+      // onLoad();
+      // setLoading(true);
 
     }, []);
 
@@ -89,7 +95,7 @@ function MapComponent( props) {
 
 
     return (
-      loadedCoords && (
+      (
         
         <Map width={'100%'} height={'100%'}
           state={{

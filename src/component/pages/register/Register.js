@@ -185,17 +185,19 @@ return (
                     <button className={styles.button} >
                       <input value="Зарегистрироваться" style={!isValid ? {color:"#b1acac", fontSize: 13} : {color:"white", fontSize: 13} } type="submit" disabled={!isValid}/>
                     </button>
+
+                    <div className={styles.time__butt}>
+                        <div className={styles.time__butt__text}>
+                            <Link to="/authorization">Авторизация</Link>
+                        </div>
+                        <div className={styles.time__butt__text}>
+                            <Link to="/HomePage">Пропустить</Link>
+                        </div>
+                    </div>
                 </div>
 
                     {/* временная кнопока перехода на Аторизацию */}
-                <div className={styles.time__butt}>
-                    <button className={styles.time__butt__text}>
-                        <Link to="/authorization">Авторизация</Link>
-                    </button>
-                    <button className={styles.time__butt__text}>
-                        <Link to="/HomePage">Homepage</Link>
-                    </button>
-                </div>
+               
               
             </form>
             </Layout>

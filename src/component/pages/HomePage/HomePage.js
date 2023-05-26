@@ -37,36 +37,36 @@ var coordinats = [ //точки которые берем с бд (коорди�
 
 
 
- const [dataGet, setDataGet] = useState([]);
+//  const [dataGet, setDataGet] = useState([]);
 
 
- useEffect(() => {
-   async function fetchData() {
-     const response = await fetch(url_HomePage);
-     const jsonData = await response.json();
-     setDataGet(jsonData);
-   }
-   fetchData();
- }, []);
+//  useEffect(() => {
+//    async function fetchData() {
+//      const response = await fetch(url_HomePage);
+//      const jsonData = await response.json();
+//      setDataGet(jsonData);
+//    }
+//    fetchData();
+//  }, []);
 
 
- console.log("data",dataGet)
-if(dataGet.length!== 0){ // если данные нашлись 
-   var time = dataGet[0].homePageInfo.time
-   var address = dataGet[0].homePageInfo.address
-   var name = dataGet[0].homePageInfo.name
-   var arrPhoto = dataGet[0].homePagePhoto
-   var reyting = dataGet[0].reyting
+//  console.log("data",dataGet)
+// if(dataGet.length!== 0){ // если данные нашлись 
+//    var time = dataGet[0].homePageInfo.time
+//    var address = dataGet[0].homePageInfo.address
+//    var name = dataGet[0].homePageInfo.name
+//    var arrPhoto = dataGet[0].homePagePhoto
+//    var reyting = dataGet[0].reyting
 
  
-}
-else{   // если данные не загрузились
+// }
+// else{   // если данные не загрузились
    var time = coordinats[idContent].time
    var address = coordinats[idContent].adres
    var name = coordinats[idContent].content
    var arrPhoto = []
    var reyting = coordinats[idContent].reyting
-}
+// }
 
 // ---------------------------------------
 

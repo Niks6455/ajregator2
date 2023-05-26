@@ -28,8 +28,9 @@
 .button__div{
     padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 225px;
+    padding-bottom: 200px;
     .button{
         border: none;
         input{
@@ -93,14 +94,27 @@
     z-index: -1;
 }
 .time__butt{
-    position: absolute;
-    bottom: 125px;
-    right: -50px;
+    // position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+
+    width: 100%;
+
     .time__butt__text{
+        
+        display: flex;
+        padding: 5px;
+        margin: 5px;
+    border-radius: 5px;
+
         a{
             font-size: 14px;
-     color: #000000;
+             color:  #4E78E2;
+             ;
         }
+
    
     }
 }

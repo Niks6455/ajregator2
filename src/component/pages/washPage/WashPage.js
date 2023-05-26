@@ -34,18 +34,18 @@ export default function WashPage(props) {
 
   const [myCoor, setMyCoor] = useState(0);
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setMyCoor([position.coords.latitude, position.coords.longitude]);
-      },
-      (error) => {
-        alert('Ошибка при определении местоположения', error);
-      }
-    );
-  } else {
-    alert('Геолокация не поддерживается вашим браузером');
-  }
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       setMyCoor([position.coords.latitude, position.coords.longitude]);
+  //     },
+  //     (error) => {
+  //       alert('Ошибка при определении местоположения', error);
+  //     }
+  //   );
+  // } else {
+  //   alert('Геолокация не поддерживается вашим браузером');
+  // }
 
 
   console.log("koor", [myCoor[0],  myCoor[1] ])
